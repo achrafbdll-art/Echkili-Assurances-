@@ -3010,13 +3010,17 @@
       flex-direction: row-reverse;
     }
     html[dir="rtl"] .nav-bar-inner {
-      flex-direction: row-reverse;
+      direction: ltr !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      max-width: 100% !important;
     }
     html[dir="rtl"] .nav-menu-list {
-      flex-direction: row-reverse;
+      flex-direction: row !important;
     }
     html[dir="rtl"] .nav-social-group {
-      flex-direction: row-reverse;
+      flex-direction: row !important;
     }
     /* En mode RTL (arabe), maintenir impérativement le bloc texte de la bannière héro sur la gauche (AFFICHAGE À GAUCHE) */
     html[dir="rtl"] .hero-banner-inner {
@@ -3098,11 +3102,11 @@
       text-align: right;
     }
     html[dir="rtl"] .nav-right-cluster {
-      margin-left: 0;
-      margin-right: auto;
-      flex-direction: row-reverse;
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      flex-direction: row !important;
     }
     html[dir="rtl"] .nav-lang-selector,
     html[dir="rtl"] .mobile-nav-lang-selector {
-      flex-direction: row-reverse;
+      flex-direction: row !important;
     }
