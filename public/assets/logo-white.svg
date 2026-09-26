@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 80" fill="none">
+  <!-- ASSURANCES ECHKILI Monogram Emblem (AE) - Version Pied de page / Fond Bleu -->
+  <g transform="translate(8, 7)">
+    <!-- Red Diagonal Slash AXA -->
+    <polygon points="31,1 40,1 62,65 53,65" fill="#e0021b" />
+
+    <!-- 'A' Left Leg & Arch (Blanc Pur) -->
+    <path d="M 12 64 
+             C 7 64 3.5 60.5 4.5 55 
+             L 16 16 
+             C 17.5 10.5 22.5 6 29 6 
+             L 34 6 
+             C 38 6 40 8.5 39 12.5 
+             L 36.5 21 
+             L 28.5 21 
+             C 25.5 21 23.5 23 23 26 
+             L 18.5 43 
+             L 28 43 
+             C 31 43 32 45 31.5 48 
+             L 30 53 
+             L 16.5 53 
+             L 14 60.5 
+             C 13.5 62.5 13 64 12 64 Z" 
+          fill="#ffffff" />
+
+    <!-- 'A' Inner Crossbar -->
+    <path d="M 18.5 42 L 37.5 42 L 34.5 52 L 16.5 52 Z" fill="#ffffff" />
+
+    <!-- 'E' Three Horizontal Bars (Blanc Pur) -->
+    <path d="M 38 9 L 68 9 C 73.5 9 77 12.5 77 17 C 77 21.5 73.5 25 68 25 L 43.5 25 Z" fill="#ffffff" />
+    <path d="M 46 30 L 65 30 C 70 30 73.5 33 73.5 37.5 C 73.5 42 70 45 65 45 L 51 45 Z" fill="#ffffff" />
+    <path d="M 54 50 L 68 50 C 73.5 50 77 53.5 77 58 C 77 62.5 73.5 66 68 66 L 59.5 66 Z" fill="#ffffff" />
+  </g>
+
+  <!-- Typography: ASSURANCES ECHKILI en blanc & AGENT GÉNÉRAL AXA en rouge -->
+  <g transform="translate(98, 12)">
+    <text x="0" y="30" 
+          font-family="'Montserrat', 'Arial Black', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="28.5" 
+          font-weight="900" 
+          letter-spacing="-0.3" 
+          fill="#ffffff">
+      ASSURANCES ECHKILI
+    </text>
+
+    <text x="1" y="52" 
+          font-family="'Montserrat', 'Arial', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="14.2" 
+          font-weight="800" 
+          letter-spacing="2.6" 
+          fill="#ff384d">
+      AGENT GÉNÉRAL AXA MARRAKECH
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="echkiliFavBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c2367" />
+      <stop offset="100%" stop-color="#001648" />
+    </linearGradient>
+    <filter id="echkiliShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Fond arrondi premium Bleu Nuit Echkili / AXA -->
+  <rect width="64" height="64" rx="14" fill="url(#echkiliFavBg)" />
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.25" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5" />
+
+  <!-- Emblème officiel ASSURANCES ECHKILI (Monogramme AE avec diagonale rouge AXA) -->
+  <g transform="translate(4.9, 9.5) scale(0.67)" filter="url(#echkiliShadow)">
+    <!-- Diagonale rouge AXA / Echkili -->
+    <polygon points="31,1 40,1 62,65 53,65" fill="#e0021b" />
+
+    <!-- 'A' jambage & arche blanc pur -->
+    <path d="M 12 64 
+             C 7 64 3.5 60.5 4.5 55 
+             L 16 16 
+             C 17.5 10.5 22.5 6 29 6 
+             L 34 6 
+             C 38 6 40 8.5 39 12.5 
+             L 36.5 21 
+             L 28.5 21 
+             C 25.5 21 23.5 23 23 26 
+             L 18.5 43 
+             L 28 43 
+             C 31 43 32 45 31.5 48 
+             L 30 53 
+             L 16.5 53 
+             L 14 60.5 
+             C 13.5 62.5 13 64 12 64 Z" 
+          fill="#ffffff" />
+
+    <!-- 'A' barre transversale interne -->
+    <path d="M 18.5 42 L 37.5 42 L 34.5 52 L 16.5 52 Z" fill="#ffffff" />
+
+    <!-- 'E' 3 barres horizontales blanc pur -->
+    <path d="M 38 9 L 68 9 C 73.5 9 77 12.5 77 17 C 77 21.5 73.5 25 68 25 L 43.5 25 Z" fill="#ffffff" />
+    <path d="M 46 30 L 65 30 C 70 30 73.5 33 73.5 37.5 C 73.5 42 70 45 65 45 L 51 45 Z" fill="#ffffff" />
+    <path d="M 54 50 L 68 50 C 73.5 50 77 53.5 77 58 C 77 62.5 73.5 66 68 66 L 59.5 66 Z" fill="#ffffff" />
+  </g>
+</svg>

@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageMetaTitle">Assurance AXA Marrakech | Assurances Echkili</title>
+  <meta name="description" id="pageMetaDesc" content="Découvrez les garanties, avantages et obtenez votre devis express pour votre assurance chez ECHKILI ASSURANCES, Agent Général AXA à Marrakech (Avenue Guemassa, M'hamid).">
+  <!-- Favicon officiel AXA Assurances Echkili -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/site-charter.css">
+  <script>
+    (function() {
+      try {
+        var savedLang = localStorage.getItem('echkili_lang') || 'fr';
+        document.documentElement.setAttribute('lang', savedLang);
+        if (savedLang === 'ar') {
+          document.documentElement.setAttribute('dir', 'rtl');
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <style>
+    /* Styles spécifiques pour la page produit allégée */
+    .product-page-wrapper {
+      background-color: #f8fafc;
+      min-height: 80vh;
+      padding-bottom: 4rem;
+    }
+
+    /* Fil d'Ariane épuré */
+    .product-breadcrumb-bar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.85rem 0;
+      font-size: 0.88rem;
+    }
+    .breadcrumb-list {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .breadcrumb-list a {
+      color: #002868;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .breadcrumb-list a:hover {
+      color: #e0021b;
+      text-decoration: underline;
+    }
+    .breadcrumb-separator {
+      color: #94a3b8;
+      font-size: 0.8rem;
+    }
+    .breadcrumb-current {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Hero Produit allégé */
+    .product-hero-lite {
+      background-color: #002868;
+      background-image: url('assets/axa-pattern-dark.svg'), linear-gradient(180deg, #002868 0%, #001f58 50%, #001640 100%);
+      background-repeat: repeat, no-repeat;
+      background-size: 180px 90px, 100% 100%;
+      color: #ffffff;
+      padding: 3.5rem 0 3.85rem 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .product-hero-lite .hero-accent-red-bar {
+      width: 44px;
+      height: 4.5px;
+      background-color: #e0021b;
+      border-radius: 2px;
+      margin-bottom: 1.15rem;
+    }
+    .product-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 0.35rem 0.95rem;
+      border-radius: 9999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .product-badge-dot {
+      width: 7.5px;
+      height: 7.5px;
+      border-radius: 50%;
+      background-color: #e0021b;
+    }
+    .product-hero-title {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: clamp(2rem, 3.5vw, 2.65rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.85rem;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .product-hero-subtitle {
+      font-size: 1.12rem;
+      color: #f1f5f9;
+      max-width: 780px;
+      line-height: 1.55;
+      margin-bottom: 1.85rem;
+      font-weight: 400;
+    }
+    .product-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background-color: #e0021b;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 1.65rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 4px 14px rgba(224, 2, 27, 0.4);
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn-hero-primary:hover {
+      background-color: #c40016;
+      transform: translateY(-1px);
+    }
+    .btn-hero-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background-color: #22c55e;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.85rem 1.65rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+      font-size: 0.95rem;
+    }
+    .btn-hero-whatsapp:hover {
+      background-color: #16a34a;
+      transform: translateY(-1px);
+    }
+    .btn-hero-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-weight: 600;
+      padding: 0.85rem 1.45rem;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: background-color 0.2s ease;
+      font-size: 0.95rem;
+    }
+    .btn-hero-call:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Grille de contenu principal */
+    .product-main-layout {
+      display: grid;
+      grid-template-columns: 1fr 370px;
+      gap: 2.25rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 992px) {
+      .product-main-layout {
+        grid-template-columns: 1fr;
+      }
+      .product-hero-title {
+        font-size: 1.85rem;
+      }
+    }
+
+    /* Carte de contenu gauche */
+    .product-card-block {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 20, 60, 0.04);
+    }
+    .product-block-heading {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #00186b;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .product-block-heading svg {
+      color: #e0021b;
+      flex-shrink: 0;
+    }
+    .product-desc-lead {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Grille des garanties & prestations clés */
+    .product-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin: 1.75rem 0;
+    }
+    @media (max-width: 640px) {
+      .product-features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .feature-item-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .feature-item-card:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+    .feature-item-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #00186b;
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-item-title svg {
+      color: #e0021b;
+      flex-shrink: 0;
+    }
+    .feature-item-desc {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Liste des avantages agence */
+    .agency-advantages-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .agency-advantages-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.96rem;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    .agency-advantages-list li svg {
+      color: #002868;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    /* Étapes d'adhésion simples */
+    .steps-process-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .steps-process-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .step-process-card {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      position: relative;
+    }
+    .step-num-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #002868;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .step-card-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #00186b;
+      margin-bottom: 0.35rem;
+    }
+    .step-card-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* FAQ interactive accordéon */
+    .product-faq-list {
+      margin-top: 1.25rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 1.1rem 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #002868;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+    .faq-question-btn:hover {
+      color: #e0021b;
+    }
+    .faq-icon {
+      transition: transform 0.2s ease;
+      color: #94a3b8;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: #e0021b;
+    }
+    .faq-answer-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      color: #475569;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer-panel {
+      max-height: 250px;
+      padding-bottom: 1.1rem;
+    }
+
+    /* Colonne droite : Sticky Widget Devis Express */
+    .sticky-quote-sidebar {
+      position: sticky;
+      top: 95px;
+    }
+    .quote-express-box {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      padding: 1.75rem;
+      box-shadow: 0 8px 24px -4px rgba(0, 20, 60, 0.08);
+    }
+    .quote-box-header {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .quote-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #00186b;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .quote-box-subtitle {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .form-group-lite {
+      margin-bottom: 1rem;
+    }
+    .form-group-lite label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 0.3rem;
+    }
+    .form-control-lite {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      font-size: 0.9rem;
+      color: #1e293b;
+      background: #ffffff;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .form-control-lite:focus {
+      outline: none;
+      border-color: #002868;
+      box-shadow: 0 0 0 3px rgba(0, 40, 104, 0.1);
+    }
+    .btn-submit-quote {
+      width: 100%;
+      padding: 0.85rem;
+      background-color: #e0021b;
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(224, 2, 27, 0.3);
+      transition: background-color 0.15s ease;
+      margin-top: 0.5rem;
+    }
+    .btn-submit-quote:hover {
+      background-color: #c40016;
+    }
+    .quote-success-banner {
+      display: none;
+      background-color: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+      color: #065f46;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+
+    /* Carte Conseiller Direct */
+    .advisor-direct-card {
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: 1.15rem;
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .advisor-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #002868;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .advisor-info-text h5 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #00186b;
+      margin: 0 0 0.2rem 0;
+    }
+    .advisor-info-text p {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .advisor-phone-link {
+      font-weight: 700;
+      color: #e0021b;
+      text-decoration: none;
+    }
+
+    .product-hero-lite {
+      border-top: none;
+    }
+    .product-hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Barre de navigation rapide entre toutes les offres */
+    .product-quick-nav-bar {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.65rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 980;
+      box-shadow: 0 2px 8px rgba(0, 20, 60, 0.04);
+    }
+    .quick-nav-scroll-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.25rem 0.25rem 0.4rem 0.25rem;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .quick-nav-scroll-wrapper::-webkit-scrollbar {
+      height: 4px;
+    }
+    .quick-nav-scroll-wrapper::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .quick-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
+      background: #f1f5f9;
+      white-space: nowrap;
+      border: 1px solid #e2e8f0;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .quick-nav-pill:hover {
+      background: #e2e8f0;
+      color: #002868;
+    }
+    .quick-nav-pill.active {
+      background: #e0021b;
+      color: #ffffff;
+      border-color: #e0021b;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(224, 2, 27, 0.3);
+    }
+    .quick-nav-pill.active svg {
+      color: #ffffff;
+    }
+
+    /* Pièces justificatives requises */
+    .product-docs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 640px) {
+      .product-docs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .doc-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      color: #1e293b;
+      line-height: 1.45;
+    }
+    .doc-item-row svg {
+      color: #e0021b;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    /* --- PIED DE PAGE MAJESTUEUX (Même couleur #1a3365 que la barre de navigation) --- */
+    .site-footer {
+      background-color: #1a3365;
+      color: #cbd5e1;
+      padding-top: 4.25rem;
+      padding-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      border-top: 3.5px solid #e0021b;
+    }
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.1fr 1.3fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 3;
+    }
+    @media (max-width: 992px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 640px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .footer-heading {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 2.5px;
+      background: #e0021b;
+      border-radius: 2px;
+    }
+    .footer-brand-wrap {
+      margin-bottom: 1.15rem;
+    }
+    .footer-logo {
+      height: 48px;
+      width: auto;
+      margin-bottom: 0.85rem;
+      filter: brightness(0) invert(1);
+    }
+    .footer-agency-name {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+    .footer-agency-tagline {
+      color: #94a3b8;
+      font-size: 0.84rem;
+      margin-bottom: 0.85rem;
+    }
+    .footer-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .footer-badge-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .badge-acaps, .badge-axa {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.35rem 0.7rem;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .badge-acaps {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .badge-axa {
+      background: #e0021b;
+      color: #ffffff;
+    }
+    .footer-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-nav-list li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-nav-list li a:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .footer-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.87rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    .footer-contact-row svg {
+      color: #e0021b;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .footer-hours-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+    }
+    .footer-hours-status {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: #4ade80;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .pulse-green-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+    }
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.83rem;
+      color: #94a3b8;
+      position: relative;
+      z-index: 3;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .footer-bottom-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-bottom-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Top Brand Info Bar -->
+  <header class="top-brand-header">
+    <div class="container top-brand-inner">
+      <a href="index.html" class="brand-logo-link" aria-label="Assurances Echkili Marrakech Accueil">
+        <img src="assets/logo.svg" alt="AXA Assurances Echkili Marrakech" class="brand-logo-img">
+      </a>
+
+      <div class="header-contact-group">
+        <!-- Bureau -->
+        <div class="header-contact-item">
+          <div class="header-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="header-contact-info">
+            <h4 class="header-contact-title">Notre bureau</h4>
+            <p class="header-contact-sub">Rdc magasin 2, Imm Erraha N°8<br>Av. Guemassa, M'hamid, Marrakech</p>
+          </div>
+        </div>
+
+        <!-- Écrivez nous -->
+        <div class="header-contact-item">
+          <div class="header-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          </div>
+          <div class="header-contact-info">
+            <h4 class="header-contact-title">Écrivez nous</h4>
+            <p class="header-contact-sub"><a href="mailto:echkili.assurances@outlook.com">echkili.assurances@outlook.com</a></p>
+          </div>
+        </div>
+
+        <!-- Appelez nous -->
+        <div class="header-contact-item">
+          <div class="header-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14 2a9 9 0 0 1 8 8"/><path d="M14 6a5 5 0 0 1 4 4"/></svg>
+          </div>
+          <div class="header-contact-info">
+            <h4 class="header-contact-title">Appelez nous</h4>
+            <p class="header-contact-sub"><a href="tel:+212525363061" title="Appeler le fixe">Fixe : 05 25 36 30 61</a><br><a href="tel:+212667762124" title="Appeler le GSM / WhatsApp">GSM : 06 67 76 21 24</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Sticky Dark Navy Navigation Bar (With All Dropdowns as in Screenshot) -->
+  <nav class="site-nav-bar" id="siteNavBar" aria-label="Navigation principale">
+    <div class="container nav-bar-inner">
+      <ul class="nav-menu-list" id="navMenuList">
+        <li class="nav-menu-item"><a href="index.html" class="nav-menu-link">Accueil</a></li>
+        
+        <!-- Assurances Echkili + -->
+        <li class="nav-menu-item dropdown-item-container" id="navItemEchkili">
+          <a href="index.html#missions-valeurs" class="nav-menu-link" id="navLinkEchkili" aria-haspopup="true" aria-expanded="false">
+            Assurances Echkili <span class="nav-plus">+</span>
+          </a>
+          <ul class="nav-dropdown-menu" id="navDropdownEchkili" role="menu" aria-label="Sous-menu Assurances Echkili">
+            <li role="none">
+              <a href="index.html#agence" class="nav-dropdown-link" role="menuitem">
+                <span>L'Agence Echkili</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="index.html#missions-valeurs" class="nav-dropdown-link" role="menuitem">
+                <span>Missions &amp; Valeurs</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="index.html#contact" class="nav-dropdown-link" role="menuitem">
+                <span>Notre Agence &amp; Contact</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="index.html#contact" class="nav-dropdown-link" role="menuitem">
+                <span>Coordonnées &amp; Contact</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="index.html#contact" class="nav-dropdown-link" role="menuitem">
+                <span>Prendre Rendez-vous</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="index.html#contact" class="nav-dropdown-link nav-dropdown-link-danger" role="menuitem">
+                <span>En cas de sinistre (Urgence 24/7)</span>
+                <svg class="dropdown-shield-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Particuliers + -->
+        <li class="nav-menu-item dropdown-item-container" id="navItemParticuliers">
+          <a href="offres.html?type=particuliers" class="nav-menu-link" id="navLinkParticuliers" aria-haspopup="true" aria-expanded="false">
+            Particuliers <span class="nav-plus">+</span>
+          </a>
+          <ul class="nav-dropdown-menu" id="navDropdownParticuliers" role="menu" aria-label="Sous-menu Particuliers">
+            <li role="none">
+              <a href="produit.html?id=auto" class="nav-dropdown-link" role="menuitem">
+                <span>Assurance Automobile &amp; Moto</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=habitation" class="nav-dropdown-link" role="menuitem">
+                <span>Habitation &amp; Riad (HABITASSUR)</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=sante" class="nav-dropdown-link" role="menuitem">
+                <span>Santé Sehassur &amp; International</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=epargne" class="nav-dropdown-link" role="menuitem">
+                <span>Épargne &amp; Retraite (Futuris II)</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=prevoyance" class="nav-dropdown-link" role="menuitem">
+                <span>Prévoyance Accident &amp; Famille</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=voyage" class="nav-dropdown-link" role="menuitem">
+                <span>Assurance Voyage &amp; Visa Schengen</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="offres.html?type=particuliers" class="nav-dropdown-link nav-dropdown-link-more" role="menuitem">
+                <span>Toutes les offres Particuliers</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Professionnels + -->
+        <li class="nav-menu-item dropdown-item-container" id="navItemPros">
+          <a href="offres.html?type=pros" class="nav-menu-link" id="navLinkPros" aria-haspopup="true" aria-expanded="false">
+            Professionnels <span class="nav-plus">+</span>
+          </a>
+          <ul class="nav-dropdown-menu" id="navDropdownPros" role="menu" aria-label="Sous-menu Professionnels">
+            <li role="none">
+              <a href="produit.html?id=multirisque_pro" class="nav-dropdown-link" role="menuitem">
+                <span>Multirisque Professionnelle</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=rc_pro" class="nav-dropdown-link" role="menuitem">
+                <span>Responsabilité Civile Pro (RC Pro)</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=at_mp" class="nav-dropdown-link" role="menuitem">
+                <span>Accidents du Travail (Loi 18-12)</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=flotte" class="nav-dropdown-link" role="menuitem">
+                <span>Flottes &amp; Utilitaires Pro</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="offres.html?type=pros" class="nav-dropdown-link nav-dropdown-link-more" role="menuitem">
+                <span>Toutes les offres Professionnels</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Entreprises + -->
+        <li class="nav-menu-item dropdown-item-container" id="navItemEntreprises">
+          <a href="offres.html?type=pros" class="nav-menu-link" id="navLinkEntreprises" aria-haspopup="true" aria-expanded="false">
+            Entreprises <span class="nav-plus">+</span>
+          </a>
+          <ul class="nav-dropdown-menu" id="navDropdownEntreprises" role="menu" aria-label="Sous-menu Entreprises">
+            <li role="none">
+              <a href="produit.html?id=multirisque_pro" class="nav-dropdown-link" role="menuitem">
+                <span>Multirisque Industrielle &amp; Dommages</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=flotte" class="nav-dropdown-link" role="menuitem">
+                <span>Flotte Automobile Entreprise</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=sante_groupe" class="nav-dropdown-link" role="menuitem">
+                <span>Santé Collective &amp; Prévoyance Groupe</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=trc" class="nav-dropdown-link" role="menuitem">
+                <span>Tous Risques Chantier (TRC BTP)</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=at_mp" class="nav-dropdown-link" role="menuitem">
+                <span>Accidents du Travail &amp; Trajet (18-12)</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="produit.html?id=rc_pro" class="nav-dropdown-link" role="menuitem">
+                <span>RC Décennale &amp; Responsabilité Dirigeants</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+            <li role="none">
+              <a href="offres.html?type=pros" class="nav-dropdown-link nav-dropdown-link-more" role="menuitem">
+                <span>Solutions Grandes Entreprises</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-menu-item"><a href="index.html#contact" class="nav-menu-link">Contact &amp; Accès</a></li>
+      </ul>
+
+      <!-- Desktop Right Cluster: Social links + Language selector at far right -->
+      <div class="nav-right-cluster">
+        <div class="nav-social-group">
+          <a href="https://wa.me/212667762124" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="WhatsApp Assurances Echkili" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
+          </a>
+          <a href="https://web.facebook.com/profile.php?id=100004499567922" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social-btn outline-svg" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+        <div class="nav-lang-divider" aria-hidden="true"></div>
+        <div class="nav-lang-selector" role="group" aria-label="Choix de la langue">
+          <button type="button" class="lang-btn active" data-lang="fr" aria-pressed="true" title="Français">FR</button>
+          <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false" title="العربية">عربي</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false" title="English">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fil d'Ariane épuré -->
+  <div class="product-breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list" id="breadcrumbTrail">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li><a href="offres.html" id="breadcrumbCategoryLink">Offres</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-current" id="breadcrumbProductTitle">Produit</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Barre de navigation rapide entre toutes les offres du catalogue -->
+  <nav class="product-quick-nav-bar" aria-label="Navigation rapide entre les solutions">
+    <div class="container">
+      <div class="quick-nav-scroll-wrapper" id="productQuickNavList">
+        <!-- Dynamically populated pills -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Produit Allégé -->
+  <header class="product-hero-lite" id="productHero">
+    <!-- Background Overlapping Circular Rings Motif (Watermark blanc translucide sur fond bleu AXA) -->
+    <div class="mv-bg-graphic mv-bg-graphic-tl" aria-hidden="true" style="position: absolute; top: -70px; left: -90px; width: 500px; height: 500px; pointer-events: none; z-index: 1;">
+      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+        <ellipse cx="130" cy="120" rx="190" ry="310" transform="rotate(-36 130 120)" stroke="rgba(255,255,255,0.16)" stroke-width="2.4"/>
+        <ellipse cx="170" cy="160" rx="230" ry="360" transform="rotate(-28 170 160)" stroke="rgba(255,255,255,0.20)" stroke-width="2.2"/>
+        <ellipse cx="95" cy="90" rx="150" ry="250" transform="rotate(-44 95 90)" stroke="rgba(255,255,255,0.25)" stroke-width="2.2"/>
+        <ellipse cx="220" cy="200" rx="270" ry="410" transform="rotate(-20 220 200)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="mv-bg-graphic mv-bg-graphic-br" aria-hidden="true" style="position: absolute; bottom: -70px; right: -70px; width: 480px; height: 480px; pointer-events: none; z-index: 1;">
+      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+        <ellipse cx="380" cy="380" rx="200" ry="320" transform="rotate(-34 380 380)" stroke="rgba(255,255,255,0.16)" stroke-width="2.4"/>
+        <ellipse cx="340" cy="340" rx="240" ry="370" transform="rotate(-26 340 340)" stroke="rgba(255,255,255,0.20)" stroke-width="2.2"/>
+        <ellipse cx="420" cy="410" rx="160" ry="260" transform="rotate(-42 420 410)" stroke="rgba(255,255,255,0.25)" stroke-width="2.2"/>
+        <ellipse cx="300" cy="300" rx="280" ry="420" transform="rotate(-18 300 300)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="container product-hero-inner">
+      <div class="hero-accent-red-bar"></div>
+      <div class="product-badge-tag" id="prodHeroBadge">
+        <span class="product-badge-dot"></span>
+        <span id="prodHeroCategory">Assurance AXA</span>
+      </div>
+      <h1 class="product-hero-title" id="prodHeroTitle">Chargement de votre solution...</h1>
+      <p class="product-hero-subtitle" id="prodHeroSubtitle">Veuillez patienter pendant le chargement des informations.</p>
+      
+      <div class="product-hero-actions">
+        <a href="#quoteFormSection" class="btn-hero-primary" onclick="focusQuoteForm(event)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Demander mon Devis Express
+        </a>
+        <a href="https://wa.me/212667762124" id="prodHeroWhatsappLink" target="_blank" rel="noopener noreferrer" class="btn-hero-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
+          Échanger sur WhatsApp
+        </a>
+        <a href="tel:+212525363061" class="btn-hero-call">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          05 25 36 30 61
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteneur Page Allégée -->
+  <div class="product-page-wrapper">
+    <div class="container">
+      <div class="product-main-layout">
+        
+        <!-- Colonne Gauche : Contenu Détaillé du Produit -->
+        <main class="product-main-content">
+          
+          <!-- Bloc 1 : Description & Vue d'ensemble -->
+          <section class="product-card-block">
+            <h2 class="product-block-heading">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              Présentation de votre contrat
+            </h2>
+            <p class="product-desc-lead" id="prodFullDesc">
+              Description complète du produit...
+            </p>
+
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: #00186b; margin-top: 2rem; margin-bottom: 0.75rem;">
+              Garanties &amp; Prestations Incluses
+            </h3>
+            
+            <div class="product-features-grid" id="prodFeaturesContainer">
+              <!-- Dynamically filled -->
+            </div>
+          </section>
+
+          <!-- Bloc 2 : Les Avantages Assurances Echkili -->
+          <section class="product-card-block">
+            <h2 class="product-block-heading">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Pourquoi souscrire auprès d'Assurances Echkili à Marrakech ?
+            </h2>
+            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              En tant qu'Agent Général AXA Assurance Maroc à Marrakech (Imm Erraha N°8, Avenue Guemassa, M'hamid), notre agence vous garantit une relation directe, sans plateforme intermédiaire délocalisée.
+            </p>
+
+            <ul class="agency-advantages-list" id="prodAdvantagesContainer">
+              <!-- Dynamically filled -->
+            </ul>
+          </section>
+
+          <!-- Bloc FAQ Ciblée par contrat -->
+          <section class="product-card-block">
+            <h2 class="product-block-heading">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Questions fréquentes sur ce contrat
+            </h2>
+            <div class="product-faq-list" id="prodFaqContainer">
+              <!-- Dynamically populated from offer.faq -->
+            </div>
+          </section>
+
+        </main>
+
+        <!-- Colonne Droite : Sticky Formulaire Devis Express -->
+        <aside class="sticky-quote-sidebar" id="quoteFormSection">
+          <div class="quote-express-box">
+            <div class="quote-box-header">
+              <h3 class="quote-box-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e0021b" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Devis Express Gratuit
+              </h3>
+              <p class="quote-box-subtitle">Votre demande est transmise directement à <strong>echkili.assurances@outlook.com</strong>.</p>
+            </div>
+
+            <form id="quoteQuickForm" action="https://formsubmit.co/echkili.assurances@outlook.com" method="POST" onsubmit="handleQuickQuoteSubmit(event)">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" id="quoteHiddenSubject" value="Demande Devis Express - Assurances Echkili">
+              <input type="hidden" name="_template" value="table">
+              <div class="form-group-lite">
+                <label for="quoteNom">Votre Nom Complet *</label>
+                <input type="text" id="quoteNom" class="form-control-lite" placeholder="Ex: Mohamed Alami" required>
+              </div>
+
+              <div class="form-group-lite">
+                <label for="quoteTel">Téléphone Mobile (WhatsApp) *</label>
+                <input type="tel" id="quoteTel" class="form-control-lite" placeholder="Ex: 06 12 34 56 78" required>
+              </div>
+
+              <div class="form-group-lite">
+                <label for="quoteEmail">Adresse Email</label>
+                <input type="email" id="quoteEmail" class="form-control-lite" placeholder="Ex: nom@domaine.ma">
+              </div>
+
+              <div class="form-group-lite">
+                <label for="quoteDetails">Précision sur votre besoin</label>
+                <textarea id="quoteDetails" class="form-control-lite" rows="3" placeholder="Ex: Marque du véhicule, surface d'appartement, nombre d'employés..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit-quote" id="quoteSubmitBtn">
+                <span>Recevoir mon Devis</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </form>
+
+            <div class="quote-success-banner" id="quoteSuccessBanner">
+              <strong>Demande transmise à l'agence !</strong><br>
+              Votre devis a été envoyé à <strong>echkili.assurances@outlook.com</strong>. Un conseiller vous recontacte sous 2h ouvrées. Vous pouvez également confirmer instantanément par WhatsApp :
+              <div style="margin-top: 0.75rem;">
+                <a href="#" id="directWhatsappSubmitBtn" target="_blank" rel="noopener noreferrer" class="btn-hero-whatsapp" style="width: 100%; justify-content: center; font-size: 0.88rem; padding: 0.65rem;">
+                  Confirmer sur WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer officiel digne du site -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1 : Agence Echkili -->
+        <div class="footer-col">
+          <div class="footer-brand-wrap">
+            <img src="assets/logo.svg" alt="AXA Assurance Maroc Logo" class="footer-logo">
+            <h3 class="footer-agency-name">Assurances Echkili</h3>
+            <p class="footer-agency-tagline">Agence Générale AXA Assurance Maroc Marrakech</p>
+          </div>
+          <p class="footer-desc">
+            Société d'Intermédiation d'Assurance régie par la loi 17-99 portant Code des Assurances. Votre partenaire de proximité à Marrakech M'hamid.
+          </p>
+          <div class="footer-badge-box">
+            <span class="badge-acaps">Agréé ACAPS</span>
+            <span class="badge-axa">Réseau AXA Maroc</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.65rem; margin-top: 1.25rem;">
+            <span style="font-size: 0.82rem; color: #cbd5e1; font-weight: 600;">Suivez-nous :</span>
+            <a href="https://wa.me/212667762124" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="WhatsApp Assurances Echkili" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg></a>
+            <a href="https://web.facebook.com/profile.php?id=100004499567922" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="Facebook Assurances Echkili" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social-btn outline-svg" aria-label="Instagram Assurances Echkili" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="LinkedIn Assurances Echkili" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Col 2 : Particuliers -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Particuliers</h4>
+          <ul class="footer-nav-list">
+            <li><a href="produit.html?id=auto">Assurance Automobile &amp; Moto</a></li>
+            <li><a href="produit.html?id=habitation">Habitation &amp; HABITASSUR</a></li>
+            <li><a href="produit.html?id=sante">Santé Sehassur &amp; International</a></li>
+            <li><a href="produit.html?id=epargne">Épargne Retraite Futuris</a></li>
+            <li><a href="produit.html?id=prevoyance">Prévoyance Famille</a></li>
+            <li><a href="produit.html?id=voyage">Assurance Voyage &amp; Visa</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 : Professionnels -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Professionnels &amp; Entreprises</h4>
+          <ul class="footer-nav-list">
+            <li><a href="produit.html?id=multirisque_pro">Multirisque Professionnelle</a></li>
+            <li><a href="produit.html?id=rc_pro">Responsabilité Civile Pro</a></li>
+            <li><a href="produit.html?id=at_mp">Accidents du Travail (18-12)</a></li>
+            <li><a href="produit.html?id=flotte">Assurance Flotte Auto</a></li>
+            <li><a href="produit.html?id=trc">Tous Risques Chantier (TRC)</a></li>
+            <li><a href="produit.html?id=sante_groupe">Santé &amp; Prévoyance Groupe</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 : Coordonnées & Accès -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Coordonnées &amp; Accès</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Rdc magasin 2 imm erraha n°8 av guemassa mhamid Marrakech</span>
+            </div>
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>05 25 36 30 61 / 06 67 76 21 24</span>
+            </div>
+            <div class="footer-contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              <span>echkili.assurances@outlook.com</span>
+            </div>
+          </div>
+
+          <div class="footer-hours-card">
+            <div class="footer-hours-status">
+              <span class="pulse-green-dot"></span>
+              <span>Agence ouverte aux horaires habituels</span>
+            </div>
+            <div style="color: #cbd5e1; font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.55rem;">
+              Lun – Ven : 08h30 – 19h00<br>
+              Samedi : 09h00 – 13h00<br>
+              <strong style="color: #ffffff;">Assistance Sinistres 24h/24 &amp; 7j/7</strong>
+            </div>
+            <a href="https://maps.google.com/?q=31.6701,-8.0315" target="_blank" rel="noopener noreferrer" style="color: #ffffff; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(255,255,255,0.12); padding: 0.35rem 0.7rem; border-radius: 4px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Itinéraire Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">
+          &copy; 2026 Assurances Echkili — Agence Générale AXA Assurance Maroc Marrakech. Tous droits réservés.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="index.html#contact">Notre Agence &amp; Contact</a>
+          <a href="index.html#contact">Accès &amp; Plan</a>
+          <a href="index.html#contact">Assistance 24/7</a>
+          <a href="offres.html">Toutes les Offres</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/212667762124?text=Bonjour%20ECHKILI%20ASSURANCES,%20je%20souhaite%20un%20devis" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="floating-whatsapp-badge" 
+     id="floatingWhatsappBtn" 
+     aria-label="Contacter l'agence par WhatsApp" 
+     title="Assistance WhatsApp Express">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
+  </a>
+
+  <!-- Script d'interactivité et de chargement dynamique des données -->
+  <script src="/src/offres-data.js"></script>
+  <script src="/src/i18n.js"></script>
+  <script>
+    // Navigation Dropdowns Mobile Controller
+    function closeNavDropdowns() {
+      document.querySelectorAll('.dropdown-item-container').forEach(container => {
+        container.classList.remove('dropdown-active');
+        const link = container.querySelector('.nav-menu-link');
+        if (link) link.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    (function initNavDropdowns() {
+      const dropdownItems = document.querySelectorAll('.dropdown-item-container');
+      dropdownItems.forEach(container => {
+        const navLink = container.querySelector('.nav-menu-link');
+        if (!navLink) return;
+
+        navLink.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024 || ('ontouchstart' in window)) {
+            e.preventDefault();
+            const wasActive = container.classList.contains('dropdown-active');
+            closeNavDropdowns();
+            if (!wasActive) {
+              container.classList.add('dropdown-active');
+              navLink.setAttribute('aria-expanded', 'true');
+            }
+          }
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown-item-container')) {
+          closeNavDropdowns();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeNavDropdowns();
+        }
+      });
+    })();
+
+    // Accordéon FAQ
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      if (item) {
+        item.classList.toggle('active');
+      }
+    }
+
+    // Scroll vers formulaire devis
+    function focusQuoteForm(e) {
+      if (e) e.preventDefault();
+      const target = document.getElementById('quoteFormSection');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          const input = document.getElementById('quoteNom');
+          if (input) input.focus();
+        }, 500);
+      }
+    }
+
+    // Gestion du formulaire express rattaché à echkili.assurances@outlook.com
+    let currentOfferTitle = "Assurance AXA";
+    async function handleQuickQuoteSubmit(e) {
+      e.preventDefault();
+      const nom = document.getElementById('quoteNom').value.trim();
+      const tel = document.getElementById('quoteTel').value.trim();
+      const email = document.getElementById('quoteEmail').value.trim();
+      const details = document.getElementById('quoteDetails').value.trim();
+
+      const banner = document.getElementById('quoteSuccessBanner');
+      const directBtn = document.getElementById('directWhatsappSubmitBtn');
+      const submitBtn = document.getElementById('quoteSubmitBtn');
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Transmission en cours...';
+        submitBtn.disabled = true;
+      }
+
+      // Envoi vers echkili.assurances@outlook.com
+      const payload = {
+        _subject: `Nouvelle demande Devis [${currentOfferTitle}] : ${nom}`,
+        _captcha: "false",
+        _template: "table",
+        "Solution Demandée": currentOfferTitle,
+        "Nom Complet": nom,
+        "Téléphone (WhatsApp)": tel,
+        "Email Client": email || "Non renseigné",
+        "Précisions / Détails": details || "Aucun détail complémentaire",
+        "Source": "Formulaire Devis Express - Page Produit",
+        "Date et Heure": new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Casablanca' })
+      };
+
+      try {
+        await fetch('https://formsubmit.co/ajax/echkili.assurances@outlook.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('FormSubmit quote status:', err);
+      }
+
+      const waMsg = `Bonjour Assurances Echkili, je souhaite un devis pour *${currentOfferTitle}*.\nNom: ${nom}\nTéléphone: ${tel}${email ? '\nEmail: ' + email : ''}${details ? '\nPrécisions: ' + details : ''}`;
+      const waUrl = `https://wa.me/212667762124?text=${encodeURIComponent(waMsg)}`;
+
+      if (directBtn) directBtn.href = waUrl;
+      if (banner) banner.style.display = 'block';
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Demande envoyée ✓';
+        submitBtn.style.backgroundColor = '#16a34a';
+        submitBtn.disabled = true;
+      }
+    }
+
+    // Initialisation et Rendu des données du produit avec support multilingue
+    let currentProdId = 'auto';
+
+    function renderProduct(lang) {
+      if (!lang) lang = (window.EchkiliI18n ? window.EchkiliI18n.getLanguage() : 'fr');
+      
+      const offer = (typeof getLocalizedOffer === 'function') 
+        ? getLocalizedOffer(currentProdId, lang) 
+        : (OFFERS_DATA[currentProdId] || OFFERS_DATA.auto);
+      
+      currentOfferTitle = offer.title;
+
+      // Titres et Metas
+      document.title = `${offer.title} | Assurances Echkili AXA Marrakech`;
+      const metaTitle = document.getElementById('pageMetaTitle');
+      if (metaTitle) metaTitle.textContent = `${offer.title} | Assurances Echkili AXA Marrakech`;
+      
+      const metaDesc = document.getElementById('pageMetaDesc');
+      if (metaDesc) metaDesc.setAttribute('content', `${offer.title} à Marrakech avec Assurances Echkili : ${offer.desc}`);
+
+      // Fil d'Ariane
+      const bCat = document.getElementById('breadcrumbCategoryLink');
+      if (bCat) {
+        bCat.textContent = offer.category;
+        bCat.href = (offer.category.includes('Particuliers') || offer.category.includes('الأفراد') || offer.category.includes('Personal'))
+          ? 'offres.html?type=particuliers' 
+          : 'offres.html?type=pros';
+      }
+      const bTitle = document.getElementById('breadcrumbProductTitle');
+      if (bTitle) bTitle.textContent = offer.title;
+
+      // Barre de navigation rapide horizontale (12 solutions)
+      const quickNavContainer = document.getElementById('productQuickNavList');
+      if (quickNavContainer && typeof OFFERS_DATA !== 'undefined') {
+        quickNavContainer.innerHTML = Object.keys(OFFERS_DATA).map(key => {
+          const item = (typeof getLocalizedOffer === 'function') ? getLocalizedOffer(key, lang) : OFFERS_DATA[key];
+          const isActive = key === currentProdId;
+          const shortName = item.title.replace(/^Assurance\s+/i, '').replace(/^تأمين\s+/i, '');
+          return `
+            <a href="produit.html?id=${key}" class="quick-nav-pill ${isActive ? 'active' : ''}">
+              ${isActive ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+              <span>${shortName}</span>
+            </a>
+          `;
+        }).join('');
+      }
+
+      // Hero
+      const heroCat = document.getElementById('prodHeroCategory');
+      if (heroCat) heroCat.textContent = offer.badge || offer.category;
+
+      const heroTitle = document.getElementById('prodHeroTitle');
+      if (heroTitle) heroTitle.textContent = offer.title;
+
+      const heroSub = document.getElementById('prodHeroSubtitle');
+      if (heroSub) heroSub.textContent = offer.subtitle;
+
+      const heroWa = document.getElementById('prodHeroWhatsappLink');
+      if (heroWa) {
+        heroWa.href = `https://wa.me/212667762124?text=${encodeURIComponent('Bonjour Assurances Echkili, je souhaite des informations sur ' + offer.title)}`;
+      }
+
+      // Placeholder personnalisé pour le devis express
+      const quoteDetailsInput = document.getElementById('quoteDetails');
+      if (quoteDetailsInput && offer.quotePlaceholder) {
+        quoteDetailsInput.placeholder = offer.quotePlaceholder;
+      }
+
+      // Description
+      const fullDesc = document.getElementById('prodFullDesc');
+      if (fullDesc) fullDesc.textContent = offer.desc;
+
+      // Garanties / Features
+      const featuresContainer = document.getElementById('prodFeaturesContainer');
+      if (featuresContainer && offer.features) {
+        featuresContainer.innerHTML = offer.features.map(f => `
+          <div class="feature-item-card">
+            <h4 class="feature-item-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              ${f.title}
+            </h4>
+            <p class="feature-item-desc">${f.desc}</p>
+          </div>
+        `).join('');
+      }
+
+      // Avantages agence
+      const advContainer = document.getElementById('prodAdvantagesContainer');
+      if (advContainer && offer.advantages) {
+        advContainer.innerHTML = offer.advantages.map(adv => `
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>${adv}</span>
+          </li>
+        `).join('');
+      }
+
+      // FAQ Ciblée par contrat
+      const faqContainer = document.getElementById('prodFaqContainer');
+      if (faqContainer && offer.faq && offer.faq.length > 0) {
+        faqContainer.innerHTML = offer.faq.map((item, idx) => `
+          <div class="faq-item ${idx === 0 ? 'active' : ''}">
+            <button type="button" class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>${item.q}</span>
+              <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer-panel">
+              ${item.a}
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      currentProdId = params.get('id') || 'auto';
+      if (!OFFERS_DATA[currentProdId]) {
+        currentProdId = 'auto';
+      }
+      renderProduct();
+
+      // Listen for language change events
+      window.addEventListener('echkiliLanguageChanged', (e) => {
+        renderProduct(e.detail.lang);
+      });
+    });
+  </script>
+</body>
+</html>
