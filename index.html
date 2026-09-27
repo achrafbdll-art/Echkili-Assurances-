@@ -5429,287 +5429,44 @@
       if (modal) modal.classList.remove('open');
     }
 
-    // Open detail modal for insurance offer with axa.ma full catalog standards
+    // Open detail modal for insurance offer with axa.ma full catalog standards & trilingual support
     function openOfferModal(type) {
+      if (type === 'entreprise' || type === 'pro') type = 'multirisque_pro';
+
+      const lang = (window.EchkiliI18n ? window.EchkiliI18n.getLanguage() : 'fr');
+      const offer = (typeof getLocalizedOffer === 'function')
+        ? getLocalizedOffer(type, lang)
+        : ((typeof OFFERS_DATA !== 'undefined' && OFFERS_DATA[type]) ? OFFERS_DATA[type] : {
+            title: "Assurance AXA Marrakech",
+            category: "Particuliers & Entreprises",
+            subtitle: "Solution sur-mesure",
+            desc: "Contactez notre agence au 05 25 36 30 61",
+            features: [],
+            advantages: [],
+            telLabel: "05 25 36 30 61"
+          });
+
       const productModal = document.getElementById('productModal');
       const prodTag = document.getElementById('prodModalTag');
       const prodTitle = document.getElementById('prodModalTitle');
       const prodSub = document.getElementById('prodModalSubtitle');
       const prodContent = document.getElementById('prodModalContent');
 
-      const offers = {
-        // === PARTICULIERS (axa.ma) ===
-        auto: {
-          category: "Particuliers • Mobilité",
-          title: "Assurance Automobile AXA Maroc",
-          subtitle: "La solution de référence pour rouler l'esprit tranquille à Marrakech et sur toutes les routes du Royaume.",
-          desc: "L'assurance auto AXA vous fait bénéficier d'une couverture sur-mesure combinant garanties performantes, assistance dépannage 0 km disponible 24h/24 et 7j/7, gestion accélérée de vos constats et véhicules de courtoisie en cas d'immobilisation prolongée.",
-          features: [
-            { title: "Assistance 24/7 Dépannage 0 km", desc: "Prise en charge immédiate au pied de votre domicile ou sur autoroute partout au Maroc par nos dépanneuses agréées." },
-            { title: "Bris de Glace Sans Franchise", desc: "Remplacement ou réparation rapide de pare-brise, lunette arrière et optiques sans impact sur votre bonus." },
-            { title: "Véhicule de Remplacement", desc: "Mise à disposition d'une voiture de prêt pendant la durée des réparations en cas de panne ou accident garanti." },
-            { title: "Convention Fonctionnaires & Salariés", desc: "Conditions tarifaires préférentielles pour l'Éducation Nationale, Santé, OCP, administrations et grandes entreprises partenaires." }
-          ],
-          advantages: [
-            "Constat amiable électronique et accompagnement par un expert dès l'appel",
-            "Réseau étendu de garages conventionnés AXA à Marrakech (M'hamid, Guemassa, Sidi Ghanem, etc.)",
-            "Paiement fractionné des primes en agence sans frais superflus",
-            "Défense pénale et recours intégrés pour protéger vos droits"
-          ],
-          action: "Demander mon devis Auto",
-          telLabel: "Conseiller Auto : 05 25 36 30 61"
-        },
-        habitation: {
-          category: "Particuliers • Logement",
-          title: "Assurance Habitation HABITASSUR AXA",
-          subtitle: "Protégez votre résidence principale, appartement, villa ou riad à Marrakech face à tous les aléas du quotidien.",
-          desc: "Formule signature d'AXA Maroc, l'assurance Habitation HABITASSUR offre une protection intégrale et flexible pour votre patrimoine immobilier et mobilier, avec assistance d'urgence à domicile et remboursement optimisé en valeur à neuf.",
-          features: [
-            { title: "Indemnisation en Valeur à Neuf", desc: "Vos équipements électroménagers, électroniques et meubles récents indemnisés sans application de vétusté excessive." },
-            { title: "Dégâts des Eaux & Infiltrations", desc: "Prise en charge des fuites, ruptures de canalisations, infiltrations par toiture et dommages causés aux voisins." },
-            { title: "Incendie, Vol & Vandalisme", desc: "Couverture de vos biens, bijoux de famille, mobilier et renforcement de sécurité après effraction." },
-            { title: "Dépannage d'Urgence à Domicile", desc: "Envoi rapide d'un serrurier (clé perdue ou porte claquée), d'un plombier ou d'un électricien agréé." }
-          ],
-          advantages: [
-            "Responsabilité Civile Chef de Famille incluse (dommages causés par vos enfants ou employés de maison)",
-            "Garantie Événements Naturels et Catastrophes CatNat conforme à la réglementation marocaine",
-            "Formules spécifiques pour propriétaires occupants, locataires et résidences secondaires/riads",
-            "Démarches simplifiées en cas de sinistre avec suivi dédié par Assurances Echkili"
-          ],
-          action: "Demander mon devis Habitation",
-          telLabel: "Conseiller Habitation : 05 25 36 30 61"
-        },
-        sante: {
-          category: "Particuliers • Famille & Santé",
-          title: "Santé Sehassur & Sehassur Plus International AXA",
-          subtitle: "L'accès aux meilleurs soins de santé Sehassur et Sehassur plus international pour vous accompagner vous et votre famille.",
-          desc: "Avec les formules Sehassur et Sehassur Plus International d'AXA Maroc, vous bénéficiez de l'accès aux meilleurs soins de santé pour vous accompagner vous et votre famille au Maroc et à l'étranger : hospitalisation en tiers-payant sans avance de frais, consultations, pharmacie et évacuation sanitaire.",
-          features: [
-            { title: "Formule Sehassur (Maroc)", desc: "Tiers-payant direct en cliniques privées partenaires à Marrakech et dans tout le Royaume, consultations généralistes/spécialistes et pharmacie." },
-            { title: "Sehassur Plus International", desc: "Couverture médicale étendue à l'international avec prise en charge hospitalière à l'étranger et évacuation sanitaire d'urgence." },
-            { title: "Analyses & Imagerie Médicale", desc: "Prise en charge rapide des examens biologiques, radiographies, scanners et IRM." },
-            { title: "Affection Longue Durée (ALD)", desc: "Accompagnement financier renforcé et prise en charge intégrale des pathologies chroniques déclarées." }
-          ],
-          advantages: [
-            "Délais de remboursement express (7 à 10 jours ouvrés dès remise de vos feuilles de soins à l'agence)",
-            "Accès aux meilleurs établissements de soins au Maroc et à l'international pour vous et votre famille",
-            "Libre choix du médecin, de la clinique ou du laboratoire sans contrainte",
-            "Évacuation sanitaire d'urgence et assistance médicale 24/7"
-          ],
-          action: "Demander une étude Santé Sehassur",
-          telLabel: "Conseiller Santé : 05 25 36 30 61"
-        },
-        prevoyance: {
-          category: "Particuliers • Sécurité Familiale",
-          title: "Prévoyance & Sécurité Accident AXA",
-          subtitle: "Sécurisez l'avenir de vos enfants et préservez l'équilibre de votre foyer face aux imprévus de la vie.",
-          desc: "La prévoyance individuelle AXA Maroc permet d'anticiper les conséquences financières d'un arrêt de travail prolongé, d'une invalidité accidentelle ou d'un décès prématuré, en garantissant le versement d'un capital ou de rentes régulières.",
-          features: [
-            { title: "Capital Décès & Invalidité", desc: "Versement immédiat d'un capital garanti net d'impôt aux bénéficiaires désignés pour assurer leur subsistance." },
-            { title: "Rente d'Éducation pour les Enfants", desc: "Financement garanti de la scolarité et des études supérieures jusqu'à l'âge de 25 ans en cas de disparition d'un parent." },
-            { title: "Indemnités Journalières d'Arrêt", desc: "Maintien de votre pouvoir d'achat grâce à une rente quotidienne en cas d'incapacité temporaire suite à accident." },
-            { title: "Souscription Simple & Rapide", desc: "Formalités médicales simplifiées adaptées à chaque tranche d'âge avec adhésion immédiate en agence." }
-          ],
-          advantages: [
-            "Couverture 24h/24 dans la vie privée, professionnelle et lors de vos déplacements",
-            "Cadre fiscal avantageux au Maroc sur les capitaux et rentes transmis",
-            "Possibilité de doubler le capital en cas de décès accidentel",
-            "Interlocuteur dédié à Marrakech pour ajuster vos garanties au fil des étapes de la vie"
-          ],
-          action: "Étudier ma Prévoyance Famille",
-          telLabel: "Conseiller Prévoyance : 05 25 36 30 61"
-        },
-        epargne: {
-          category: "Particuliers • Avenir & Retraite",
-          title: "Épargne & Retraite AXA Futuris II",
-          subtitle: "Constituez un patrimoine pérenne, préparez votre retraite et bénéficiez des déductions fiscales maximales.",
-          desc: "Solution phare d'épargne d'AXA Maroc, Futuris II combine rendement financier sécurisé, disponibilité des fonds et optimisation fiscale remarquable pour faire fructifier vos économies à votre rythme.",
-          features: [
-            { title: "Déductibilité Fiscale Optimale", desc: "Déduisez jusqu'à 50% de votre salaire net imposable ou bénéficiez d'une exonération fiscale totale des rentes servies." },
-            { title: "Taux de Rendement Garanti + PB", desc: "Votre capital est garanti et revalorisé annuellement par la participation aux bénéfices financiers d'AXA Maroc." },
-            { title: "Versements Libres ou Programmés", desc: "Épargnez selon vos capacités dès 300 MAD/mois, avec possibilité de versements exceptionnels à tout moment." },
-            { title: "Disponibilité & Rachat Souple", desc: "Accédez à votre épargne par rachat partiel, avance sur contrat ou rachat total en cas de besoin imprévu." }
-          ],
-          advantages: [
-            "Sortie au choix en capital unique ou en rente viagère mensuelle revalorisée",
-            "Option assurance Educatis pour sécuriser le financement des grandes écoles de vos enfants",
-            "Gestion assurée par les équipes d'experts en gestion d'actifs d'AXA",
-            "Bilan d'épargne et simulation patrimoniale gratuits à l'agence Assurances Echkili"
-          ],
-          action: "Simuler mon projet Futuris II",
-          telLabel: "Conseiller Épargne : 05 25 36 30 61"
-        },
-        moto: {
-          category: "Particuliers • Deux-Roues",
-          title: "Assurance Deux-Roues & Moto AXA",
-          subtitle: "Couverture dédiée pour motos, scooters et grosses cylindrées à Marrakech et au Maroc.",
-          desc: "L'assurance Moto AXA offre des garanties spécifiques adaptées aux conducteurs de deux-roues : protection corporelle du pilote, garantie casque et équipement vestimentaire, assistance dépannage 24h/24 et bris d'optiques.",
-          features: [
-            { title: "Protection Corporelle du Conducteur", desc: "Prise en charge des frais médicaux, indemnités d'incapacité et capital invalidité en cas d'accident ou de chute." },
-            { title: "Garantie Casque & Équipements", desc: "Remboursement de votre casque homologué et tenue de protection moto en cas de choc accidentel." },
-            { title: "Assistance Dépannage 24/7", desc: "Remorquage rapide de votre moto ou scooter partout à Marrakech et sur toutes les routes nationales." },
-            { title: "Défense Juridique & Recours", desc: "Accompagnement expert pour faire valoir vos droits auprès des compagnies adverses." }
-          ],
-          advantages: [
-            "Tarifs ultra-compétitifs pour scooters urbains et motos de toute cylindrée",
-            "Attestation d'assurance délivrée en quelques minutes en agence",
-            "Option vol et incendie disponible selon la valeur de votre moto",
-            "Accompagnement personnalisé par l'équipe Assurances Echkili"
-          ],
-          action: "Demander mon devis Moto",
-          telLabel: "Conseiller Moto : 05 25 36 30 61"
-        },
-        voyage: {
-          category: "Particuliers • International",
-          title: "Assurance Voyage & Assistance Internationale",
-          subtitle: "Attestation officielle immédiate conforme aux exigences des consulats (Visa Schengen, USA, Canada, Monde).",
-          desc: "Partez l'esprit serein pour vos vacances, études ou voyages d'affaires à l'étranger grâce à la couverture médicale internationale AXA Assistance, reconnue par toutes les ambassades et consulats au Maroc.",
-          features: [
-            { title: "Attestation Visa Schengen Conforme", desc: "Délivrance immédiate avec couverture des frais médicaux d'urgence à hauteur minimale de 30 000 Euros requise par les consulats." },
-            { title: "Frais Médicaux & Hospitalisation Monde", desc: "Prise en charge intégrale des consultations d'urgence, examens et séjours hospitaliers partout sur le globe." },
-            { title: "Rapatriement Sanitaire 24/7", desc: "Organisation et prise en charge complète du rapatriement médicalisé vers le Maroc si nécessaire." }
-          ],
-          advantages: [
-            "Délivrance instantanée de votre attestation papier et numérique à notre agence (Avenue Guemassa, M'hamid)",
-            "Assistance francophone et arabophone joignable 24h/24 dans le monde entier",
-            "Formules court séjour (dès quelques jours) ou contrat multi-voyages annuel pour les voyageurs fréquents",
-            "Tarifs familles avantageux avec réductions enfants"
-          ],
-          action: "Obtenir mon Attestation Voyage",
-          telLabel: "Conseiller Voyage : 05 25 36 30 61"
-        },
-
-        // === PROFESSIONNELS & ENTREPRISES (axa.ma) ===
-        multirisque_pro: {
-          category: "Professionnels • Locaux & Activité",
-          title: "Multirisque Professionnelle AXA",
-          subtitle: "La protection tous risques pour les commerçants, artisans, professions libérales, riads et PME de Marrakech.",
-          desc: "Un contrat unique conçu pour protéger l'outil de travail de votre entreprise : bâtiments commerciaux, bureaux, ateliers, agencements intérieurs, stocks de marchandises, équipements informatiques et perte financière consécutive à un arrêt d'activité.",
-          features: [
-            { title: "Incendie, Dégât des Eaux & Foudre", desc: "Prise en charge complète de la reconstruction de vos locaux professionnels et du rééquipement à neuf." },
-            { title: "Garantie Perte d'Exploitation", desc: "Versement d'indemnités compensatoires pour payer vos charges fixes (loyers, salaires) et maintenir votre bénéfice." },
-            { title: "Vol de Marchandises & Vandalismes", desc: "Protection de vos stocks, matières premières, caisse et remboursement des dégradations mobilières." },
-            { title: "Bris de Machines & Matériel High-Tech", desc: "Couverture de vos outils de production, ordinateurs, serveurs et équipements techniques contre les bris accidentels." }
-          ],
-          advantages: [
-            "Sur-mesure selon votre secteur d'activité (Hôtellerie/Riad, Restauration, Négoce, Clinique, Cabinet, Atelier)",
-            "Garantie Catastrophes Naturelles conforme aux exigences ACAPS",
-            "Évaluation personnalisée des capitaux par votre Agent Général AXA Assurances Echkili",
-            "Intervention d'urgence pour sécurisation provisoire des locaux après incident"
-          ],
-          action: "Demander un devis Multirisque Pro",
-          telLabel: "Pôle Entreprise : 05 25 36 30 61"
-        },
-        at_mp: {
-          category: "Professionnels • Obligation Légale",
-          title: "Accidents du Travail & Maladies Pro (Loi 18-12)",
-          subtitle: "Garantissez la conformité légale de votre entreprise et protégez vos collaborateurs en toute sécurité.",
-          desc: "Au Maroc, l'assurance Accident du Travail est une obligation stricte régie par la loi 18-12. AXA Maroc et l'agence Assurances Echkili assurent une prise en charge rapide des salariés accidentés sur le lieu de travail ou sur le trajet domicile-travail.",
-          features: [
-            { title: "Frais Médicaux, Chirurgicaux & Pharma", desc: "Prise en charge directe sans avance de frais des soins, hospitalisations, rééducations et appareillages." },
-            { title: "Indemnités Journalières d'Incapacité", desc: "Versement des indemnités journalières pendant la période d'arrêt de travail validée par le médecin conseil." },
-            { title: "Rentes Viagères d'Incapacité Permanente", desc: "Constitution et versement de rentes conformes au barème légal en cas d'incapacité permanente partielle ou totale." },
-            { title: "Rentes aux Ayants Droit", desc: "Sécurisation financière du conjoint et des enfants à charge en cas d'accident mortel d'un salarié." }
-          ],
-          advantages: [
-            "Conformité totale avec l'Inspection du Travail et les organismes de tutelle",
-            "Réseau conventionné de cliniques et centres de traumatologie à Marrakech",
-            "Traitement accéléré des déclarations d'accident pour éviter tout contentieux social",
-            "Tarification adaptée selon la masse salariale déclarée et la nature des risques professionnels"
-          ],
-          action: "Mettre en conformité mon Entreprise (Loi 18-12)",
-          telLabel: "Pôle Entreprise : 05 25 36 30 61"
-        },
-        rc_pro: {
-          category: "Professionnels • Responsabilité",
-          title: "Responsabilité Civile Professionnelle & Exploitation",
-          subtitle: "Sécurisez la pérennité financière de votre société face aux réclamations de tiers et clients.",
-          desc: "Dans l'exercice de votre métier, une erreur de conseil, une omission, un défaut de réalisation ou un accident survenant dans vos locaux peut engager de lourdes indemnités. AXA prend en charge votre défense juridique et les réparations financières dues.",
-          features: [
-            { title: "RC Exploitation Quotidienne", desc: "Couverture des dommages matériels ou corporels causés aux tiers, clients ou visiteurs dans vos locaux commerciaux." },
-            { title: "RC Professionnelle Métier", desc: "Protection spécifique pour architectes, bureaux d'études, consultants, comptables, professionnels de santé et prestataires." },
-            { title: "RC Après Livraison ou Travaux", desc: "Prise en charge des désordres survenus après la remise d'un produit fabriqué ou l'achèvement d'un chantier." },
-            { title: "Défense Juridique & Frais d'Expertise", desc: "Prise en charge des honoraires d'avocats, frais d'experts judiciaires et transactions amiables négociées." }
-          ],
-          advantages: [
-            "Plafonds de garantie élevés adaptés aux marchés publics et appels d'offres privés",
-            "Protection essentielle pour rassurer vos partenaires commerciaux et donneurs d'ordre",
-            "Couverture de l'atteinte à l'environnement accidentelle",
-            "Analyse personnalisée des risques contractuels par Assurances Echkili"
-          ],
-          action: "Demander une étude RC Pro",
-          telLabel: "Pôle Entreprise : 05 25 36 30 61"
-        },
-        flotte: {
-          category: "Professionnels • Mobilité & Parc",
-          title: "Assurance Flotte Automobile AXA",
-          subtitle: "Optimisez la gestion et les coûts d'assurance de l'ensemble de votre parc automobile d'entreprise.",
-          desc: "Accessible dès 3 véhicules professionnels, la formule Flotte AXA Maroc regroupe l'ensemble de vos utilitaires, camionnettes, berlines de direction et engins de transport sous un contrat unique avec gestion administrative simplifiée.",
-          features: [
-            { title: "Contrat Unique Simplifié", desc: "Une seule police d'assurance et un échéancier unique avec régularisation simplifiée des entrées et sorties de véhicules." },
-            { title: "Garanties Modulables par Véhicule", desc: "Combinez tous risques pour les véhicules neufs et formules intermédiaires adaptées aux véhicules de service." },
-            { title: "Assistance Panne Flotte 24/7", desc: "Dépannage rapide partout au Maroc avec véhicules de courtoisie pour maintenir la continuité de vos livraisons." },
-            { title: "Prévention & Bilan Sinistralité", desc: "Suivi statistique périodique et conseils de prévention pour optimiser votre ratio prime/sinistre." }
-          ],
-          advantages: [
-            "Tarifs dégressifs très attractifs selon la taille de votre parc automobile à Marrakech",
-            "Prise en charge des aménagements professionnels intérieurs et outillages embarqués",
-            "Conducteur non désigné : flexibilité totale pour la conduite par vos collaborateurs habilités",
-            "Interlocuteur dédié à l'agence Assurances Echkili pour vos vignettes et avenants immédiats"
-          ],
-          action: "Demander un devis Flotte Automobile",
-          telLabel: "Pôle Entreprise : 05 25 36 30 61"
-        },
-        trc: {
-          category: "Professionnels • BTP & Construction",
-          title: "Tous Risques Chantier (TRC) AXA",
-          subtitle: "La couverture intégrale des projets de construction, rénovation et génie civil dans la région de Marrakech.",
-          desc: "Indispensable pour les promoteurs immobiliers, maîtres d'ouvrage et entrepreneurs de bâtiment, l'assurance TRC AXA garantit les ouvrages en cours de réalisation contre l'ensemble des dommages matériels accidentels jusqu'à la réception définitive.",
-          features: [
-            { title: "Effondrement, Tempête & Séisme", desc: "Indemnisation des travaux endommagés suite à intempéries, inondations, séismes ou glissements de terrain." },
-            { title: "Erreurs de Conception & Montage", desc: "Prise en charge des dégâts matériels résultant d'erreurs d'exécution, de calculs ou de mise en œuvre." },
-            { title: "Vol de Matériaux sur Chantier", desc: "Couverture des matériaux de construction entreposés, cuivres, câblages, outillages et installations provisoires." },
-            { title: "Période de Maintenance Post-Chantier", desc: "Prolongation des garanties durant la phase de maintenance après achèvement des travaux." }
-          ],
-          advantages: [
-            "Acceptation systématique par les banques prêteuses et organismes financiers partenaires",
-            "Couverture de l'ensemble des intervenants (maître d'ouvrage, maîtres d'œuvre, sous-traitants)",
-            "Émission rapide des attestations indispensables au démarrage de vos travaux à Marrakech",
-            "Audit technique sur site et accompagnement par un inspecteur spécialisé AXA"
-          ],
-          action: "Demander une étude TRC Chantier",
-          telLabel: "Pôle BTP : 05 25 36 30 61"
-        },
-        sante_groupe: {
-          category: "Professionnels • Ressources Humaines",
-          title: "Santé & Prévoyance Collective Entreprise",
-          subtitle: "Fidélisez vos talents et offrez à votre équipe la meilleure couverture médicale complémentaire d'entreprise.",
-          desc: "Un levier RH majeur pour motiver et protéger votre capital humain. Le contrat groupe AXA Maroc assure le remboursement des dépenses de santé des salariés et de leurs familles avec accès privilégié aux cliniques sans avance de fonds.",
-          features: [
-            { title: "Tiers-Payant Élargi en Cliniques", desc: "Prise en charge directe pour hospitalisations chirurgicales et soins lourds dans le réseau hospitalier partenaire." },
-            { title: "Remboursements Soins Courants Confort", desc: "Couverture généreuse des consultations, actes paramédicaux, pharmacie et analyses médicales." },
-            { title: "Capital Prévoyance Salarié", desc: "Versement d'un capital décès/invalidité protégeant la famille du collaborateur en cas de drame de la vie." },
-            { title: "Gestion Dématérialisée & Guichet Direct", desc: "Application mobile et suivi en ligne pour les salariés avec délais de remboursement records." }
-          ],
-          advantages: [
-            "Cotisations patronales déductibles du résultat fiscal de votre entreprise",
-            "Régime attractif exonéré d'impôt sur le revenu pour les salariés bénéficiaires",
-            "Formules modulables par collège (Cadres, Non-cadres, Dirigeants)",
-            "Accompagnement de proximité par l'équipe Assurances Echkili pour les démarches des collaborateurs"
-          ],
-          action: "Demander une étude Santé Groupe",
-          telLabel: "Pôle RH Entreprise : 05 25 36 30 61"
-        }
-      };
-
-      // Compatibility fallback for old aliases
-      if (type === 'entreprise' || type === 'pro') type = 'multirisque_pro';
-
-      const offer = offers[type] || offers.auto;
-
-      if (prodTag) prodTag.textContent = offer.category;
+      if (prodTag) prodTag.textContent = offer.badge || offer.category;
       if (prodTitle) prodTitle.textContent = offer.title;
       if (prodSub) prodSub.textContent = offer.subtitle;
+
+      const tFeatures = lang === 'ar' ? 'الضمانات والخدمات الأساسية' : (lang === 'en' ? 'Key Guarantees & Covered Benefits' : 'Garanties et Prestations Clés');
+      const tAdvantages = lang === 'ar' ? 'مزايا شبكة أكسا وتأمينات شكيلـي بمراكش' : (lang === 'en' ? 'Advantages of AXA & Assurances Echkili' : 'Les Avantages du Réseau AXA Maroc & Assurances Echkili');
+      const tCtaTitle = lang === 'ar' ? 'هل ترغبون في دراسة مخصصة وتسعيرة فورية؟' : (lang === 'en' ? 'Need an Immediate Custom Quote?' : "Besoin d'une étude personnalisée immédiate ?");
+      const tCtaSub = lang === 'ar' ? 'وكيلكم العام أكسا بمراكش يجيبكم في أقل من ساعتي عمل.' : (lang === 'en' ? 'Your AXA General Agent in Marrakech responds within 2 business hours.' : 'Votre Agent Général AXA à Marrakech vous répond sous 2h ouvrées.');
+      const tPageBtn = lang === 'ar' ? 'عرض الصفحة المخصصة' : (lang === 'en' ? 'View Dedicated Page' : 'Voir la Page Dédiée');
+      const tWaBtn = lang === 'ar' ? 'تسعيرة عبر واتساب' : (lang === 'en' ? 'WhatsApp Express Quote' : 'Devis Express WhatsApp');
+      const waHello = lang === 'ar'
+        ? `السلام عليكم تأمينات شكيلـي، أرغب في تسعيرة حول ${offer.title}`
+        : (lang === 'en'
+          ? `Hello Assurances Echkili, I would like a quote for ${offer.title}`
+          : `Bonjour ECHKILI ASSURANCES, je souhaite un devis pour ${offer.title}`);
 
       if (prodContent) {
         prodContent.innerHTML = `
@@ -5719,11 +5476,11 @@
 
           <h3 style="font-size: 1.15rem; font-weight: 800; color: #00186b; margin: 1.5rem 0 0.75rem 0; display: flex; align-items: center; gap: 0.5rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Garanties et Prestations Clés
+            ${tFeatures}
           </h3>
 
           <div class="product-details-grid">
-            ${offer.features.map(f => `
+            ${(offer.features || []).map(f => `
               <div class="product-feature-box">
                 <h4>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00186b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -5735,11 +5492,11 @@
           </div>
 
           <h3 style="font-size: 1.15rem; font-weight: 800; color: #00186b; margin: 1.75rem 0 0.75rem 0;">
-            Les Avantages du Réseau AXA Maroc &amp; Assurances Echkili
+            ${tAdvantages}
           </h3>
 
           <ul class="product-advantages-list">
-            ${offer.advantages.map(adv => `
+            ${(offer.advantages || []).map(adv => `
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00186b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>${adv}</span>
@@ -5749,14 +5506,22 @@
 
           <div class="product-modal-footer-cta">
             <div class="cta-text">
-              <h4>Besoin d'une étude personnalisée immédiate ?</h4>
-              <p>Votre Agent Général AXA à Marrakech vous répond sous 24h ouvrées.</p>
+              <h4>${tCtaTitle}</h4>
+              <p>${tCtaSub}</p>
             </div>
             <div class="cta-buttons">
-              <button class="btn btn-primary" onclick="closeProductModal(); openDevisFor('${type}');">
-                ${offer.action}
+              <a href="produit.html?id=${type}" class="btn" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #002868; color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; padding: 0.65rem 1.15rem;">
+                <span>${tPageBtn}</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <button class="btn btn-primary" onclick="closeProductModal(); openDevisFor('${type}');" style="padding: 0.65rem 1.15rem;">
+                ${offer.action || (lang === 'ar' ? 'طلب تسعيرة سريعة' : (lang === 'en' ? 'Quick Quote Request' : 'Demander mon Devis'))}
               </button>
-              <a href="tel:+212525363061" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.45rem;">
+              <a href="https://wa.me/212667762124?text=${encodeURIComponent(waHello)}" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #22c55e; border-color: #22c55e; color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; padding: 0.65rem 1.15rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
+                ${tWaBtn}
+              </a>
+              <a href="tel:+212525363061" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.65rem 1.15rem; text-decoration: none;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 ${offer.telLabel}
               </a>
@@ -5767,8 +5532,18 @@
 
       if (productModal) {
         productModal.classList.add('open');
+        productModal.setAttribute('data-active-id', type);
       }
     }
+
+    // Modal re-render on language change
+    window.addEventListener('echkiliLanguageChanged', () => {
+      const m = document.getElementById('productModal');
+      if (m && m.classList.contains('open')) {
+        const activeId = m.getAttribute('data-active-id');
+        if (activeId) openOfferModal(activeId);
+      }
+    });
 
     // Toast Notification helper
     function showToast(message) {
@@ -6217,6 +5992,9 @@
       <span>Urgence</span>
     </a>
   </nav>
+
+  <!-- Catalogue des offres et données de modal -->
+  <script src="/src/offres-data.js"></script>
 
   <!-- Système multilingue complet (Français, العربية, English) -->
   <script src="/src/i18n.js"></script>

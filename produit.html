@@ -810,6 +810,81 @@
       color: #ffffff;
       text-decoration: underline;
     }
+
+    /* RTL Arabic styling */
+    html[dir="rtl"] body {
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+    }
+    html[dir="rtl"] .product-hero-inner,
+    html[dir="rtl"] .product-card-block,
+    html[dir="rtl"] .quote-express-box {
+      text-align: right;
+    }
+    html[dir="rtl"] .product-main-layout {
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .product-hero-actions {
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .product-hero-actions a {
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .faq-question-btn {
+      text-align: right;
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .faq-question-btn svg {
+      margin-left: 0;
+      margin-right: auto;
+    }
+    html[dir="rtl"] .agency-advantages-list li {
+      text-align: right;
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .feature-item-title {
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .breadcrumb-list {
+      direction: rtl;
+    }
+    html[dir="rtl"] .breadcrumb-separator {
+      transform: scaleX(-1);
+    }
+    html[dir="rtl"] .product-block-heading {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+    html[dir="rtl"] .quote-box-title {
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      text-align: right;
+    }
+    html[dir="rtl"] .form-group-lite label {
+      text-align: right;
+    }
+    html[dir="rtl"] .form-control-lite {
+      text-align: right;
+      direction: rtl;
+    }
+    html[dir="rtl"] .btn-submit-quote {
+      flex-direction: row-reverse;
+    }
+    html[dir="rtl"] .nav-bar-inner {
+      direction: ltr !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+    }
+    html[dir="rtl"] .nav-menu-list {
+      flex-direction: row !important;
+    }
+    html[dir="rtl"] .nav-right-cluster {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+      flex-direction: row !important;
+    }
   </style>
 </head>
 <body>
@@ -1156,15 +1231,15 @@
           
           <!-- Bloc 1 : Description & Vue d'ensemble -->
           <section class="product-card-block">
-            <h2 class="product-block-heading">
+            <h2 class="product-block-heading" id="prodOverviewHeading">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              Présentation de votre contrat
+              <span>Présentation de votre contrat</span>
             </h2>
             <p class="product-desc-lead" id="prodFullDesc">
               Description complète du produit...
             </p>
 
-            <h3 style="font-size: 1.15rem; font-weight: 800; color: #00186b; margin-top: 2rem; margin-bottom: 0.75rem;">
+            <h3 id="prodFeaturesSubheading" style="font-size: 1.15rem; font-weight: 800; color: #00186b; margin-top: 2rem; margin-bottom: 0.75rem;">
               Garanties &amp; Prestations Incluses
             </h3>
             
@@ -1175,11 +1250,11 @@
 
           <!-- Bloc 2 : Les Avantages Assurances Echkili -->
           <section class="product-card-block">
-            <h2 class="product-block-heading">
+            <h2 class="product-block-heading" id="prodWhyHeading">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Pourquoi souscrire auprès d'Assurances Echkili à Marrakech ?
+              <span>Pourquoi souscrire auprès d'Assurances Echkili à Marrakech ?</span>
             </h2>
-            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            <p id="prodWhyDesc" style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
               En tant qu'Agent Général AXA Assurance Maroc à Marrakech (Imm Erraha N°8, Avenue Guemassa, M'hamid), notre agence vous garantit une relation directe, sans plateforme intermédiaire délocalisée.
             </p>
 
@@ -1190,9 +1265,9 @@
 
           <!-- Bloc FAQ Ciblée par contrat -->
           <section class="product-card-block">
-            <h2 class="product-block-heading">
+            <h2 class="product-block-heading" id="prodFaqHeading">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              Questions fréquentes sur ce contrat
+              <span>Questions fréquentes sur ce contrat</span>
             </h2>
             <div class="product-faq-list" id="prodFaqContainer">
               <!-- Dynamically populated from offer.faq -->
@@ -1205,49 +1280,49 @@
         <aside class="sticky-quote-sidebar" id="quoteFormSection">
           <div class="quote-express-box">
             <div class="quote-box-header">
-              <h3 class="quote-box-title">
+              <h3 class="quote-box-title" id="quoteBoxTitle">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e0021b" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Devis Express Gratuit
+                <span>Devis Express Gratuit</span>
               </h3>
-              <p class="quote-box-subtitle">Votre demande est transmise directement à <strong>echkili.assurances@outlook.com</strong>.</p>
+              <p class="quote-box-subtitle" id="quoteBoxSubtitle">Votre demande est transmise directement à <strong>echkili.assurances@outlook.com</strong>.</p>
             </div>
 
             <form id="quoteQuickForm" action="https://formsubmit.co/echkili.assurances@outlook.com" method="POST" onsubmit="handleQuickQuoteSubmit(event)">
               <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_subject" id="quoteHiddenSubject" value="Demande Devis Express - Assurances Echkili">
+              <input type="hidden" name="_subject" id="quoteHiddenSubject" value="Demande Devis Express - Assurances Echkili Marrakech">
               <input type="hidden" name="_template" value="table">
               <div class="form-group-lite">
-                <label for="quoteNom">Votre Nom Complet *</label>
-                <input type="text" id="quoteNom" class="form-control-lite" placeholder="Ex: Mohamed Alami" required>
+                <label for="quoteNom" id="quoteNomLabel">Votre Nom Complet *</label>
+                <input type="text" id="quoteNom" name="nom" class="form-control-lite" placeholder="Ex: Mohamed Alami" required autocomplete="name">
               </div>
 
               <div class="form-group-lite">
-                <label for="quoteTel">Téléphone Mobile (WhatsApp) *</label>
-                <input type="tel" id="quoteTel" class="form-control-lite" placeholder="Ex: 06 12 34 56 78" required>
+                <label for="quoteTel" id="quoteTelLabel">Téléphone Mobile (WhatsApp) *</label>
+                <input type="tel" id="quoteTel" name="telephone" class="form-control-lite" placeholder="Ex: 06 12 34 56 78" required autocomplete="tel">
               </div>
 
               <div class="form-group-lite">
-                <label for="quoteEmail">Adresse Email</label>
-                <input type="email" id="quoteEmail" class="form-control-lite" placeholder="Ex: nom@domaine.ma">
+                <label for="quoteEmail" id="quoteEmailLabel">Adresse Email</label>
+                <input type="email" id="quoteEmail" name="email" class="form-control-lite" placeholder="Ex: nom@domaine.ma" autocomplete="email">
               </div>
 
               <div class="form-group-lite">
-                <label for="quoteDetails">Précision sur votre besoin</label>
-                <textarea id="quoteDetails" class="form-control-lite" rows="3" placeholder="Ex: Marque du véhicule, surface d'appartement, nombre d'employés..."></textarea>
+                <label for="quoteDetails" id="quoteDetailsLabel">Précision sur votre besoin</label>
+                <textarea id="quoteDetails" name="details" class="form-control-lite" rows="3" placeholder="Ex: Marque du véhicule, surface d'appartement, nombre d'employés..."></textarea>
               </div>
 
               <button type="submit" class="btn-submit-quote" id="quoteSubmitBtn">
-                <span>Recevoir mon Devis</span>
+                <span id="quoteSubmitBtnText">Recevoir mon Devis</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
             </form>
 
             <div class="quote-success-banner" id="quoteSuccessBanner">
-              <strong>Demande transmise à l'agence !</strong><br>
-              Votre devis a été envoyé à <strong>echkili.assurances@outlook.com</strong>. Un conseiller vous recontacte sous 2h ouvrées. Vous pouvez également confirmer instantanément par WhatsApp :
+              <strong id="quoteSuccessTitle">Demande transmise à l'agence !</strong><br>
+              <span id="quoteSuccessText">Votre devis a été envoyé à <strong>echkili.assurances@outlook.com</strong>. Un conseiller vous recontacte sous 2h ouvrées. Vous pouvez également confirmer instantanément par WhatsApp :</span>
               <div style="margin-top: 0.75rem;">
                 <a href="#" id="directWhatsappSubmitBtn" target="_blank" rel="noopener noreferrer" class="btn-hero-whatsapp" style="width: 100%; justify-content: center; font-size: 0.88rem; padding: 0.65rem;">
-                  Confirmer sur WhatsApp
+                  <span id="directWhatsappSubmitBtnText">Confirmer sur WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -1442,6 +1517,7 @@
     let currentOfferTitle = "Assurance AXA";
     async function handleQuickQuoteSubmit(e) {
       e.preventDefault();
+      const lang = (window.EchkiliI18n ? window.EchkiliI18n.getLanguage() : 'fr');
       const nom = document.getElementById('quoteNom').value.trim();
       const tel = document.getElementById('quoteTel').value.trim();
       const email = document.getElementById('quoteEmail').value.trim();
@@ -1450,9 +1526,10 @@
       const banner = document.getElementById('quoteSuccessBanner');
       const directBtn = document.getElementById('directWhatsappSubmitBtn');
       const submitBtn = document.getElementById('quoteSubmitBtn');
+      const submitBtnText = document.getElementById('quoteSubmitBtnText');
 
       if (submitBtn) {
-        submitBtn.textContent = 'Transmission en cours...';
+        if (submitBtnText) submitBtnText.textContent = lang === 'ar' ? 'جارٍ الإرسال إلى echkili.assurances@outlook.com...' : (lang === 'en' ? 'Submitting to agency...' : 'Transmission en cours...');
         submitBtn.disabled = true;
       }
 
@@ -1467,6 +1544,7 @@
         "Email Client": email || "Non renseigné",
         "Précisions / Détails": details || "Aucun détail complémentaire",
         "Source": "Formulaire Devis Express - Page Produit",
+        "Langue": lang,
         "Date et Heure": new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Casablanca' })
       };
 
@@ -1483,14 +1561,19 @@
         console.warn('FormSubmit quote status:', err);
       }
 
-      const waMsg = `Bonjour Assurances Echkili, je souhaite un devis pour *${currentOfferTitle}*.\nNom: ${nom}\nTéléphone: ${tel}${email ? '\nEmail: ' + email : ''}${details ? '\nPrécisions: ' + details : ''}`;
-      const waUrl = `https://wa.me/212667762124?text=${encodeURIComponent(waMsg)}`;
+      const waGreeting = lang === 'ar'
+        ? `السلام عليكم تأمينات شكيلـي، أرغب في تسعيرة حول *${currentOfferTitle}*.\nالاسم: ${nom}\nالهاتف: ${tel}${email ? '\nالبريد: ' + email : ''}${details ? '\nالتفاصيل: ' + details : ''}`
+        : (lang === 'en'
+          ? `Hello Assurances Echkili, I would like a quote for *${currentOfferTitle}*.\nName: ${nom}\nPhone: ${tel}${email ? '\nEmail: ' + email : ''}${details ? '\nDetails: ' + details : ''}`
+          : `Bonjour Assurances Echkili, je souhaite un devis pour *${currentOfferTitle}*.\nNom: ${nom}\nTéléphone: ${tel}${email ? '\nEmail: ' + email : ''}${details ? '\nPrécisions: ' + details : ''}`);
+
+      const waUrl = `https://wa.me/212667762124?text=${encodeURIComponent(waGreeting)}`;
 
       if (directBtn) directBtn.href = waUrl;
       if (banner) banner.style.display = 'block';
 
       if (submitBtn) {
-        submitBtn.textContent = 'Demande envoyée ✓';
+        if (submitBtnText) submitBtnText.textContent = lang === 'ar' ? 'تم إرسال الطلب ✓' : (lang === 'en' ? 'Quote Request Sent ✓' : 'Demande envoyée ✓');
         submitBtn.style.backgroundColor = '#16a34a';
         submitBtn.disabled = true;
       }
@@ -1517,12 +1600,14 @@
       if (metaDesc) metaDesc.setAttribute('content', `${offer.title} à Marrakech avec Assurances Echkili : ${offer.desc}`);
 
       // Fil d'Ariane
+      const bHome = document.querySelector('#breadcrumbTrail li:first-child a');
+      if (bHome) bHome.textContent = lang === 'ar' ? 'الرئيسية' : (lang === 'en' ? 'Home' : 'Accueil');
+      
       const bCat = document.getElementById('breadcrumbCategoryLink');
       if (bCat) {
         bCat.textContent = offer.category;
-        bCat.href = (offer.category.includes('Particuliers') || offer.category.includes('الأفراد') || offer.category.includes('Personal'))
-          ? 'offres.html?type=particuliers' 
-          : 'offres.html?type=pros';
+        const isPros = ['multirisque_pro', 'rc_pro', 'at_mp', 'flotte', 'trc', 'sante_groupe'].includes(currentProdId);
+        bCat.href = isPros ? 'offres.html?type=pros' : 'offres.html?type=particuliers';
       }
       const bTitle = document.getElementById('breadcrumbProductTitle');
       if (bTitle) bTitle.textContent = offer.title;
@@ -1533,7 +1618,12 @@
         quickNavContainer.innerHTML = Object.keys(OFFERS_DATA).map(key => {
           const item = (typeof getLocalizedOffer === 'function') ? getLocalizedOffer(key, lang) : OFFERS_DATA[key];
           const isActive = key === currentProdId;
-          const shortName = item.title.replace(/^Assurance\s+/i, '').replace(/^تأمين\s+/i, '');
+          let shortName = item.title
+            .replace(/^Assurance\s+/i, '')
+            .replace(/^تأمين\s+/i, '')
+            .replace(/\s+AXA\s*Maroc$/i, '')
+            .replace(/\s+AXA$/i, '')
+            .replace(/\s+أكسا$/i, '');
           return `
             <a href="produit.html?id=${key}" class="quick-nav-pill ${isActive ? 'active' : ''}">
               ${isActive ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
@@ -1553,36 +1643,82 @@
       const heroSub = document.getElementById('prodHeroSubtitle');
       if (heroSub) heroSub.textContent = offer.subtitle;
 
+      // Actions Hero
+      const btnHeroPrimary = document.querySelector('.product-hero-actions .btn-hero-primary');
+      if (btnHeroPrimary) {
+        const svg = btnHeroPrimary.querySelector('svg');
+        const text = lang === 'ar' ? 'طلب تسعيرة سريعة' : (lang === 'en' ? 'Request Express Quote' : 'Demander mon Devis Express');
+        btnHeroPrimary.innerHTML = '';
+        if (svg) btnHeroPrimary.appendChild(svg);
+        btnHeroPrimary.append(` ${text}`);
+      }
+
       const heroWa = document.getElementById('prodHeroWhatsappLink');
       if (heroWa) {
-        heroWa.href = `https://wa.me/212667762124?text=${encodeURIComponent('Bonjour Assurances Echkili, je souhaite des informations sur ' + offer.title)}`;
+        const waText = lang === 'ar'
+          ? `السلام عليكم تأمينات شكيلـي، أرغب في معلومات وتسعيرة حول ${offer.title}`
+          : (lang === 'en'
+            ? `Hello Assurances Echkili, I would like information and a quote for ${offer.title}`
+            : `Bonjour Assurances Echkili, je souhaite des informations sur ${offer.title}`);
+        heroWa.href = `https://wa.me/212667762124?text=${encodeURIComponent(waText)}`;
+        const svg = heroWa.querySelector('svg');
+        const label = lang === 'ar' ? 'تواصل عبر واتساب' : (lang === 'en' ? 'Chat on WhatsApp' : 'Échanger sur WhatsApp');
+        heroWa.innerHTML = '';
+        if (svg) heroWa.appendChild(svg);
+        heroWa.append(` ${label}`);
       }
 
-      // Placeholder personnalisé pour le devis express
-      const quoteDetailsInput = document.getElementById('quoteDetails');
-      if (quoteDetailsInput && offer.quotePlaceholder) {
-        quoteDetailsInput.placeholder = offer.quotePlaceholder;
+      const btnHeroCall = document.querySelector('.product-hero-actions .btn-hero-call');
+      if (btnHeroCall) {
+        const svg = btnHeroCall.querySelector('svg');
+        const text = lang === 'ar' ? 'اتصال : 05 25 36 30 61' : (lang === 'en' ? 'Call: 05 25 36 30 61' : '05 25 36 30 61');
+        btnHeroCall.innerHTML = '';
+        if (svg) btnHeroCall.appendChild(svg);
+        btnHeroCall.append(` ${text}`);
       }
 
-      // Description
+      // Bloc 1 : Présentation & Garanties
+      const overviewHeading = document.querySelector('#prodOverviewHeading span');
+      if (overviewHeading) {
+        overviewHeading.textContent = lang === 'ar' ? 'تقديم العقد والحل التأميني' : (lang === 'en' ? 'Contract & Coverage Overview' : 'Présentation de votre contrat');
+      }
+
       const fullDesc = document.getElementById('prodFullDesc');
       if (fullDesc) fullDesc.textContent = offer.desc;
 
-      // Garanties / Features
+      const featuresSubheading = document.getElementById('prodFeaturesSubheading');
+      if (featuresSubheading) {
+        featuresSubheading.textContent = lang === 'ar' ? 'الضمانات والخدمات المشمولة في العقد' : (lang === 'en' ? 'Key Guarantees & Covered Benefits' : 'Garanties & Prestations Incluses');
+      }
+
       const featuresContainer = document.getElementById('prodFeaturesContainer');
       if (featuresContainer && offer.features) {
         featuresContainer.innerHTML = offer.features.map(f => `
           <div class="feature-item-card">
             <h4 class="feature-item-title">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              ${f.title}
+              <span>${f.title}</span>
             </h4>
             <p class="feature-item-desc">${f.desc}</p>
           </div>
         `).join('');
       }
 
-      // Avantages agence
+      // Bloc 2 : Avantages de l'agence
+      const whyHeading = document.querySelector('#prodWhyHeading span');
+      if (whyHeading) {
+        whyHeading.textContent = lang === 'ar' ? 'لماذا تختارون الاكتتاب لدى تأمينات شكيلـي بمراكش؟' : (lang === 'en' ? 'Why Choose Assurances Echkili in Marrakech?' : "Pourquoi souscrire auprès d'Assurances Echkili à Marrakech ?");
+      }
+
+      const whyDesc = document.getElementById('prodWhyDesc');
+      if (whyDesc) {
+        whyDesc.textContent = lang === 'ar'
+          ? "بصفتنا وكيلاً عاماً معتمداً لأكسا المغرب بمراكش (عمارة الراحة رقم 8، شارع كَمَاسة، المحاميد)، تضمن لكم وكالتنا تواصلاً مباشراً ومعالجة فورية للملفات دون وسطاء."
+          : (lang === 'en'
+            ? "As an authorized AXA Morocco General Agent in Marrakech (Imm Erraha No. 8, Avenue Guemassa, M'hamid), our agency guarantees direct, personalized service without call-center intermediaries."
+            : "En tant qu'Agent Général AXA Assurance Maroc à Marrakech (Imm Erraha N°8, Avenue Guemassa, M'hamid), notre agence vous garantit une relation directe, sans plateforme intermédiaire délocalisée.");
+      }
+
       const advContainer = document.getElementById('prodAdvantagesContainer');
       if (advContainer && offer.advantages) {
         advContainer.innerHTML = offer.advantages.map(adv => `
@@ -1593,7 +1729,12 @@
         `).join('');
       }
 
-      // FAQ Ciblée par contrat
+      // Bloc 3 : FAQ
+      const faqHeading = document.querySelector('#prodFaqHeading span');
+      if (faqHeading) {
+        faqHeading.textContent = lang === 'ar' ? 'الأسئلة الشائعة حول هذا العقد' : (lang === 'en' ? 'Frequently Asked Questions on This Policy' : 'Questions fréquentes sur ce contrat');
+      }
+
       const faqContainer = document.getElementById('prodFaqContainer');
       if (faqContainer && offer.faq && offer.faq.length > 0) {
         faqContainer.innerHTML = offer.faq.map((item, idx) => `
@@ -1607,6 +1748,67 @@
             </div>
           </div>
         `).join('');
+      }
+
+      // Sticky Quote Sidebar
+      const quoteBoxTitle = document.querySelector('#quoteBoxTitle span');
+      if (quoteBoxTitle) {
+        quoteBoxTitle.textContent = lang === 'ar' ? 'تسعيرة سريعة ومجانية' : (lang === 'en' ? 'Free Express Quote' : 'Devis Express Gratuit');
+      }
+
+      const quoteBoxSubtitle = document.getElementById('quoteBoxSubtitle');
+      if (quoteBoxSubtitle) {
+        quoteBoxSubtitle.innerHTML = lang === 'ar'
+          ? 'يتم إرسال طلبكم مباشرة إلى <strong>echkili.assurances@outlook.com</strong>.'
+          : (lang === 'en'
+            ? 'Your request is sent directly to <strong>echkili.assurances@outlook.com</strong>.'
+            : 'Votre demande est transmise directement à <strong>echkili.assurances@outlook.com</strong>.');
+      }
+
+      const quoteNomLabel = document.getElementById('quoteNomLabel');
+      if (quoteNomLabel) quoteNomLabel.textContent = lang === 'ar' ? 'الاسم الكامل *' : (lang === 'en' ? 'Full Name *' : 'Votre Nom Complet *');
+      const quoteNomInput = document.getElementById('quoteNom');
+      if (quoteNomInput) quoteNomInput.placeholder = lang === 'ar' ? 'مثال: محمد العلمي' : (lang === 'en' ? 'E.g. John Smith' : 'Ex: Mohamed Alami');
+
+      const quoteTelLabel = document.getElementById('quoteTelLabel');
+      if (quoteTelLabel) quoteTelLabel.textContent = lang === 'ar' ? 'رقم الهاتف المحمول (واتساب) *' : (lang === 'en' ? 'Mobile Phone (WhatsApp) *' : 'Téléphone Mobile (WhatsApp) *');
+      const quoteTelInput = document.getElementById('quoteTel');
+      if (quoteTelInput) quoteTelInput.placeholder = lang === 'ar' ? '06 12 34 56 78' : (lang === 'en' ? '06 12 34 56 78' : 'Ex: 06 12 34 56 78');
+
+      const quoteEmailLabel = document.getElementById('quoteEmailLabel');
+      if (quoteEmailLabel) quoteEmailLabel.textContent = lang === 'ar' ? 'البريد الإلكتروني' : (lang === 'en' ? 'Email Address' : 'Adresse Email');
+      const quoteEmailInput = document.getElementById('quoteEmail');
+      if (quoteEmailInput) quoteEmailInput.placeholder = lang === 'ar' ? 'nom@exemple.ma' : (lang === 'en' ? 'name@example.com' : 'Ex: nom@domaine.ma');
+
+      const quoteDetailsLabel = document.getElementById('quoteDetailsLabel');
+      if (quoteDetailsLabel) quoteDetailsLabel.textContent = lang === 'ar' ? 'تفاصيل حول طلبكم' : (lang === 'en' ? 'Details on your requirements' : 'Précision sur votre besoin');
+      const quoteDetailsInput = document.getElementById('quoteDetails');
+      if (quoteDetailsInput) {
+        quoteDetailsInput.placeholder = offer.quotePlaceholder || (lang === 'ar' ? 'حدد متطلباتك بالتفصيل...' : 'Précisez votre demande...');
+      }
+
+      const quoteSubmitBtnText = document.getElementById('quoteSubmitBtnText');
+      if (quoteSubmitBtnText) {
+        quoteSubmitBtnText.textContent = lang === 'ar' ? 'طلب التسعيرة المجانية' : (lang === 'en' ? 'Get My Free Quote' : 'Recevoir mon Devis');
+      }
+
+      const quoteSuccessTitle = document.getElementById('quoteSuccessTitle');
+      if (quoteSuccessTitle) {
+        quoteSuccessTitle.textContent = lang === 'ar' ? 'تم إرسال طلبكم بنجاح إلى الوكالة!' : (lang === 'en' ? 'Request Transmitted to Agency!' : 'Demande transmise à l\'agence !');
+      }
+
+      const quoteSuccessText = document.getElementById('quoteSuccessText');
+      if (quoteSuccessText) {
+        quoteSuccessText.innerHTML = lang === 'ar'
+          ? 'تم إرسال طلبكم مباشرة إلى <strong>echkili.assurances@outlook.com</strong>. سيتواصل معكم مستشار الوكالة في غضون ساعتي عمل. كما يمكنكم التأكيد الفوري عبر واتساب:'
+          : (lang === 'en'
+            ? 'Your quote has been sent to <strong>echkili.assurances@outlook.com</strong>. An advisor will contact you within 2 business hours. You can also confirm instantly via WhatsApp:'
+            : 'Votre devis a été envoyé à <strong>echkili.assurances@outlook.com</strong>. Un conseiller vous recontacte sous 2h ouvrées. Vous pouvez également confirmer instantanément par WhatsApp :');
+      }
+
+      const directWhatsappSubmitBtnText = document.getElementById('directWhatsappSubmitBtnText');
+      if (directWhatsappSubmitBtnText) {
+        directWhatsappSubmitBtnText.textContent = lang === 'ar' ? 'تأكيد عبر واتساب' : (lang === 'en' ? 'Confirm on WhatsApp' : 'Confirmer sur WhatsApp');
       }
     }
 
