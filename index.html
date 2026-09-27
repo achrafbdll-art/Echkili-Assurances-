@@ -4752,10 +4752,11 @@
           </p>
 
           <form id="contactForm" action="https://formsubmit.co/echkili.assurances@outlook.com" method="POST" onsubmit="handleContactSubmit(event)">
-            <!-- Paramètres FormSubmit pour réception sur echkili.assurances@outlook.com -->
+            <!-- Paramètres FormSubmit pour réception directe sur echkili.assurances@outlook.com -->
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" id="cfHiddenSubject" value="Nouvelle Demande de Contact - Assurances Echkili Marrakech">
+            <input type="hidden" name="_subject" id="cfHiddenSubject" value="Nouvelle Demande [Devis & Contact] - Assurances Echkili Marrakech">
             <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="Merci pour votre demande auprès d'Assurances Echkili Marrakech. Votre conseiller dédié étudie votre dossier et vous contacte sous 2h ouvrées.">
 
             <!-- Ligne 1 : Nom et Téléphone -->
             <div class="contact-form-row">
@@ -5159,7 +5160,7 @@
       calculateRealtimePrice();
     }
 
-    // Quick trigger from cards
+    // Quick trigger from cards & modals
     function openDevisFor(product) {
       const contactSection = document.getElementById('contact');
       if (contactSection) {
@@ -5167,24 +5168,41 @@
       }
       const sujetSelect = document.getElementById('contactSujet');
       if (sujetSelect) {
-        if (product === 'entreprise' || product === 'pro') {
+        if (['multirisque_pro', 'at_mp', 'rc_pro', 'flotte', 'trc', 'sante_groupe', 'entreprise', 'pro'].includes(product)) {
           sujetSelect.value = 'entreprise';
+        } else if (product === 'habitation') {
+          sujetSelect.value = 'habitation';
+        } else if (product === 'sante') {
+          sujetSelect.value = 'sante';
+        } else if (product === 'epargne' || product === 'prevoyance') {
+          sujetSelect.value = 'epargne';
         } else {
-          sujetSelect.value = 'devis';
+          sujetSelect.value = 'auto';
         }
       }
       const msgArea = document.getElementById('contactMessage');
       if (msgArea && !msgArea.value) {
         const labels = {
-          auto: "Demande de devis pour Assurance Auto / Moto",
-          habitation: "Demande d'information pour Multirisque Habitation",
-          sante: "Demande d'étude pour Santé Sehassur & International",
-          prevoyance: "Demande de conseil pour Prévoyance & Sécurité Financière",
-          epargne: "Demande de conseil pour Solution d'Épargne / Retraite",
-          entreprise: "Demande d'audit et devis Entreprise / Professionnel"
+          auto: "Bonjour, je souhaite recevoir un devis personnalisé pour mon Assurance Auto / Moto.",
+          habitation: "Bonjour, je souhaite un devis d'Assurance Habitation (HABITASSUR) pour mon logement.",
+          sante: "Bonjour, je souhaite une étude pour l'Assurance Santé Sehassur & International.",
+          prevoyance: "Bonjour, je souhaite des informations et un devis de Prévoyance & Sécurité Familiale.",
+          epargne: "Bonjour, je souhaite une étude d'Épargne & Retraite (Futuris II).",
+          voyage: "Bonjour, je souhaite une attestation et devis d'Assurance Voyage Schengen.",
+          multirisque_pro: "Bonjour, je souhaite un devis Multirisque Professionnelle pour mon commerce / local.",
+          at_mp: "Bonjour, je souhaite une étude d'Assurance Accidents du Travail (Loi 18-12).",
+          rc_pro: "Bonjour, je souhaite un devis de Responsabilité Civile Professionnelle (RC Pro).",
+          flotte: "Bonjour, je souhaite un devis pour la flotte automobile de notre entreprise.",
+          trc: "Bonjour, je souhaite une cotation Tous Risques Chantier (TRC).",
+          sante_groupe: "Bonjour, je souhaite une étude pour la Santé & Prévoyance Collective de nos salariés.",
+          entreprise: "Bonjour, je souhaite un audit et devis pour les assurances de mon entreprise."
         };
-        msgArea.placeholder = labels[product] || "Décrivez votre besoin ou posez votre question...";
+        msgArea.value = labels[product] || "Bonjour, je souhaite recevoir un devis personnalisé.";
       }
+      setTimeout(() => {
+        const nomInput = document.getElementById('contactNom');
+        if (nomInput) nomInput.focus();
+      }, 500);
     }
 
     // Real-time calculation formula
@@ -5294,11 +5312,13 @@
         `;
       }
 
-      // Envoi asynchrone des données vers l'adresse email de l'agence
+      // Envoi asynchrone des données vers l'adresse email de l'agence echkili.assurances@outlook.com
       const payload = {
         _subject: `Nouvelle demande Contact [Assurances Echkili] : ${sujet} - ${nom}`,
         _captcha: "false",
         _template: "table",
+        _replyto: email || undefined,
+        _autoresponse: "Merci pour votre demande auprès d'Assurances Echkili Marrakech. Votre conseiller dédié étudie votre dossier et vous contacte sous 2h ouvrées.",
         "Nom et Prénom": nom,
         "Téléphone Mobile": phone,
         "Email Client": email || "Non renseigné",

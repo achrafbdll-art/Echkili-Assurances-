@@ -1291,6 +1291,7 @@
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_subject" id="quoteHiddenSubject" value="Demande Devis Express - Assurances Echkili Marrakech">
               <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_autoresponse" value="Merci pour votre demande de devis auprès d'Assurances Echkili Marrakech. Votre conseiller dédié étudie votre besoin et vous contacte sous 2h ouvrées.">
               <div class="form-group-lite">
                 <label for="quoteNom" id="quoteNomLabel">Votre Nom Complet *</label>
                 <input type="text" id="quoteNom" name="nom" class="form-control-lite" placeholder="Ex: Mohamed Alami" required autocomplete="name">
@@ -1538,6 +1539,8 @@
         _subject: `Nouvelle demande Devis [${currentOfferTitle}] : ${nom}`,
         _captcha: "false",
         _template: "table",
+        _replyto: email || undefined,
+        _autoresponse: "Merci pour votre demande de devis auprès d'Assurances Echkili Marrakech. Votre conseiller dédié étudie votre besoin et vous contacte sous 2h ouvrées.",
         "Solution Demandée": currentOfferTitle,
         "Nom Complet": nom,
         "Téléphone (WhatsApp)": tel,
