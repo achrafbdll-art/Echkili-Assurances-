@@ -139,18 +139,6 @@
       mb_call: "Appeler",
       mb_wa: "WhatsApp",
       mb_urgency: "Urgence",
-      mb_devis: "Devis",
-
-      // Call Sheet Drawer
-      cs_title: "Contacter Assurances Echkili",
-      cs_sub: "Imm Erraha N°8, Av. Guemassa, M'hamid, Marrakech",
-      cs_fixe_label: "Téléphone Fixe Bureau",
-      cs_fixe_note: "Lun-Ven 8h30-18h30 | Sam 9h-13h",
-      cs_gsm_label: "Mobile GSM & Urgences",
-      cs_gsm_note: "Conseiller dédié & Assistance 7j/7",
-      cs_wa_label: "WhatsApp Agence",
-      cs_wa_note: "Envoi photos documents, carte grise, devis",
-      cs_cancel: "Fermer",
 
       // Offres catalogue & Produit
       catalog_title: "Catalogue des Offres AXA",
@@ -306,18 +294,6 @@
       mb_call: "اتصال",
       mb_wa: "واتساب",
       mb_urgency: "طوارئ",
-      mb_devis: "تسعيرة",
-
-      // Call Sheet Drawer
-      cs_title: "اتصل بوكالة تأمينات شكيلـي",
-      cs_sub: "عمارة الراحة رقم 8، شارع كَماسة، المحاميد، مراكش",
-      cs_fixe_label: "الهاتف الثابت للوكالة",
-      cs_fixe_note: "الاثنين - الجمعة 8:30 - 18:30 | السبت 9:00 - 13:00",
-      cs_gsm_label: "المحمول والطوارئ",
-      cs_gsm_note: "مستشار خاص ومساعدة 7/7 أيام",
-      cs_wa_label: "واتساب الوكالة",
-      cs_wa_note: "إرسال صور الوثائق، الرمادية، تسعيرة فورية",
-      cs_cancel: "إلغاء",
 
       catalog_title: "دليل عروض تأمينات أكسا",
       catalog_sub: "جميع حلول الحماية والتغطية التأمينية للأفراد والمهنيين والمقاولات بمدينة مراكش.",
@@ -472,18 +448,6 @@
       mb_call: "Call",
       mb_wa: "WhatsApp",
       mb_urgency: "Emergency",
-      mb_devis: "Quote",
-
-      // Call Sheet Drawer
-      cs_title: "Contact Echkili Insurance Agency",
-      cs_sub: "Imm Erraha #8, Guemassa Ave, M'hamid, Marrakech",
-      cs_fixe_label: "Office Landline",
-      cs_fixe_note: "Mon-Fri 8:30am-6:30pm | Sat 9am-1pm",
-      cs_gsm_label: "Mobile & Emergencies",
-      cs_gsm_note: "Dedicated Advisor & 24/7 Assistance",
-      cs_wa_label: "Agency WhatsApp",
-      cs_wa_note: "Send photos, car registration, fast quote",
-      cs_cancel: "Cancel",
 
       catalog_title: "AXA Insurance Catalog",
       catalog_sub: "Complete range of insurance solutions for individuals, professionals, and enterprises in Marrakech.",
@@ -830,30 +794,7 @@
     const tbWa = document.querySelector('.m-taskbar-wa span');
     if (tbWa) tbWa.textContent = dict.mb_wa;
     const tbUrgence = document.querySelector('#taskbarUrgence span');
-    if (tbUrgence) {
-      const isDevis = window.location.pathname.includes('produit') || window.location.pathname.includes('offres') || tbUrgence.parentElement?.getAttribute('aria-label')?.includes('Devis');
-      tbUrgence.textContent = (isDevis && dict.mb_devis) ? dict.mb_devis : dict.mb_urgency;
-    }
-
-    // Call Sheet Drawer translations
-    const csTitle = document.getElementById('callSheetTitle');
-    if (csTitle) csTitle.textContent = dict.cs_title;
-    const csSub = document.getElementById('callSheetSubtitle');
-    if (csSub) csSub.textContent = dict.cs_sub;
-    const csLabelFixe = document.getElementById('csLabelFixe');
-    if (csLabelFixe) csLabelFixe.textContent = dict.cs_fixe_label;
-    const csNoteFixe = document.getElementById('csNoteFixe');
-    if (csNoteFixe) csNoteFixe.textContent = dict.cs_fixe_note;
-    const csLabelGsm = document.getElementById('csLabelGsm');
-    if (csLabelGsm) csLabelGsm.textContent = dict.cs_gsm_label;
-    const csNoteGsm = document.getElementById('csNoteGsm');
-    if (csNoteGsm) csNoteGsm.textContent = dict.cs_gsm_note;
-    const csLabelWa = document.getElementById('csLabelWa');
-    if (csLabelWa) csLabelWa.textContent = dict.cs_wa_label;
-    const csNoteWa = document.getElementById('csNoteWa');
-    if (csNoteWa) csNoteWa.textContent = dict.cs_wa_note;
-    const csCancelBtn = document.getElementById('callSheetCancelBtn');
-    if (csCancelBtn) csCancelBtn.textContent = dict.cs_cancel;
+    if (tbUrgence) tbUrgence.textContent = dict.mb_urgency;
 
     // Catalogue & Produit page items
     const breadcrumbHome = document.querySelector('#breadcrumbTrail li:first-child a');
