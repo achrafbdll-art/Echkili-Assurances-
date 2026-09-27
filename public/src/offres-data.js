@@ -1614,6 +1614,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Initialisation du Menu Mobile (Hamburger) & Accordéons
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenuList = document.getElementById('navMenuList');
+
+  if (menuToggle && navMenuList) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = navMenuList.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Fermeture lors du clic sur un lien normal
+    navMenuList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        const isDropdownParent = link.parentElement && link.parentElement.classList.contains('dropdown-item-container');
+        if (isDropdownParent && window.innerWidth <= 860) {
+          return;
+        }
+        navMenuList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Accordéons sous-menus sur mobile / tactile
+    document.querySelectorAll('.dropdown-item-container').forEach(container => {
+      const navLink = container.querySelector('.nav-menu-link');
+      if (navLink) {
+        navLink.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024 || ('ontouchstart' in window)) {
+            const wasActive = container.classList.contains('mobile-expanded');
+            document.querySelectorAll('.dropdown-item-container').forEach(c => c.classList.remove('mobile-expanded'));
+            if (!wasActive) {
+              e.preventDefault();
+              container.classList.add('mobile-expanded');
+            }
+          }
+        });
+      }
+    });
+
+    // Clic en dehors pour fermer le tiroir mobile
+    document.addEventListener('click', (e) => {
+      if (!navMenuList.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenuList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // Écouteur de changement de langue
   window.addEventListener('echkiliLanguageChanged', () => {
     // Si la modal est ouverte, réactualiser son contenu
