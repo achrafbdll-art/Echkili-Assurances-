@@ -212,9 +212,7 @@ const OFFERS_DATA = {
     desc: "Formule conforme aux exigences de l'ensemble des consulats de l'espace Schengen et monde entier pour vos séjours d'affaires ou de tourisme.",
     features: [
       { title: "Conformité Visa Schengen Immédiate", desc: "Plafond médical de 30 000 € garanti conforme aux exigences consulaires." },
-      { title: "Frais Médicaux d'Urgence à l'Étranger", desc: "Prise en charge sans avance de frais lors de déplacements hors du Maroc." },
-      { title: "Rapatriement Médicalisé 24/7", desc: "Évacuation sanitaire encadrée par une équipe médicale d'urgence." },
-      { title: "Assistance Bagages & Perte d'Effets", desc: "Indemnisation forfaitaire en cas de retard ou perte de bagages en vol." }
+      { title: "Rapatriement Médicalisé 24/7", desc: "Évacuation sanitaire encadrée par une équipe médicale d'urgence." },    
     ],
     advantages: [
       "Délivrance de l'attestation en 5 minutes à l'agence ou par WhatsApp/Email",
