@@ -820,15 +820,20 @@
     const footerRights = document.querySelector('.footer-bottom-copy');
     if (footerRights) footerRights.textContent = `© ${new Date().getFullYear()} Assurances Echkili. ${dict.footer_rights}`;
 
-    // Mobile taskbar items (4 clean tabs: Accueil, Offres, WhatsApp, Devis)
+    // Mobile taskbar items
     const tbHome = document.querySelector('#taskbarHome span');
     if (tbHome) tbHome.textContent = dict.mb_home;
     const tbOffers = document.querySelector('#taskbarOffers span');
     if (tbOffers) tbOffers.textContent = dict.mb_offers;
+    const tbCall = document.querySelector('.m-taskbar-call span');
+    if (tbCall) tbCall.textContent = dict.mb_call;
     const tbWa = document.querySelector('.m-taskbar-wa span');
     if (tbWa) tbWa.textContent = dict.mb_wa;
     const tbUrgence = document.querySelector('#taskbarUrgence span');
-    if (tbUrgence) tbUrgence.textContent = dict.mb_devis || "Devis";
+    if (tbUrgence) {
+      const isDevis = window.location.pathname.includes('produit') || window.location.pathname.includes('offres') || tbUrgence.parentElement?.getAttribute('aria-label')?.includes('Devis');
+      tbUrgence.textContent = (isDevis && dict.mb_devis) ? dict.mb_devis : dict.mb_urgency;
+    }
 
     // Call Sheet Drawer translations
     const csTitle = document.getElementById('callSheetTitle');

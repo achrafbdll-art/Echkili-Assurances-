@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build && mkdir -p dist/src && cp src/i18n.js src/offres-data.js src/site-charter.css src/mobile-menu.js dist/src/",
+    "build": "vite build && mkdir -p dist/src && cp src/i18n.js src/offres-data.js src/site-charter.css dist/src/",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"

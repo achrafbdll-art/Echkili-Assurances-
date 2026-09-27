@@ -1156,13 +1156,17 @@
         <li class="nav-menu-item"><a href="index.html#contact" class="nav-menu-link">Contact &amp; Accès</a></li>
       </ul>
 
-      <!-- Mobile Top Actions (Language Selector + Hamburger Menu) -->
+      <!-- Mobile Top Actions (Quick Call + Hamburger Button) -->
       <div class="mobile-nav-actions">
         <div class="mobile-nav-lang-selector" role="group" aria-label="Langue">
           <button type="button" class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
           <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false">عربي</button>
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
+        <a href="tel:+212525363061" class="mobile-nav-quick-call" title="Appeler le bureau">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Appeler</span>
+        </a>
         <button class="mobile-nav-toggle" id="menuToggle" aria-label="Menu principal" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           <span>MENU</span>
@@ -1493,7 +1497,6 @@
   <!-- Script d'interactivité et de chargement dynamique des données -->
   <script src="/src/offres-data.js"></script>
   <script src="/src/i18n.js"></script>
-  <script src="/src/mobile-menu.js"></script>
   <script>
     // Navigation Dropdowns Mobile Controller
     function closeNavDropdowns() {
@@ -1872,7 +1875,7 @@
       });
     });
   </script>
-  <!-- Mobile Bottom Sticky Taskbar (Optimized for Mobile Ergonomics - 4 Items) -->
+  <!-- Mobile Bottom Sticky Taskbar -->
   <nav class="mobile-bottom-taskbar" id="mobileBottomTaskbar" aria-label="Barre d'actions rapides mobile">
     <a href="index.html" class="m-taskbar-item" id="taskbarHome" aria-label="Accueil">
       <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -1881,6 +1884,12 @@
     <a href="offres.html" class="m-taskbar-item" id="taskbarOffers" aria-label="Catalogue Offres">
       <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
       <span>Offres</span>
+    </a>
+    <a href="tel:+212525363061" class="m-taskbar-item m-taskbar-call" onclick="openCallSheet(event)" aria-label="Appeler l'agence AXA Marrakech (05 25 36 30 61)">
+      <div class="m-call-bubble">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <span>Appeler</span>
     </a>
     <a href="https://wa.me/212667762124"
        id="taskbarWhatsappLink"
@@ -1897,5 +1906,86 @@
       <span style="font-weight: 800; color: #e0021b;">Devis</span>
     </a>
   </nav>
+
+  <!-- Mobile Bottom Call Action Sheet (Drawer Tactile) -->
+  <div class="call-sheet-overlay" id="callSheetOverlay" onclick="closeCallSheet()" aria-hidden="true">
+    <div class="call-sheet-modal" id="callSheetModal" onclick="event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="callSheetTitle">
+      <div class="call-sheet-handle"></div>
+      <div class="call-sheet-header">
+        <div class="call-sheet-badge">Agence Agréée AXA Marrakech</div>
+        <h3 class="call-sheet-title" id="callSheetTitle">Contacter Assurances Echkili</h3>
+        <p class="call-sheet-sub" id="callSheetSubtitle">Imm Erraha N°8, Av. Guemassa, M'hamid, Marrakech</p>
+      </div>
+      <div class="call-sheet-actions">
+        <a href="tel:+212525363061" class="call-sheet-btn call-sheet-btn-fixe" id="callSheetFixeBtn">
+          <div class="call-sheet-btn-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="call-sheet-btn-text">
+            <span class="call-sheet-btn-label" id="csLabelFixe">Téléphone Fixe Bureau</span>
+            <strong class="call-sheet-btn-phone">05 25 36 30 61</strong>
+            <small class="call-sheet-btn-note" id="csNoteFixe">Lun-Ven 8h30-18h30 | Sam 9h-13h</small>
+          </div>
+          <div class="call-sheet-btn-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <a href="tel:+212667762124" class="call-sheet-btn call-sheet-btn-gsm" id="callSheetGsmBtn">
+          <div class="call-sheet-btn-icon gsm-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="call-sheet-btn-text">
+            <span class="call-sheet-btn-label" id="csLabelGsm">Mobile GSM &amp; Urgences</span>
+            <strong class="call-sheet-btn-phone">06 67 76 21 24</strong>
+            <small class="call-sheet-btn-note" id="csNoteGsm">Conseiller dédié &amp; Assistance 7j/7</small>
+          </div>
+          <div class="call-sheet-btn-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <a href="https://wa.me/212667762124" target="_blank" rel="noopener noreferrer" class="call-sheet-btn call-sheet-btn-wa" id="callSheetWaBtn">
+          <div class="call-sheet-btn-icon wa-icon">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
+          </div>
+          <div class="call-sheet-btn-text">
+            <span class="call-sheet-btn-label" id="csLabelWa">WhatsApp Agence</span>
+            <strong class="call-sheet-btn-phone">06 67 76 21 24</strong>
+            <small class="call-sheet-btn-note" id="csNoteWa">Envoi photos documents, carte grise, devis</small>
+          </div>
+          <div class="call-sheet-btn-arrow">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+      </div>
+      <button type="button" class="call-sheet-cancel-btn" onclick="closeCallSheet()" id="callSheetCancelBtn">Fermer</button>
+    </div>
+  </div>
+
+  <script>
+    function openCallSheet(event) {
+      if (event) event.preventDefault();
+      const overlay = document.getElementById('callSheetOverlay');
+      if (overlay) {
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCallSheet() {
+      const overlay = document.getElementById('callSheetOverlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeCallSheet();
+    });
+  </script>
 </body>
 </html>
