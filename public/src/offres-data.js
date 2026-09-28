@@ -43,6 +43,46 @@ const OFFERS_DATA = {
     action: "Demander mon Devis Auto",
     telLabel: "Conseiller Auto : 05 25 36 30 61"
   },
+  moto: {
+    category: "Particuliers • Deux-Roues & Mobilité",
+    badge: "Protection Pilote & Dépannage 24/7",
+    title: "Assurance Deux-Roues & Moto AXA",
+    subtitle: "La solution sur-mesure pour motos, scooters et grosses cylindrées à Marrakech.",
+    desc: "Couverture dédiée motards et conducteurs de deux-roues : responsabilité civile, protection du pilote et casque, vol, incendie et assistance dépannage 24/7 immédiate.",
+    features: [
+      { title: "Protection Individuelle Conducteur", desc: "Prise en charge des frais médicaux et prévoyance corporelle du motard." },
+      { title: "Assistance Dépannage Moto 24/7", desc: "Remorquage spécialisé deux-roues 0 km à Marrakech et région." },
+      { title: "Garantie Casque & Équipement", desc: "Indemnisation de votre équipement de sécurité en cas de sinistre." },
+      { title: "Défense & Recours Juridique", desc: "Assistance juridique complète en cas de litige suite à un accident." }
+    ],
+    advantages: [
+      "Tarifs compétitifs adaptés à la cylindrée et à l'usage",
+      "Édition immédiate de la carte verte à l'agence Avenue Guemassa",
+      "Réseau de garages et réparateurs motos conventionnés"
+    ],
+    requiredDocs: [
+      "Carte grise ou récépissé d'achat du deux-roues",
+      "Permis de conduire correspondant à la cylindrée",
+      "Copie de la CIN"
+    ],
+    faq: [
+      {
+        q: "L'équipement de protection et le casque sont-ils couverts ?",
+        a: "Oui, nos formules moto incluent une garantie dédiée pour l'indemnisation de votre casque et équipement vestimentaire de protection."
+      },
+      {
+        q: "Comment fonctionne le remorquage en cas de crevaison ou panne moto ?",
+        a: "Un appel à notre assistance 24/7 (05 25 36 30 61) déclenche l'intervention d'une dépanneuse adaptée au transport sécurisé de votre moto."
+      },
+      {
+        q: "Puis-je assurer un scooter 50cc ou une grosse moto ?",
+        a: "Absolument, nous assurons l'ensemble des cylindrées, du scooter urbain aux motos routières et sportives."
+      }
+    ],
+    quotePlaceholder: "Modèle et cylindrée moto, date de mise en circulation, usage personnel ou pro...",
+    action: "Demander mon Devis Moto",
+    telLabel: "Conseiller Moto : 05 25 36 30 61"
+  },
   habitation: {
     category: "Particuliers • Patrimoine",
     badge: "Formule HABITASSUR Tous Risques",
@@ -528,6 +568,46 @@ const OFFERS_I18N = {
       action: "طلب تسعيرة سيارة",
       telLabel: "مستشار السيارات : 05 25 36 30 61"
     },
+    moto: {
+      category: "الأفراد • الدراجات النارية والتنقل",
+      badge: "حماية السائق ومساعدة 24/7",
+      title: "تأمين الدراجات النارية والسكوتر أكسا",
+      subtitle: "الحل المتخصص للدراجات النارية والسكوتر بمراكش والمغرب.",
+      desc: "تغطية شاملة ومصممة خصيصاً لسائقي الدراجات النارية: المسؤولية المدنية، حماية السائق والخوذة، السرقة، الحريق والمساعدة في القطر 24/7 على الفور بمراكش ونواحيها.",
+      features: [
+        { title: "حماية السائق الجسدية", desc: "تغطية المصاريف الطبية والتعويض البدني للسائق." },
+        { title: "مساعدة وقطر 24/7", desc: "قطر متخصص للدراجات النارية 0 كم بمراكش والمغرب." },
+        { title: "ضمان الخوذة ومعدات الحماية", desc: "تعويض الخوذة والمعدات في حالة وقوع حادث." },
+        { title: "الدفاع القانوني والمطالبة بالحقوق", desc: "مرافقة قانونية شاملة عند النزاعات الناتجة عن الحوادث." }
+      ],
+      advantages: [
+        "أسعار تنافسية مناسبة لسعة المحرك وطبيعة الاستعمال",
+        "تسليم فوري لشهادة وبطاقة التأمين بالوكالة بشارع كَمَاسة",
+        "شبكة ورشات ومرائب معتمدة متخصصة بمراكش"
+      ],
+      requiredDocs: [
+        "البطاقة الرمادية أو وصل شراء الدراجة",
+        "رخصة السياقة المناسبة لسعة الدراجة",
+        "نسخة من بطاقة التعريف الوطنية (CIN)"
+      ],
+      faq: [
+        {
+          q: "هل يشمل التأمين الخوذة والمعدات الواقية؟",
+          a: "نعم، تتضمن صيغنا ضماناً خاصاً لتعويض الخوذة وتجهيزات الأمان الخاصة بالسائق."
+        },
+        {
+          q: "كيف تتم المساعدة عند وقوع عطب أو ثقب عجلة؟",
+          a: "عبر اتصال واحد برقم المساعدة 24/7 (05 25 36 30 61)، يتم إرسال شاحنة قطر مجهزة لنقل دراجتكم بكل أمان."
+        },
+        {
+          q: "هل يمكن تأمين السكوتر 50cc والدراجات الكبيرة؟",
+          a: "نعم بالتأكيد، نؤمن جميع فئات الدراجات من السكوتر الصغير إلى الدراجات النارية الكبيرة والسياحية."
+        }
+      ],
+      quotePlaceholder: "نوع وسعة المحرك، تاريخ أول شروع في الاستخدام، الاستعمال شخصي أو مهني...",
+      action: "طلب تسعيرة تأمين الدراجة النارية",
+      telLabel: "مستشار الدراجات النارية : 05 25 36 30 61"
+    },
     habitation: {
       category: "الأفراد • السكن والعقار",
       badge: "عرض هابيتاسور الشامل",
@@ -1012,6 +1092,46 @@ const OFFERS_I18N = {
       quotePlaceholder: "Make, model, fiscal horsepower (e.g. 6 HP diesel), year of manufacture...",
       action: "Request Car Quote",
       telLabel: "Car Advisor: 05 25 36 30 61"
+    },
+    moto: {
+      category: "Personal • Motorcycle & Mobility",
+      badge: "Rider Protection & 24/7 Roadside Assistance",
+      title: "AXA Motorcycle & Scooter Insurance",
+      subtitle: "The tailored protection for scooters, motorbikes, and superbikes in Marrakech.",
+      desc: "Comprehensive motorcycle coverage: third-party liability, rider and helmet protection, theft, fire, and immediate 24/7 roadside towing across Marrakech.",
+      features: [
+        { title: "Individual Rider Protection", desc: "Coverage for medical expenses and personal bodily injury protection." },
+        { title: "24/7 Roadside Assistance & Towing", desc: "Specialized two-wheeler flatbed towing 0 km in Marrakech." },
+        { title: "Helmet & Gear Guarantee", desc: "Compensation for your protective riding gear and certified helmet." },
+        { title: "Legal Defense & Recourse", desc: "Full legal support in disputes and claims handling after an accident." }
+      ],
+      advantages: [
+        "Competitive rates tailored to engine displacement and usage",
+        "Immediate green card issuance at our Avenue Guemassa agency",
+        "Network of approved motorcycle workshops in Marrakech"
+      ],
+      requiredDocs: [
+        "Original vehicle registration document (carte grise)",
+        "Valid motorcycle driving license",
+        "Copy of National Identity Card (CIN) / Passport"
+      ],
+      faq: [
+        {
+          q: "Are protective gear and helmet covered?",
+          a: "Yes, our motorcycle insurance plans include dedicated compensation for your helmet and safety gear in case of an accident."
+        },
+        {
+          q: "How does 24/7 roadside assistance work for a breakdown or flat tire?",
+          a: "One call to our 24/7 hotline (05 25 36 30 61) dispatches an appropriate flatbed tow truck to safely transport your bike to an approved workshop."
+        },
+        {
+          q: "Can I insure both 50cc scooters and high-displacement motorbikes?",
+          a: "Yes, we insure the entire range, from commuter scooters to heavy touring bikes and cruisers."
+        }
+      ],
+      quotePlaceholder: "Make, model, engine size, year of registration, usage...",
+      action: "Request Motorcycle Quote",
+      telLabel: "Motorcycle Advisor: 05 25 36 30 61"
     },
     habitation: {
       category: "Personal • Property",

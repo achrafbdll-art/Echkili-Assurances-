@@ -1700,6 +1700,12 @@
     .faq-item.active .faq-answer {
       display: block;
     }
+    html[dir="rtl"] .faq-question {
+      text-align: right;
+    }
+    html[dir="rtl"] .faq-answer {
+      text-align: right;
+    }
 
     /* Contact Section (Arrière-plan Bleu AXA) */
     #contact {
@@ -4707,49 +4713,59 @@
     <section class="section section-gray" id="faq">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Foire Aux Questions</span>
-          <h2 class="section-title">Questions Fréquemment Posées</h2>
-          <p class="section-subtitle">Retrouvez les réponses aux interrogations les plus courantes de nos assurés.</p>
+          <span class="section-tag" data-i18n="faq_tag">Foire Aux Questions</span>
+          <h2 class="section-title" data-i18n="faq_title">Questions Fréquemment Posées</h2>
+          <p class="section-subtitle" data-i18n="faq_sub">Retrouvez les réponses aux interrogations les plus courantes de nos assurés.</p>
         </div>
 
         <div class="faq-list">
           <div class="faq-item active">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span>Quels sont les documents indispensables pour assurer un véhicule ?</span>
+              <span data-i18n="faq_q1">Quels sont les documents indispensables pour assurer un véhicule ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq_a1">
               Pour souscrire une assurance auto ou moto, vous devez présenter la carte grise originale (ou récépissé de mutation), le permis de conduire du conducteur principal, la CIN (Carte d'Identité Nationale) et l'ancien certificat d'assurance si vous bénéficiez d'un bonus de non-sinistre.
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span>Comment fonctionne l'assistance 24/7 en cas de panne à Marrakech ou sur route ?</span>
+              <span data-i18n="faq_q2">Comment fonctionne l'assistance 24/7 en cas de panne à Marrakech ou sur route ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq_a2">
               En composant le numéro d'assistance figurant sur votre vignette verte (05 25 36 30 61 ou 06 67 76 21 24), une dépanneuse est immédiatement dépêchée sur place. Selon votre contrat, vous profitez du dépannage sur place, du remorquage vers le garage conventionné le plus proche, du rapatriement et d'un véhicule de prêt.
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span>L'assurance Accident du Travail (AT) est-elle obligatoire pour mon entreprise ?</span>
+              <span data-i18n="faq_q3">L'assurance Accident du Travail (AT) est-elle obligatoire pour mon entreprise ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq_a3">
               Oui, au Maroc la souscription d'une police d'assurance couvrant les accidents du travail et maladies professionnelles est une obligation légale stricte pour tout employeur, quel que soit le nombre de salariés déclarés (Code des Assurances et loi 18-12).
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span>Quels sont les délais habituels de remboursement santé ?</span>
+              <span data-i18n="faq_q4">Quels sont les délais habituels de remboursement santé ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq_a4">
               Dès dépôt de votre dossier de soins complet à notre agence Assurances Echkili (feuille de maladie, ordonnance cachetée, vignettes médicamenteuses et quittances), le traitement et le virement bancaire sont généralement effectués sous 7 à 10 jours ouvrés.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span data-i18n="faq_q5">Comment obtenir un devis personnalisé ou souscrire sans me déplacer ?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" data-i18n="faq_a5">
+              Vous pouvez remplir le formulaire de devis ci-dessous, nous joindre au 05 25 36 30 61 ou nous envoyer vos documents par WhatsApp au 06 67 76 21 24. Un conseiller vous répond sous 2 heures ouvrées avec une étude personnalisée et adaptée.
             </div>
           </div>
         </div>
@@ -5093,15 +5109,15 @@
       <div class="footer-col">
         <h4>Urgences &amp; Horaires</h4>
         <p style="font-size: 0.88rem; margin-bottom: 0.75rem; color: #cbd5e1;">
-          Assistance Panne / Accident :<br>
+          <span class="footer-urg-assistance-label" data-i18n="footer_assistance_label">Assistance Panne / Accident :</span><br>
           <a href="tel:+212525363061" style="color: #ffffff; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0021b" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>05 25 36 30 61</span>
           </a>
-          <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.25rem;">GSM / WhatsApp : <a href="tel:+212667762124" style="color: #93c5fd; text-decoration: none;">06 67 76 21 24</a></div>
+          <span style="display: block; font-size: 0.82rem; color: #94a3b8; margin-top: 0.25rem;">GSM / WhatsApp : <a href="tel:+212667762124" style="color: #93c5fd; text-decoration: none;">06 67 76 21 24</a></span>
         </p>
         <p style="font-size: 0.86rem; margin-bottom: 1rem; color: #cbd5e1;">
-          Email Direct Agence :<br>
+          <span class="footer-urg-email-label" data-i18n="footer_email_label">Email Direct Agence :</span><br>
           <a href="mailto:echkili.assurances@outlook.com" style="color: #93c5fd; font-weight: 600; text-decoration: none;">echkili.assurances@outlook.com</a>
         </p>
         <div class="footer-hours-box">
@@ -5461,67 +5477,85 @@
         submitBtn.innerHTML = origBtnContent;
       }
 
+      const lang = (window.EchkiliI18n ? window.EchkiliI18n.getLanguage() : 'fr');
+      const dict = (window.EchkiliI18n && window.EchkiliI18n.translations) ? (window.EchkiliI18n.translations[lang] || window.EchkiliI18n.translations.fr) : {};
+
       const modalTitle = document.getElementById('modalTitle');
       const modalBody = document.getElementById('modalBody');
 
-      if (modalTitle) modalTitle.textContent = "Demande Transmise à l'Agence Echkili";
+      if (modalTitle) modalTitle.textContent = dict.feedback_title || "Demande Transmise à l'Agence Echkili";
       if (modalBody) {
         const mailtoSubject = encodeURIComponent(`Demande Assurances Echkili: ${sujet} - ${nom}`);
         const mailtoBody = encodeURIComponent(`Bonjour Assurances Echkili,\n\nNom: ${nom}\nTéléphone: ${phone}\nEmail: ${email || 'Non renseigné'}\nObjet: ${sujet}\nMessage:\n${message}\n\nMerci.`);
-        const waMsg = encodeURIComponent(`Bonjour Assurances Echkili, je viens de vous envoyer une demande via votre site web.\n*Nom:* ${nom}\n*Tél:* ${phone}\n*Objet:* ${sujet}`);
+        const waMsg = encodeURIComponent(lang === 'ar'
+          ? `السلام عليكم تأمينات شكيلـي، لقد أرسلت طلباً عبر موقعكم الإلكتروني.\nالاسم: ${nom}\nالهاتف: ${phone}\nالموضوع: ${sujet}`
+          : (lang === 'en'
+            ? `Hello Assurances Echkili, I have submitted a request via your website.\nName: ${nom}\nPhone: ${phone}\nSubject: ${sujet}`
+            : `Bonjour Assurances Echkili, je viens de vous envoyer une demande via votre site web.\n*Nom:* ${nom}\n*Tél:* ${phone}\n*Objet:* ${sujet}`));
+
+        const tThanks = (dict.feedback_thanks || "Merci {nom} !").replace('{nom}', nom);
+        const tSentTo = dict.feedback_sent_to || "Votre demande a bien été transmise à notre boîte email <strong>echkili.assurances@outlook.com</strong>.";
+        const tRecipient = dict.feedback_recipient || "Email destinataire :";
+        const tSubject = dict.feedback_subject || "Objet de la demande :";
+        const tCallback = dict.feedback_callback || "Téléphone de rappel :";
+        const tYourEmail = dict.feedback_your_email || "Votre email de contact :";
+        const tDelay = dict.feedback_delay || "⏱ <strong>Délai de traitement :</strong> Un conseiller dédié d'Assurances Echkili traite votre message reçu sur <strong>echkili.assurances@outlook.com</strong> et vous recontactera sous <strong>2 heures ouvrées</strong>.";
+        const tBtnWa = dict.feedback_btn_wa || "Notifier sur WhatsApp";
+        const tBtnEmail = dict.feedback_btn_email || "Ouvrir dans Outlook / Email";
+        const tUrgent = dict.feedback_urgent_note || "Besoin urgent ? Contactez directement l'agence :";
 
         modalBody.innerHTML = `
           <div style="text-align: center; margin-bottom: 1.25rem;">
             <div style="width: 52px; height: 52px; background: #eff6ff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #002868; margin-bottom: 0.75rem;">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
-            <h4 style="font-size: 1.15rem; color: #002868; font-weight: 800; margin: 0 0 0.35rem;">Merci ${nom} !</h4>
-            <p style="color: #475569; font-size: 0.92rem; margin: 0;">Votre demande a bien été transmise à notre boîte email <strong>echkili.assurances@outlook.com</strong>.</p>
+            <h4 style="font-size: 1.15rem; color: #002868; font-weight: 800; margin: 0 0 0.35rem;">${tThanks}</h4>
+            <p style="color: #475569; font-size: 0.92rem; margin: 0;">${tSentTo}</p>
           </div>
 
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem 1.15rem; margin-bottom: 1.25rem; font-size: 0.88rem; line-height: 1.6;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
-              <span style="color: #64748b;">Email destinataire :</span>
+              <span style="color: #64748b;">${tRecipient}</span>
               <strong style="color: #002868;">echkili.assurances@outlook.com</strong>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
-              <span style="color: #64748b;">Objet de la demande :</span>
+              <span style="color: #64748b;">${tSubject}</span>
               <strong style="color: #0c1e3d;">${sujet}</strong>
             </div>
             ${phone ? `
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
-              <span style="color: #64748b;">Téléphone de rappel :</span>
+              <span style="color: #64748b;">${tCallback}</span>
               <strong style="color: #0c1e3d;">${phone}</strong>
             </div>` : ''}
             ${email ? `
             <div style="display: flex; justify-content: space-between;">
-              <span style="color: #64748b;">Votre email de contact :</span>
+              <span style="color: #64748b;">${tYourEmail}</span>
               <strong style="color: #0c1e3d;">${email}</strong>
             </div>` : ''}
           </div>
 
           <div style="background: #eff6ff; border-left: 3.5px solid #002868; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #1e3a8a; line-height: 1.5; margin-bottom: 1.15rem;">
-            ⏱ <strong>Délai de traitement :</strong> Un conseiller dédié d'Assurances Echkili traite votre message reçu sur <strong>echkili.assurances@outlook.com</strong> et vous recontactera sous <strong>2 heures ouvrées</strong>.
+            ${tDelay}
           </div>
 
           <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.15rem;">
             <a href="https://wa.me/212667762124?text=${waMsg}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #22c55e; color: #fff; padding: 0.65rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.86rem; font-weight: 700; box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);">
-              <span>Notifier sur WhatsApp</span>
+              <span>${tBtnWa}</span>
             </a>
             <a href="mailto:echkili.assurances@outlook.com?subject=${mailtoSubject}&body=${mailtoBody}" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #002868; color: #fff; padding: 0.65rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.86rem; font-weight: 700; box-shadow: 0 2px 8px rgba(0, 40, 104, 0.25);">
-              <span>Ouvrir dans Outlook / Email</span>
+              <span>${tBtnEmail}</span>
             </a>
           </div>
 
           <div style="font-size: 0.84rem; color: #64748b; text-align: center;">
-            Besoin urgent ? Contactez directement l'agence :<br>
+            ${tUrgent}<br>
             📞 <a href="tel:+212525363061" style="color: #002868; font-weight: 700; text-decoration: none;">05 25 36 30 61</a> / <a href="tel:+212667762124" style="color: #002868; font-weight: 700; text-decoration: none;">06 67 76 21 24</a> &bull; 📍 Imm Erraha N°8, Av. Guemassa, M'hamid, Marrakech
           </div>
         `;
       }
 
       openModal();
-      showToast("Votre demande a été envoyée à echkili.assurances@outlook.com");
+      showToast(lang === 'ar' ? 'تم إرسال طلبكم بنجاح إلى الوكالة' : (lang === 'en' ? 'Your request has been sent to echkili.assurances@outlook.com' : 'Votre demande a été envoyée à echkili.assurances@outlook.com'));
       formEl?.reset();
     }
 
