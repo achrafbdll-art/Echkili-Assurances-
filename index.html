@@ -3338,7 +3338,7 @@
       pointer-events: none;
     }
 
-    /* 4. White photo card frame with soft shadow */
+    /* 4. White photo card frame with soft shadow & 2-photo slider */
     .similair-photo-card {
       position: relative;
       z-index: 2;
@@ -3347,17 +3347,139 @@
       border-radius: 20px;
       box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.85);
+      user-select: none;
+    }
+
+    .agency-slider-container {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #0f172a;
+    }
+
+    .agency-slide-item {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1.03);
+      z-index: 1;
+    }
+
+    .agency-slide-item.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      z-index: 2;
     }
 
     .similair-photo-img {
       width: 100%;
-      height: 350px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 14px;
       display: block;
-      transition: opacity 0.2s ease;
     }
 
+    .agency-slide-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 40, 104, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 5;
+    }
+    html[dir="rtl"] .agency-slide-badge {
+      left: auto;
+      right: 14px;
+    }
+
+    /* Slider Navigation Arrows */
+    .agency-slider-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      color: #002868;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+      opacity: 0.88;
+    }
+    .agency-slider-nav-btn:hover {
+      background: #ffffff;
+      color: #e0021b;
+      transform: translateY(-50%) scale(1.08);
+      opacity: 1;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+    }
+    .agency-slider-nav-btn.prev {
+      left: 14px;
+    }
+    .agency-slider-nav-btn.next {
+      right: 14px;
+    }
+    .agency-slider-nav-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Slider Dots Indicators */
+    .agency-slider-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 6;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .agency-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .agency-dot.active {
+      width: 22px;
+      background: #e0021b;
+      box-shadow: 0 0 8px rgba(224, 2, 27, 0.6);
+    }
 
     /* Right Content Column */
     .agency-similair-content {
@@ -4309,9 +4431,41 @@
             <!-- 3. Équerre rouge L-bracket (Bottom-Right) -->
             <div class="similair-red-bracket" aria-hidden="true"></div>
 
-            <!-- 4. Cadre photo blanc (Photo de la rubrique ECHKILI ASSURANCES) -->
-            <div class="similair-photo-card">
-              <img src="assets/IMG-20260923-WA0001.jpg" alt="Agence Générale AXA Marrakech - Assurances Echkili" class="similair-photo-img" id="similairAgencyPhoto" loading="lazy" referrerpolicy="no-referrer">
+            <!-- 4. Cadre photo blanc (2 Photos Défilantes de l'Agence : Façade & Intérieur) -->
+            <div class="similair-photo-card" id="agencyPhotoSliderCard">
+              <div class="agency-slider-container" id="agencySliderTrack">
+                <!-- Slide 1 : Façade Extérieure de l'Agence -->
+                <div class="agency-slide-item active" data-agency-slide="0">
+                  <img src="assets/IMG-20260923-WA0001.jpg" alt="Façade Extérieure Agence AXA Marrakech - Assurances Echkili" class="similair-photo-img" id="similairAgencyPhotoExterior" loading="lazy" referrerpolicy="no-referrer">
+                  <div class="agency-slide-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span data-i18n="agency_slide_badge_ext">Façade &amp; Entrée Agence</span>
+                  </div>
+                </div>
+
+                <!-- Slide 2 : Espace Intérieur & Bureaux de Conseil -->
+                <div class="agency-slide-item" data-agency-slide="1">
+                  <img src="assets/agence-interieur-echkili.svg" alt="Intérieur et Bureaux d'Accueil Agence AXA Marrakech - Assurances Echkili" class="similair-photo-img" id="similairAgencyPhotoInterior" loading="lazy" referrerpolicy="no-referrer">
+                  <div class="agency-slide-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span data-i18n="agency_slide_badge_int">Accueil &amp; Bureaux de Conseil</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Flèches Précédent / Suivant -->
+              <button type="button" class="agency-slider-nav-btn prev" id="agencySliderPrevBtn" aria-label="Photo précédente" title="Photo précédente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="agency-slider-nav-btn next" id="agencySliderNextBtn" aria-label="Photo suivante" title="Photo suivante">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
+              <!-- Indicateurs Puces (Dots) -->
+              <div class="agency-slider-dots" id="agencySliderDots">
+                <button type="button" class="agency-dot active" data-agency-dot="0" aria-label="Photo 1 Façade"></button>
+                <button type="button" class="agency-dot" data-agency-dot="1" aria-label="Photo 2 Intérieur"></button>
+              </div>
             </div>
           </div>
 
@@ -5973,18 +6127,74 @@
       });
     })();
 
-    // Verrouillage et affichage permanent de la photo officielle de l'agence ECHKILI ASSURANCES
-    (function fixRubriquePhoto() {
-      try {
-        localStorage.removeItem('echkili_rubrique_photo_custom');
-        localStorage.removeItem('custom_echkili_photo');
-        sessionStorage.removeItem('echkili_rubrique_photo_custom');
-        sessionStorage.removeItem('custom_echkili_photo');
-        const photoImg = document.getElementById('similairAgencyPhoto');
-        if (photoImg) {
-          photoImg.src = 'assets/IMG-20260923-WA0001.jpg';
+    // Slider interactif : 2 Photos Défilantes de l'Agence ECHKILI ASSURANCES (Façade & Intérieur)
+    (function initAgencyPhotoSlider() {
+      const card = document.getElementById('agencyPhotoSliderCard');
+      if (!card) return;
+
+      const slides = Array.from(card.querySelectorAll('.agency-slide-item'));
+      const dots = Array.from(card.querySelectorAll('.agency-dot'));
+      const prevBtn = document.getElementById('agencySliderPrevBtn');
+      const nextBtn = document.getElementById('agencySliderNextBtn');
+
+      let currentIndex = 0;
+      let timer = null;
+      const INTERVAL = 4200;
+
+      function goToSlide(idx) {
+        currentIndex = (idx + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === currentIndex);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        timer = setInterval(() => {
+          goToSlide(currentIndex + 1);
+        }, INTERVAL);
+      }
+
+      function stopAutoPlay() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
         }
-      } catch (e) {}
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          goToSlide(currentIndex - 1);
+          startAutoPlay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          goToSlide(currentIndex + 1);
+          startAutoPlay();
+        });
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          goToSlide(i);
+          startAutoPlay();
+        });
+      });
+
+      // Pause on hover
+      card.addEventListener('mouseenter', stopAutoPlay);
+      card.addEventListener('mouseleave', startAutoPlay);
+
+      // Start auto-play
+      startAutoPlay();
     })();
 
     // Accordion handler for ECHKILI ASSURANCES section (En cas d'accident)
