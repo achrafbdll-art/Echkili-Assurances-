@@ -145,13 +145,13 @@
     }
 
     /* --- AXA Navy Navigation Bar --- */
-    .site-nav-bar {
-      background-color: #1a3365;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 14px rgba(10, 25, 55, 0.15);
-    }
+   #siteNavBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
     .site-nav-bar .container,
     .site-nav-bar .nav-bar-inner,
     .nav-bar-inner {
