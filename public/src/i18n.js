@@ -83,13 +83,13 @@
       sim_kicker: "ECHKILI ASSURANCES",
       sim_title: "Est une agence générale d’assurance au Maroc .",
       sim_desc: "Mérite d’être votre interlocuteur privilégié pour vos assurances ou celles de l'entreprise ou de l'institution dont vous avez la responsabilité.",
-      sim_accident_title: "En cas d'accident",
+      sim_accident_title: "Présentation : Agent Général de Proximité",
       sim_accident_more: "En savoir plus",
       sim_accident_read_more: "Lire la suite...",
       sim_accident_reduce: "Réduire",
-      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> vous accompagne tout au long de vos démarches",
-      sim_accident_body: "En cas de sinistre ou d'accident, notre agence générale AXA à Marrakech met à votre disposition son assistance 24/7, la prise en charge immédiate de votre déclaration de constat, ainsi que son réseau d'experts et de garages agréés.",
-      sim_accident_tel: "Assistance Sinistre : 05 25 36 30 61",
+      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> : Conseil d'expert, réactivité et proximité humaine à Marrakech",
+      sim_accident_body: "En tant qu'Agent Général AXA Assurance Maroc à Marrakech, nous sommes votre interlocuteur direct et privilégié. Nous vous apportons un conseil personnalisé, une écoute attentive et des solutions adaptées pour protéger votre famille, votre santé, vos biens et le développement de votre entreprise.",
+      sim_accident_tel: "Conseil & Contact Direct : 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Nos Solutions Particuliers",
@@ -368,13 +368,13 @@
       sim_kicker: "تأمينات شكيلـي",
       sim_title: "وكالة عامة رائدة للتأمين في المغرب .",
       sim_desc: "شريككم الاستراتيجي والأمثل لإدارة كافة عقود التأمين الخاصة بكم أو بمقاولتكم ومؤسستكم في مدينة مراكش.",
-      sim_accident_title: "في حالة وقوع حادث",
+      sim_accident_title: "تقديم : وكيل عام للتأمين عن قرب",
       sim_accident_more: "المزيد من التفاصيل",
       sim_accident_read_more: "قراءة المزيد...",
       sim_accident_reduce: "تصغير",
-      sim_accident_lead: "<strong>تأمينات شكيلـي</strong> ترافقكم خطوة بخطوة في جميع الإجراءات وتصريح الحوادث",
-      sim_accident_body: "في حالة حادث سير أو مطالبة بتعويض، تضع وكالتنا العامة أكسا بمراكش رهن إشارتكم المساعدة 24/7، والتسجيل الفوري للمعاينة، وشبكتنا الواسعة من الخبراء وورشات الإصلاح المعتمدة.",
-      sim_accident_tel: "مصلحة الحوادث والنجدة : 05 25 36 30 61",
+      sim_accident_lead: "<strong>تأمينات شكيلـي</strong> : استشارة مهنية، استجابة سريعة، ومرافقة إنسانية قريبة منكم في مراكش",
+      sim_accident_body: "بصفتنا وكالة عامة معتمدة لأكسا للتأمين المغرب بمراكش، نضع القرب والإنصات في صلب أولوياتنا. نرافقكم باحترافية لتوفير حلول تأمينية مخصصة تلائم حياتكم الشخصية ومسار مقاولتكم، مع ضمان التتبع المباشر لجميع ملفاتكم وتعويضاتكم.",
+      sim_accident_tel: "استشارة وتواصل مباشر : 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "حلول التأمين للأفراد",
@@ -653,13 +653,13 @@
       sim_kicker: "ECHKILI ASSURANCES",
       sim_title: "A leading general insurance agency in Morocco .",
       sim_desc: "Your privileged and trusted insurance advisor for your personal policies or protecting the enterprise or institution you manage in Marrakech.",
-      sim_accident_title: "In Case of an Accident",
+      sim_accident_title: "Presentation: Local General Agent",
       sim_accident_more: "Learn More",
       sim_accident_read_more: "Read more...",
       sim_accident_reduce: "Collapse",
-      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> guides and supports you through every step of your claim",
-      sim_accident_body: "In the event of an accident or loss, our AXA general agency in Marrakech provides 24/7 assistance, instant claim declaration processing, and access to approved repair shops.",
-      sim_accident_tel: "Claims Assistance: 05 25 36 30 61",
+      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong>: Expert advice, responsive service, and personal commitment in Marrakech",
+      sim_accident_body: "As an authorized AXA Assurance Maroc General Agency in Marrakech, we are your trusted local partner. We deliver tailored advice, dedicated personal attention, and comprehensive coverage to protect your family, health, assets, and business growth.",
+      sim_accident_tel: "Direct Advisory & Contact: 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Insurance Solutions for Individuals",
@@ -1108,14 +1108,6 @@
 
     const simAccidentBody = document.querySelector('#accidentDropdownDetails p, .similair-accident-body');
     if (simAccidentBody) simAccidentBody.textContent = dict.sim_accident_body;
-
-    const simAccidentTel = document.querySelector('#accidentDropdownDetails a, .similair-accident-tel span');
-    if (simAccidentTel) {
-      const svg = simAccidentTel.querySelector('svg');
-      simAccidentTel.innerHTML = '';
-      if (svg) simAccidentTel.appendChild(svg);
-      simAccidentTel.append(` ${dict.sim_accident_tel}`);
-    }
 
     // --- SOLUTIONS & OFFRES SECTION ---
     const solTitle = document.querySelector('.solutions-hero-title');
