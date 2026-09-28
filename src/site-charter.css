@@ -3243,3 +3243,23 @@
     html[dir="rtl"] .m-taskbar-item svg {
       transform: none !important;
     }
+
+
+/* ==========================================================================
+   CORRECTION FINALE — BARRE DE NAVIGATION VISIBLE AU DÉFILEMENT
+   ========================================================================== */
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+#siteNavBar,
+.site-nav-bar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  isolation: isolate;
+}
