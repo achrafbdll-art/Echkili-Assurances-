@@ -90,8 +90,6 @@
       sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> : Conseil d'expert, réactivité et proximité humaine à Marrakech",
       sim_accident_body: "En tant qu'Agent Général AXA Assurance Maroc à Marrakech, nous sommes votre interlocuteur direct et privilégié. Nous vous apportons un conseil personnalisé, une écoute attentive et des solutions adaptées pour protéger votre famille, votre santé, vos biens et le développement de votre entreprise.",
       sim_accident_tel: "Conseil & Contact Direct : 05 25 36 30 61",
-      agency_slide_badge_ext: "Façade & Entrée Agence",
-      agency_slide_badge_int: "Accueil & Bureaux de Conseil",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Nos Solutions Particuliers",
@@ -377,8 +375,6 @@
       sim_accident_lead: "<strong>تأمينات شكيلـي</strong> : استشارة مهنية، استجابة سريعة، ومرافقة إنسانية قريبة منكم في مراكش",
       sim_accident_body: "بصفتنا وكالة عامة معتمدة لأكسا للتأمين المغرب بمراكش، نضع القرب والإنصات في صلب أولوياتنا. نرافقكم باحترافية لتوفير حلول تأمينية مخصصة تلائم حياتكم الشخصية ومسار مقاولتكم، مع ضمان التتبع المباشر لجميع ملفاتكم وتعويضاتكم.",
       sim_accident_tel: "استشارة وتواصل مباشر : 05 25 36 30 61",
-      agency_slide_badge_ext: "الواجهة الخارجية ومدخل الوكالة",
-      agency_slide_badge_int: "فضاء الاستقبال ومكاتب الاستشارة",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "حلول التأمين للأفراد",
@@ -664,9 +660,6 @@
       sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong>: Expert advice, responsive service, and personal commitment in Marrakech",
       sim_accident_body: "As an authorized AXA Assurance Maroc General Agency in Marrakech, we are your trusted local partner. We deliver tailored advice, dedicated personal attention, and comprehensive coverage to protect your family, health, assets, and business growth.",
       sim_accident_tel: "Direct Advisory & Contact: 05 25 36 30 61",
-      agency_slide_badge_ext: "Agency Exterior & Entrance",
-      agency_slide_badge_int: "Reception & Advisory Offices",
-      agency_photo_upload_text: "Change photo",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Insurance Solutions for Individuals",
