@@ -5129,19 +5129,30 @@
                 <span>Votre Message ou Précision</span>
                 <span class="cf-label-required">* Obligatoire</span>
               </label>
-              <textarea id="contactMessage" rows="4" class="cf-textarea" placeholder="Indiquez vos besoins (type de véhicule, garanties souhaitées, questions pour l'agence)..." required></textarea>
+              <textarea id="contactMessage" name="message" rows="4" class="cf-textarea" placeholder="Indiquez vos besoins (type de véhicule, garanties souhaitées, questions pour l'agence)..." required></textarea>
             </div>
 
             <!-- Note de confidentialité et conformité -->
             <div class="cf-privacy-note">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span><strong>Protection des données :</strong> Vos informations sont exclusivement réservées à l'Agence Echkili à Marrakech pour traiter votre demande conformément à la loi 09-08.</span>
+              <span><strong>Protection des données :</strong> Vos informations sont exclusivement transmises à <strong>echkili.assurances@outlook.com</strong> pour traiter votre demande conformément à la loi 09-08.</span>
             </div>
 
             <button type="submit" class="btn-cf-submit" id="btnContactSubmit">
               <span>Transmettre ma Demande à l'Agence</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
+
+            <!-- Option Envoi direct par Email -->
+            <div style="margin-top: 1.15rem; padding: 0.85rem 1rem; background: #f0f7ff; border: 1.5px solid #bfdbfe; border-radius: 8px; font-size: 0.88rem; color: #1e3a8a; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.65rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0055c8" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>Envoi direct par Email : <strong style="color: #002868;">echkili.assurances@outlook.com</strong></span>
+              </div>
+              <a href="mailto:echkili.assurances@outlook.com?subject=Demande%20de%20devis%20-%20Assurances%20Echkili%20Marrakech" class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.82rem; border-radius: 6px; text-decoration: none; font-weight: 700;">
+                ✉️ Ouvrir un email direct &rarr;
+              </a>
+            </div>
           </form>
         </div>
       </div>
@@ -5631,16 +5642,20 @@
       };
 
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3500);
         await fetch('https://formsubmit.co/ajax/echkili.assurances@outlook.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(payload),
+          signal: controller.signal
         });
+        clearTimeout(timeoutId);
       } catch (err) {
-        console.warn('FormSubmit transmission status:', err);
+        console.warn('FormSubmit transmission notice:', err);
       }
 
       if (submitBtn) {
@@ -5656,23 +5671,23 @@
 
       if (modalTitle) modalTitle.textContent = dict.feedback_title || "Demande Transmise à l'Agence Echkili";
       if (modalBody) {
-        const mailtoSubject = encodeURIComponent(`Demande Assurances Echkili: ${sujet} - ${nom}`);
-        const mailtoBody = encodeURIComponent(`Bonjour Assurances Echkili,\n\nNom: ${nom}\nTéléphone: ${phone}\nEmail: ${email || 'Non renseigné'}\nObjet: ${sujet}\nMessage:\n${message}\n\nMerci.`);
+        const mailtoSubject = encodeURIComponent(`Demande de devis & contact : ${sujet} - ${nom}`);
+        const mailtoBody = encodeURIComponent(`Bonjour Assurances Echkili Marrakech,\n\nVoici les détails de ma demande :\n- Nom & Prénom : ${nom}\n- Numéro de Téléphone : ${phone}\n- Adresse Email : ${email || 'Non renseigné'}\n- Objet / Contrat : ${sujet}\n\nMessage du client :\n${message}\n\nDate : ${new Date().toLocaleDateString('fr-FR')}\nEnvoyé depuis le site web Assurances Echkili Marrakech.`);
         const waMsg = encodeURIComponent(lang === 'ar'
-          ? `السلام عليكم تأمينات شكيلـي، لقد أرسلت طلباً عبر موقعكم الإلكتروني.\nالاسم: ${nom}\nالهاتف: ${phone}\nالموضوع: ${sujet}`
+          ? `السلام عليكم تأمينات شكيلـي، لقد أرسلت طلباً عبر موقعكم الإلكتروني.\nالاسم: ${nom}\nالهاتف: ${phone}\nالموضوع: ${sujet}\nالرسالة: ${message}`
           : (lang === 'en'
-            ? `Hello Assurances Echkili, I have submitted a request via your website.\nName: ${nom}\nPhone: ${phone}\nSubject: ${sujet}`
-            : `Bonjour Assurances Echkili, je viens de vous envoyer une demande via votre site web.\n*Nom:* ${nom}\n*Tél:* ${phone}\n*Objet:* ${sujet}`));
+            ? `Hello Assurances Echkili, I submitted a request via your website.\nName: ${nom}\nPhone: ${phone}\nSubject: ${sujet}\nMessage: ${message}`
+            : `Bonjour Assurances Echkili, je viens de vous envoyer une demande via votre site web.\n*Nom:* ${nom}\n*Tél:* ${phone}\n*Objet:* ${sujet}\n*Message:* ${message}`));
 
         const tThanks = (dict.feedback_thanks || "Merci {nom} !").replace('{nom}', nom);
-        const tSentTo = dict.feedback_sent_to || "Votre demande a bien été transmise à notre boîte email <strong>echkili.assurances@outlook.com</strong>.";
+        const tSentTo = dict.feedback_sent_to || "Votre demande est prête et adressée à notre boîte email <strong>echkili.assurances@outlook.com</strong>.";
         const tRecipient = dict.feedback_recipient || "Email destinataire :";
         const tSubject = dict.feedback_subject || "Objet de la demande :";
         const tCallback = dict.feedback_callback || "Téléphone de rappel :";
         const tYourEmail = dict.feedback_your_email || "Votre email de contact :";
-        const tDelay = dict.feedback_delay || "⏱ <strong>Délai de traitement :</strong> Un conseiller dédié d'Assurances Echkili traite votre message reçu sur <strong>echkili.assurances@outlook.com</strong> et vous recontactera sous <strong>2 heures ouvrées</strong>.";
-        const tBtnWa = dict.feedback_btn_wa || "Notifier sur WhatsApp";
-        const tBtnEmail = dict.feedback_btn_email || "Ouvrir dans Outlook / Email";
+        const tDelay = dict.feedback_delay || "⏱ <strong>Prise en charge rapide :</strong> Un conseiller dédié d'Assurances Echkili traite votre message reçu sur <strong>echkili.assurances@outlook.com</strong> et vous recontactera sous <strong>2 heures ouvrées</strong>.";
+        const tBtnWa = dict.feedback_btn_wa || "💬 Notifier sur WhatsApp";
+        const tBtnEmail = dict.feedback_btn_email || "✉️ Ouvrir directement dans Outlook / Email";
         const tUrgent = dict.feedback_urgent_note || "Besoin urgent ? Contactez directement l'agence :";
 
         modalBody.innerHTML = `
@@ -5705,16 +5720,16 @@
             </div>` : ''}
           </div>
 
-          <div style="background: #eff6ff; border-left: 3.5px solid #002868; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #1e3a8a; line-height: 1.5; margin-bottom: 1.15rem;">
+          <div style="background: #eff6ff; border-left: 3.5px solid #002868; border-radius: 6px; padding: 0.85rem 1rem; font-size: 0.86rem; color: #1e3a8a; line-height: 1.5; margin-bottom: 1.25rem;">
             ${tDelay}
           </div>
 
-          <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.15rem;">
-            <a href="https://wa.me/212667762124?text=${waMsg}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #22c55e; color: #fff; padding: 0.65rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.86rem; font-weight: 700; box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);">
-              <span>${tBtnWa}</span>
-            </a>
-            <a href="mailto:echkili.assurances@outlook.com?subject=${mailtoSubject}&body=${mailtoBody}" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #002868; color: #fff; padding: 0.65rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.86rem; font-weight: 700; box-shadow: 0 2px 8px rgba(0, 40, 104, 0.25);">
+          <div style="display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.25rem;">
+            <a href="mailto:echkili.assurances@outlook.com?subject=${mailtoSubject}&body=${mailtoBody}" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #002868; color: #ffffff; padding: 0.75rem 1.25rem; border-radius: 8px; text-decoration: none; font-size: 0.92rem; font-weight: 700; box-shadow: 0 2px 8px rgba(0, 40, 104, 0.25);">
               <span>${tBtnEmail}</span>
+            </a>
+            <a href="https://wa.me/212667762124?text=${waMsg}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #22c55e; color: #ffffff; padding: 0.75rem 1.25rem; border-radius: 8px; text-decoration: none; font-size: 0.92rem; font-weight: 700; box-shadow: 0 2px 8px rgba(34, 197, 94, 0.25);">
+              <span>${tBtnWa}</span>
             </a>
           </div>
 
