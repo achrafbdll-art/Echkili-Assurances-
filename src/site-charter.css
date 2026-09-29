@@ -2111,26 +2111,24 @@
       .mobile-nav-quick-call {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: #10b981;
+        gap: 0.35rem;
+        background: #16a34a;
         color: #ffffff;
+        font-size: 0.76rem;
+        font-weight: 700;
+        padding: 0.38rem 0.7rem;
+        border-radius: 9999px;
         text-decoration: none;
-        transition: background-color 0.2s ease, transform 0.15s ease;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
-        flex-shrink: 0;
+        transition: background 0.2s ease;
       }
       .mobile-nav-quick-call:active {
-        background: #059669;
-        transform: scale(0.95);
+        background: #15803d;
       }
       .mobile-nav-quick-call svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         stroke: #ffffff;
-        stroke-width: 2.3;
+        stroke-width: 2.2;
         fill: none;
       }
       .mobile-nav-toggle {
@@ -3388,4 +3386,31 @@
     }
     html[dir="rtl"] .m-taskbar-item svg {
       transform: none !important;
+    }
+
+    /* Assurleadcommunication Footer Credit */
+    .assurlead-credit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .assurlead-credit:hover {
+      opacity: 0.92;
+      text-decoration: none;
+    }
+    .assurlead-credit:hover .brand-name {
+      text-decoration: underline;
+    }
+    .assurlead-credit .by-text {
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .assurlead-credit .brand-name {
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 0.04em;
     }

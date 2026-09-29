@@ -864,6 +864,16 @@
     .btn-accent:hover {
       background-color: var(--accent-hover);
     }
+    .btn-whatsapp-white {
+      background-color: #ffffff;
+      border: 1.8px solid #22c55e;
+      color: #15803d;
+    }
+    .btn-whatsapp-white:hover {
+      background-color: #f0fdf4 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+    }
     .btn-outline {
       background-color: transparent;
       border-color: var(--primary);
@@ -3373,9 +3383,7 @@
        ========================================================================== */
     .agency-similair-section {
       background-color: #ffffff;
-      background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.78) 100%), url('assets/axa-pattern.svg');
-      background-repeat: repeat;
-      background-size: 180px 90px;
+      background-image: none;
       padding: 4.5rem 0 5.5rem;
       position: relative;
       overflow: hidden;
@@ -3485,6 +3493,44 @@
       line-height: 1.65;
       margin-bottom: 2rem;
       max-width: 580px;
+    }
+
+    /* Presentation Agence Generale */
+    .agency-pres-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(0, 40, 104, 0.08);
+      color: #002868;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+    .agency-pres-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .agency-pres-pillar-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.85rem;
+      box-shadow: 0 2px 8px -2px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .agency-pres-pillar-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px -3px rgba(0, 40, 104, 0.08);
+    }
+    @media (max-width: 768px) {
+      .agency-pres-pillars {
+        grid-template-columns: 1fr !important;
+      }
     }
 
     /* Interactive Accordion Card */
@@ -4400,25 +4446,7 @@
     </section>
 
     <!-- 3b. Présentation Agence : ECHKILI ASSURANCES (Modèle Officiel AXA Maroc) -->
-    <section class="agency-similair-section" id="agence">
-      <!-- Background Overlapping Circular Rings (Même arrière-plan officiel AXA que Missions & Valeurs) -->
-      <div class="mv-bg-graphic mv-bg-graphic-tl" aria-hidden="true">
-        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="130" cy="120" rx="190" ry="310" transform="rotate(-36 130 120)" stroke="#94a3b8" stroke-width="2.4" stroke-opacity="0.55"/>
-          <ellipse cx="170" cy="160" rx="230" ry="360" transform="rotate(-28 170 160)" stroke="#94a3b8" stroke-width="2.2" stroke-opacity="0.45"/>
-          <ellipse cx="95" cy="90" rx="150" ry="250" transform="rotate(-44 95 90)" stroke="#cbd5e1" stroke-width="2.2" stroke-opacity="0.6"/>
-          <ellipse cx="220" cy="200" rx="270" ry="410" transform="rotate(-20 220 200)" stroke="#cbd5e1" stroke-width="2" stroke-opacity="0.38"/>
-        </svg>
-      </div>
-      <div class="mv-bg-graphic mv-bg-graphic-br" aria-hidden="true">
-        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="380" cy="380" rx="200" ry="320" transform="rotate(-34 380 380)" stroke="#94a3b8" stroke-width="2.4" stroke-opacity="0.55"/>
-          <ellipse cx="340" cy="340" rx="240" ry="370" transform="rotate(-26 340 340)" stroke="#94a3b8" stroke-width="2.2" stroke-opacity="0.45"/>
-          <ellipse cx="420" cy="410" rx="160" ry="260" transform="rotate(-42 420 410)" stroke="#cbd5e1" stroke-width="2.2" stroke-opacity="0.6"/>
-          <ellipse cx="300" cy="300" rx="280" ry="420" transform="rotate(-18 300 300)" stroke="#cbd5e1" stroke-width="2" stroke-opacity="0.38"/>
-        </svg>
-      </div>
-
+    <section class="agency-similair-section" id="agence" style="background: #ffffff !important; background-image: none !important;">
       <div class="container" style="position: relative; z-index: 2;">
         <div class="agency-similair-grid">
           <!-- Colonne Gauche : Visuel avec Cadre, Grille Bleue, Rayures & Équerre Rouge -->
@@ -4470,39 +4498,37 @@
             </div>
           </div>
 
-          <!-- Colonne Droite : Titre et Accordéon Interactif -->
+          <!-- Colonne Droite : Présentation Agence Générale AXA Marrakech -->
           <div class="agency-similair-content">
-            <h2 class="similair-title" style="margin-bottom: 1.85rem;">ECHKILI ASSURANCES</h2>
+            <div class="agency-pres-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="agency_pres_badge">Agence Générale AXA Marrakech</span>
+            </div>
 
-            <!-- Widget Accordéon : En cas d'accident -->
-            <div class="accident-card-widget">
-              <button type="button" class="accident-card-header" id="accidentHeaderBtn" onclick="toggleAccidentAccordion()" aria-expanded="false" aria-controls="accidentDropdownDetails">
-                <div class="accident-card-title-wrap">
-                  <svg class="accident-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"/>
-                  </svg>
-                  <span>En cas d'accident</span>
-                </div>
-                <span class="accident-card-more-label">En savoir plus</span>
-              </button>
+            <h2 class="similair-title" data-i18n="agency_pres_title" style="margin-bottom: 0.35rem;">ECHKILI ASSURANCES</h2>
+            <p class="agency-pres-subtitle" data-i18n="agency_pres_subtitle" style="color: #e0021b; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.15rem;">
+              Votre Agence Générale d'Assurance AXA au Maroc
+            </p>
 
-              <div class="accident-card-body">
-                <p class="accident-card-lead">
-                  <strong>ECHKILI ASSURANCES</strong> vous accompagne tout au long de vos démarches
-                </p>
+            <div class="agency-pres-text" style="color: #334155; font-size: 0.98rem; line-height: 1.7; margin-bottom: 1.75rem;">
+              <p data-i18n-html="agency_pres_p1" style="margin-bottom: 0.75rem;">
+                <strong>Assurances Echkili</strong> est une agence générale d’assurance représentant <strong>AXA Assurance Maroc</strong> à Marrakech.
+              </p>
+              <p data-i18n-html="agency_pres_p2">
+                Implantée au Rdc de l'Imm Erraha N°8, Avenue Guemassa (M'hamid), notre agence vous garantit un accueil chaleureux, des conseils sur-mesure sans intermédiaire délocalisé, et un accompagnement complet de la souscription au règlement rapide de vos sinistres.
+              </p>
+            </div>
 
-                <div class="accident-dropdown-details" id="accidentDropdownDetails">
-                  <p style="margin-bottom: 0.65rem;">
-                    En cas de sinistre ou d'accident, notre agence générale AXA à Marrakech met à votre disposition son assistance 24/7, la prise en charge immédiate de votre déclaration de constat, ainsi que son réseau d'experts et de garages agréés.
-                  </p>
-                  <div style="margin-top: 0.5rem;">
-                    <a href="tel:+212525363061" style="color: #002868; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                      Assistance Sinistre : 05 25 36 30 61
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <!-- Actions Rapides Présentation Agence -->
+            <div class="agency-pres-actions" style="display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center;">
+              <a href="#contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.65rem 1.15rem; font-size: 0.92rem; font-weight: 700; border-radius: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span data-i18n="agency_pres_btn_rdv">Prendre Rendez-vous</span>
+              </a>
+              <a href="https://wa.me/212667762124?text=Bonjour%20Assurances%20Echkili" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-white" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.65rem 1.15rem; font-size: 0.92rem; font-weight: 700; border-radius: 8px; background: #ffffff; border: 1.8px solid #22c55e; color: #15803d; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: background-color 0.2s, border-color 0.2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#22c55e"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
+                <span data-i18n="agency_pres_btn_wa">WhatsApp</span>
+              </a>
             </div>
           </div>
         </div>
@@ -5272,8 +5298,10 @@
     </div>
 
     <div class="container footer-bottom">
-      <div>
-        &copy; 2026 Assurances Echkili. Tous droits réservés. Agent Général AXA Assurance Maroc.
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem;">
+        <span class="footer-copy-text">&copy; 2026 Assurances Echkili. Tous droits réservés. Agent Général AXA Assurance Maroc.</span>
+        <span style="opacity: 0.4; margin: 0 0.25rem;">•</span>
+        <span class="footer-by-author">By <a href="https://www.assurleadcom.com" target="_blank" rel="noopener noreferrer" style="color: #93c5fd; font-weight: 700; text-decoration: none; transition: color 0.15s ease;" onmouseover="this.style.color='#ffffff'; this.style.textDecoration='underline';" onmouseout="this.style.color='#93c5fd'; this.style.textDecoration='none';">ASSURLEADCOMMUNICATION</a></span>
       </div>
       <div>
         Agrément Intermédiaire d'Assurance délivré par l'ACAPS conformément au Code des Assurances (Loi 17-99).

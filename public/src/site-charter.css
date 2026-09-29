@@ -30,6 +30,8 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      scroll-padding-top: 68px;
+      overflow-x: clip;
     }
 
     body {
@@ -38,6 +40,9 @@
       background-color: #ffffff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100vh;
+      position: relative;
     }
 
     h1, h2, .section-title, .hero-headline, .mv-main-title, .similair-title {
@@ -147,15 +152,20 @@
     /* --- AXA Navy Navigation Bar --- */
     .site-nav-bar {
       background-color: #1a3365;
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
       z-index: 1000;
+      width: 100%;
       box-shadow: 0 4px 14px rgba(10, 25, 55, 0.15);
-      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
     .site-nav-bar.is-scrolled {
-      background-color: #142850;
-      box-shadow: 0 8px 24px rgba(0, 18, 55, 0.28);
+      background-color: rgba(22, 45, 90, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px -4px rgba(0, 15, 50, 0.35);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
     .site-nav-bar .container,
     .site-nav-bar .nav-bar-inner,
@@ -402,11 +412,89 @@
 
     /* Mobile Navigation Hamburger & Elements Hidden on Desktop */
     .mobile-nav-toggle,
-    .mobile-nav-brand,
     .mobile-nav-actions,
     .mobile-bottom-taskbar,
     .mobile-menu-footer {
       display: none;
+    }
+
+    /* Brand Logo on Sticky Navigation Bar (Responsive PC & Mobile) */
+    .mobile-nav-brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: opacity 0.25s ease, max-width 0.28s ease, margin-right 0.28s ease, transform 0.2s ease;
+    }
+    @media (min-width: 861px) {
+      .mobile-nav-brand {
+        opacity: 0;
+        visibility: hidden;
+        max-width: 0;
+        overflow: hidden;
+        margin-right: 0;
+        pointer-events: none;
+      }
+      .site-nav-bar.is-scrolled .mobile-nav-brand {
+        opacity: 1;
+        visibility: visible;
+        max-width: 220px;
+        margin-right: 1.25rem;
+        pointer-events: auto;
+      }
+      .mobile-nav-logo-img {
+        height: 36px;
+        width: auto;
+        display: block;
+      }
+    }
+    @media (max-width: 860px) {
+      .mobile-nav-brand {
+        opacity: 1;
+        visibility: visible;
+        max-width: 100%;
+        pointer-events: auto;
+      }
+      .mobile-nav-logo-img {
+        height: 32px;
+        width: auto;
+        display: block;
+      }
+    }
+
+    /* PC Quick Action Call CTA in Sticky Taskbar (Circle Icon Button) */
+    .nav-pc-call-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #ffffff !important;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .nav-pc-call-cta:hover {
+      background: #059669;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.55);
+    }
+    .nav-pc-call-cta svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2.3;
+      stroke: #ffffff;
+      fill: none;
+    }
+    @media (max-width: 860px) {
+      .nav-pc-call-cta {
+        display: none !important;
+      }
     }
     .mobile-nav-toggle {
       background: none;
@@ -2218,7 +2306,7 @@
         display: inline-flex;
       }
 
-      /* --- Mobile Bottom Taskbar (Barre des tâches ultra-optimisée) --- */
+      /* --- Mobile Bottom Taskbar (Barre des tâches inférieure) --- */
       .mobile-bottom-taskbar {
         display: flex;
         position: fixed;
@@ -2226,26 +2314,16 @@
         left: 0;
         right: 0;
         height: 60px;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        border-top: 1px solid rgba(226, 232, 240, 0.85);
-        box-shadow: 0 -4px 20px rgba(0, 24, 80, 0.08);
-        z-index: 950;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid #e2e8f0;
+        box-shadow: 0 -4px 20px rgba(0, 24, 107, 0.08);
+        z-index: 1000;
         justify-content: space-around;
         align-items: stretch;
         padding: 0 0.25rem;
-        padding-bottom: max(6px, env(safe-area-inset-bottom, 8px));
-        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease, box-shadow 0.25s ease;
-        will-change: transform;
-      }
-      .mobile-bottom-taskbar.taskbar-scrolled-down,
-      body.modal-open .mobile-bottom-taskbar,
-      body.menu-open .mobile-bottom-taskbar,
-      body:has(.modal-overlay.open) .mobile-bottom-taskbar {
-        transform: translateY(115%) !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
+        padding-bottom: max(2px, env(safe-area-inset-bottom));
       }
       .m-taskbar-item {
         display: flex;
@@ -2256,14 +2334,13 @@
         min-width: 0;
         text-decoration: none;
         color: #64748b;
-        font-size: 0.68rem;
+        font-size: 0.66rem;
         font-weight: 700;
         gap: 3px;
-        transition: color 0.15s ease, transform 0.12s ease;
+        transition: all 0.15s ease;
         -webkit-tap-highlight-color: transparent;
         position: relative;
         padding: 4px 0;
-        user-select: none;
       }
       .m-taskbar-item svg {
         width: 21px;
@@ -2271,59 +2348,38 @@
         stroke: currentColor;
         stroke-width: 2.1;
         fill: none;
-        transition: transform 0.15s ease, stroke 0.15s ease;
+        transition: transform 0.15s ease;
       }
       .m-taskbar-item:active {
         transform: scale(0.92);
       }
       .m-taskbar-item.active {
         color: #002868;
-        font-weight: 800;
       }
       .m-taskbar-item.active svg {
         stroke: #002868;
         stroke-width: 2.4;
-        transform: translateY(-1px);
-      }
-      .m-taskbar-item.active::after {
-        content: '';
-        position: absolute;
-        top: 1px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 18px;
-        height: 3px;
-        background-color: #002868;
-        border-radius: 9999px;
-        animation: taskbarIndicatorFade 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      @keyframes taskbarIndicatorFade {
-        from { width: 0; opacity: 0; }
-        to { width: 18px; opacity: 1; }
       }
       .m-taskbar-item.m-taskbar-call {
         color: #15803d;
       }
       .m-taskbar-item.m-taskbar-call .m-call-bubble {
-        width: 38px;
-        height: 38px;
-        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        width: 36px;
+        height: 36px;
+        background: #22c55e;
         color: #ffffff;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 14px rgba(22, 163, 74, 0.38);
-        margin-top: -15px;
-        border: 2.5px solid #ffffff;
-        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-      }
-      .m-taskbar-item.m-taskbar-call:active .m-call-bubble {
-        transform: scale(0.92);
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+        margin-top: -14px;
+        border: 2px solid #ffffff;
+        transition: transform 0.2s ease;
       }
       .m-taskbar-item.m-taskbar-call .m-call-bubble svg {
-        width: 19px;
-        height: 19px;
+        width: 18px;
+        height: 18px;
         stroke: #ffffff;
         fill: none;
       }
@@ -2336,8 +2392,8 @@
       }
       .m-taskbar-badge {
         position: absolute;
-        top: 5px;
-        right: calc(50% - 13px);
+        top: 6px;
+        right: calc(50% - 14px);
         width: 8px;
         height: 8px;
         background-color: #22c55e;
@@ -2350,16 +2406,10 @@
       .m-taskbar-item.m-taskbar-urgency svg {
         stroke: #dc2626;
       }
-      .m-taskbar-item.m-taskbar-urgency.active svg {
-        stroke: #b91c1c;
-      }
-      .m-taskbar-item.m-taskbar-urgency.active::after {
-        background-color: #dc2626;
-      }
       .m-taskbar-item.m-taskbar-urgency .m-urgency-dot {
         position: absolute;
-        top: 5px;
-        right: calc(50% - 13px);
+        top: 6px;
+        right: calc(50% - 14px);
         width: 8px;
         height: 8px;
         background-color: #ef4444;
@@ -2376,7 +2426,7 @@
         display: none !important; /* WhatsApp is integrated directly in bottom taskbar */
       }
       .floating-back-to-top {
-        bottom: calc(74px + env(safe-area-inset-bottom, 8px)) !important;
+        bottom: 74px !important;
         right: 14px !important;
       }
 
@@ -2607,9 +2657,29 @@
 
     /* --- Section: Missions & Valeurs (AXA Maroc - Identique au modèle officiel) --- */
     .missions-valeurs-section {
-      background-color: #ffffff;
+      background-color: #fbfcfe;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.72) 0%, rgba(248, 250, 253, 0.45) 100%), 
+        url('assets/zellij-pattern.svg'),
+        url('assets/axa-pattern.svg');
+      background-repeat: no-repeat, repeat, repeat;
+      background-size: 100% 100%, 64px 64px, 180px 90px;
       padding-top: 5rem;
       padding-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* --- Section: ECHKILI ASSURANCES (Même motif zellij AXA en arrière-plan) --- */
+    .agency-similair-section {
+      background-color: #fbfcfe;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.72) 0%, rgba(248, 250, 253, 0.45) 100%), 
+        url('assets/zellij-pattern.svg'),
+        url('assets/axa-pattern.svg');
+      background-repeat: no-repeat, repeat, repeat;
+      background-size: 100% 100%, 64px 64px, 180px 90px;
+      padding: 5rem 0 5.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -3161,13 +3231,14 @@
     /* 1. Global Viewport & Protection Débordement Horizontal */
     html, body {
       max-width: 100%;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* 2. Éléments tactiles et suppression du zoom automatique Safari iOS */
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       input, select, textarea {
         font-size: 16px !important; /* Prévient l'auto-zoom d'iOS Safari au focus */
       }
@@ -3176,8 +3247,8 @@
       }
     }
 
-    /* 3. Comportement Barre des Tâches Mobile Flottante */
-    @media (min-width: 769px) {
+    /* 3. Comportement Barre des Tâches Mobile Flottante & PC Sticky */
+    @media (min-width: 861px) {
       .mobile-bottom-taskbar {
         display: none !important; /* Strictement masquée sur PC et grands écrans */
       }
@@ -3185,23 +3256,63 @@
         padding-bottom: 0 !important;
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .mobile-bottom-taskbar {
         display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 60px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        border-top: 1px solid #e2e8f0 !important;
+        box-shadow: 0 -4px 22px rgba(0, 24, 107, 0.12) !important;
+        z-index: 9999 !important;
+        justify-content: space-around !important;
+        align-items: stretch !important;
+        padding: 0 0.25rem !important;
+        padding-bottom: max(6px, env(safe-area-inset-bottom, 8px)) !important;
+        transform: translateZ(0);
       }
       body {
-        padding-bottom: calc(64px + env(safe-area-inset-bottom, 8px)) !important; /* Dégage l'espace pour ne masquer aucun contenu */
+        padding-bottom: calc(66px + env(safe-area-inset-bottom, 8px)) !important; /* Dégage l'espace pour ne masquer aucun contenu */
       }
       /* Ajustement bouton retour en haut pour ne pas chevaucher la barre */
       .floating-back-to-top {
-        bottom: calc(76px + env(safe-area-inset-bottom, 8px)) !important;
+        bottom: calc(74px + env(safe-area-inset-bottom, 8px)) !important;
         right: 14px !important;
       }
     }
-    @media (max-width: 480px) {
-      .mobile-nav-quick-call {
-        display: none !important;
+
+    /* Animations d'attention ergonomiques pour la barre des tâches */
+    @keyframes pulse-call-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
       }
+      70% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+    .m-taskbar-item.m-taskbar-call .m-call-bubble {
+      animation: pulse-call-ring 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    @keyframes pulse-urgency-dot {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 0.65;
+      }
+    }
+    .m-urgency-dot {
+      animation: pulse-urgency-dot 2s infinite ease-in-out;
     }
 
     /* 4. Tableau Comparatif Pleine Largeur Réactif */
@@ -3275,4 +3386,31 @@
     }
     html[dir="rtl"] .m-taskbar-item svg {
       transform: none !important;
+    }
+
+    /* Assurleadcommunication Footer Credit */
+    .assurlead-credit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.86rem;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .assurlead-credit:hover {
+      opacity: 0.92;
+      text-decoration: none;
+    }
+    .assurlead-credit:hover .brand-name {
+      text-decoration: underline;
+    }
+    .assurlead-credit .by-text {
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .assurlead-credit .brand-name {
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 0.04em;
     }

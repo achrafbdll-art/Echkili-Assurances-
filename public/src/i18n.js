@@ -79,7 +79,22 @@
       mv_val_5: "L’engagement humain et sociétal",
       mv_outro: "À travers ses solutions et ses services, AXA Maroc cherche à offrir <strong>une protection durable, adaptée aux nouveaux modes de vie et aux enjeux contemporains.</strong>",
 
-      // Rubrique Présentation Agence Echkili (index.html)
+      // Rubrique Présentation Agence Générale (index.html)
+      agency_pres_badge: "Agence Générale AXA Marrakech",
+      agency_pres_title: "ECHKILI ASSURANCES",
+      agency_pres_subtitle: "Votre Agence Générale d'Assurance AXA au Maroc",
+      agency_pres_p1: "<strong>Assurances Echkili</strong> est une agence générale d’assurance représentant <strong>AXA Assurance Maroc</strong> à Marrakech.",
+      agency_pres_p2: "Implantée au Rdc de l'Imm Erraha N°8, Avenue Guemassa (M'hamid), notre agence vous garantit un accueil chaleureux, des conseils sur-mesure sans intermédiaire délocalisé, et un accompagnement complet de la souscription au règlement rapide de vos sinistres.",
+      agency_pres_pill1_title: "Conseil & Proximité",
+      agency_pres_pill1_desc: "Accueil direct et écoute sans intermédiaire délocalisé.",
+      agency_pres_pill2_title: "Garanties AXA",
+      agency_pres_pill2_desc: "Couvertures optimales Particuliers, Pros & Entreprises.",
+      agency_pres_pill3_title: "Réactivité Rapide",
+      agency_pres_pill3_desc: "Études sous 2h et assistance continue en agence.",
+      agency_pres_btn_rdv: "Prendre Rendez-vous",
+      agency_pres_btn_call: "Fixe : 05 25 36 30 61",
+      agency_pres_btn_wa: "WhatsApp",
+
       sim_kicker: "ECHKILI ASSURANCES",
       sim_title: "ECHKILI ASSURANCES",
       sim_desc: "",
@@ -362,7 +377,22 @@
       mv_val_5: "الالتزام الإنساني والمسؤولية المجتمعية",
       mv_outro: "من خلال باقاتها وخدماتها المتميزة، تسعى أكسا المغرب إلى تقديم <strong>حماية مستدامة تتكيف مع أساليب الحياة الحديثة وتلبي متطلبات اليوم والمستقبل.</strong>",
 
-      // Rubrique Présentation Agence Echkili (index.html)
+      // Rubrique Présentation Agence Générale (index.html)
+      agency_pres_badge: "وكالة عامة معتمدة لأكسا بمراكش",
+      agency_pres_title: "تأمينات شكيلـي",
+      agency_pres_subtitle: "وكالتكم العامة للتأمين أكسا المغرب بمراكش",
+      agency_pres_p1: "<strong>تأمينات شكيلـي</strong> هي وكالة عامة معتمدة تمثل شركة <strong>أكسا للتأمين المغرب</strong> في مدينة مراكش.",
+      agency_pres_p2: "تقع وكالتنا في عمارة الراحة رقم 8، شارع كَمَاسة (المحاميد)، ونضمن لكم استقبالاً مهنياً، واستشارة دقيقة ومفصلة دون وسطاء أو مراكز اتصال خارجية، مع التزام تام بالوقوف إلى جانبكم من لحظة الاكتتاب حتى تسوية ملفاتكم بسرعة وفعالية.",
+      agency_pres_pill1_title: "قرب واستشارة مباشرة",
+      agency_pres_pill1_desc: "تواصل مباشر وشخصي مع مستشاركم المعتمد بمراكش.",
+      agency_pres_pill2_title: "ضمانات أكسا الشاملة",
+      agency_pres_pill2_desc: "حلول مثالية للأفراد، المهنيين والشركات الكبرى.",
+      agency_pres_pill3_title: "سرعة في الاستجابة",
+      agency_pres_pill3_desc: "دراسة تسعيرية في أقل من ساعتين ومواكبة مستمرة بالوكالة.",
+      agency_pres_btn_rdv: "حجز موعد بالوكالة",
+      agency_pres_btn_call: "الهاتف : 05 25 36 30 61",
+      agency_pres_btn_wa: "واتساب",
+
       sim_kicker: "تأمينات شكيلـي",
       sim_title: "تأمينات شكيلـي",
       sim_desc: "",
@@ -645,7 +675,22 @@
       mv_val_5: "Human and societal commitment",
       mv_outro: "Through its solutions and services, AXA Morocco delivers <strong>sustainable protection tailored to contemporary lifestyles and emerging challenges.</strong>",
 
-      // Rubrique Présentation Agence Echkili (index.html)
+      // Rubrique Présentation Agence Générale (index.html)
+      agency_pres_badge: "AXA General Agency Marrakech",
+      agency_pres_title: "ECHKILI ASSURANCES",
+      agency_pres_subtitle: "Your Trusted AXA General Insurance Agency in Marrakech",
+      agency_pres_p1: "<strong>Assurances Echkili</strong> is an authorized general insurance agency representing <strong>AXA Assurance Morocco</strong> in Marrakech.",
+      agency_pres_p2: "Located on Avenue Guemassa, Imm Erraha No. 8 (M'hamid), our branch guarantees personalized advisory without offshore call centers, and dedicated support from contract creation to swift claim settlements.",
+      agency_pres_pill1_title: "Direct Advisory & Proximity",
+      agency_pres_pill1_desc: "Direct in-person support without outsourced call centers.",
+      agency_pres_pill2_title: "Complete AXA Guarantees",
+      agency_pres_pill2_desc: "Optimal coverage for Individuals, Pros & Enterprises.",
+      agency_pres_pill3_title: "Fast Responsiveness",
+      agency_pres_pill3_desc: "Quotes within 2 business hours and ongoing assistance.",
+      agency_pres_btn_rdv: "Book an Appointment",
+      agency_pres_btn_call: "Phone: 05 25 36 30 61",
+      agency_pres_btn_wa: "WhatsApp",
+
       sim_kicker: "ECHKILI ASSURANCES",
       sim_title: "ECHKILI ASSURANCES",
       sim_desc: "",
@@ -1089,28 +1134,39 @@
     const mvFooterText = document.querySelector('.mv-footer-text');
     if (mvFooterText) mvFooterText.innerHTML = dict.mv_outro;
 
-    // --- RUBRIQUE AGENCE ECHKILI (index.html) ---
+    // --- RUBRIQUE PRÉSENTATION AGENCE GÉNÉRALE (index.html) ---
+    const presBadge = document.querySelector('.agency-pres-badge span');
+    if (presBadge && dict.agency_pres_badge) presBadge.textContent = dict.agency_pres_badge;
+    const presTitle = document.querySelector('.agency-similair-content .similair-title');
+    if (presTitle && dict.agency_pres_title) presTitle.textContent = dict.agency_pres_title;
+    const presSub = document.querySelector('.agency-pres-subtitle');
+    if (presSub && dict.agency_pres_subtitle) presSub.textContent = dict.agency_pres_subtitle;
+    const presP1 = document.querySelector('.agency-pres-text p:first-child');
+    if (presP1 && dict.agency_pres_p1) presP1.innerHTML = dict.agency_pres_p1;
+    const presP2 = document.querySelector('.agency-pres-text p:nth-child(2)');
+    if (presP2 && dict.agency_pres_p2) presP2.innerHTML = dict.agency_pres_p2;
+    const presBtnRdv = document.querySelector('.agency-pres-actions a[href="#contact"] span, .agency-pres-actions a:first-child span');
+    if (presBtnRdv && dict.agency_pres_btn_rdv) presBtnRdv.textContent = dict.agency_pres_btn_rdv;
+    const presBtnCall = document.querySelector('.agency-pres-actions a[href^="tel:"] span');
+    if (presBtnCall && dict.agency_pres_btn_call) presBtnCall.textContent = dict.agency_pres_btn_call;
+    const presBtnWa = document.querySelector('.agency-pres-actions a[href*="wa.me"] span');
+    if (presBtnWa && dict.agency_pres_btn_wa) presBtnWa.textContent = dict.agency_pres_btn_wa;
+
+    // Fallbacks rétrocompatibles
     const simKicker = document.querySelector('.similair-kicker');
     if (simKicker) simKicker.textContent = dict.sim_kicker;
-
     const simTitle = document.querySelector('.similair-title');
-    if (simTitle) simTitle.textContent = dict.sim_title;
-
+    if (simTitle && !presTitle) simTitle.textContent = dict.sim_title;
     const simDesc = document.querySelector('.similair-desc');
     if (simDesc) simDesc.textContent = dict.sim_desc;
-
     const simAccidentTitle = document.querySelector('.accident-card-title-wrap span, .similair-accident-title');
     if (simAccidentTitle) simAccidentTitle.textContent = dict.sim_accident_title;
-
     const simAccidentMore = document.querySelector('.accident-card-more-label, .similair-accident-more');
     if (simAccidentMore) simAccidentMore.textContent = dict.sim_accident_more;
-
     const simAccidentLead = document.querySelector('.accident-card-lead, .similair-accident-lead');
     if (simAccidentLead) simAccidentLead.innerHTML = dict.sim_accident_lead;
-
     const simAccidentBody = document.querySelector('#accidentDropdownDetails p, .similair-accident-body');
     if (simAccidentBody) simAccidentBody.textContent = dict.sim_accident_body;
-
     const simAccidentTel = document.querySelector('#accidentDropdownDetails a, .similair-accident-tel span');
     if (simAccidentTel) {
       const svg = simAccidentTel.querySelector('svg');
@@ -1437,10 +1493,15 @@
 
     const footerBottom = document.querySelector('.site-footer .footer-bottom, .site-footer .footer-bottom-bar');
     if (footerBottom) {
-      const copyDiv = footerBottom.querySelector('div:first-child, .footer-copyright');
-      if (copyDiv) copyDiv.textContent = dict.footer_rights;
+      const copySpan = footerBottom.querySelector('.footer-copy-text');
+      if (copySpan) {
+        copySpan.textContent = dict.footer_rights;
+      } else {
+        const copyDiv = footerBottom.querySelector('div:first-child, .footer-copyright');
+        if (copyDiv) copyDiv.textContent = dict.footer_rights;
+      }
       const acapsDiv = footerBottom.querySelector('div:last-child');
-      if (acapsDiv && acapsDiv !== copyDiv) acapsDiv.textContent = dict.footer_acaps;
+      if (acapsDiv && acapsDiv !== footerBottom.querySelector('div:first-child')) acapsDiv.textContent = dict.footer_acaps;
     }
 
     // --- MOBILE TASKBAR TOUTES PAGES ---
