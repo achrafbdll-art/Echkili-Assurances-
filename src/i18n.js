@@ -81,15 +81,15 @@
 
       // Rubrique Présentation Agence Echkili (index.html)
       sim_kicker: "ECHKILI ASSURANCES",
-      sim_title: "Est une agence générale d’assurance au Maroc .",
-      sim_desc: "Mérite d’être votre interlocuteur privilégié pour vos assurances ou celles de l'entreprise ou de l'institution dont vous avez la responsabilité.",
-      sim_accident_title: "Présentation : Agent Général de Proximité",
+      sim_title: "ECHKILI ASSURANCES",
+      sim_desc: "",
+      sim_accident_title: "En cas d'accident",
       sim_accident_more: "En savoir plus",
       sim_accident_read_more: "Lire la suite...",
       sim_accident_reduce: "Réduire",
-      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> : Conseil d'expert, réactivité et proximité humaine à Marrakech",
-      sim_accident_body: "En tant qu'Agent Général AXA Assurance Maroc à Marrakech, nous sommes votre interlocuteur direct et privilégié. Nous vous apportons un conseil personnalisé, une écoute attentive et des solutions adaptées pour protéger votre famille, votre santé, vos biens et le développement de votre entreprise.",
-      sim_accident_tel: "Conseil & Contact Direct : 05 25 36 30 61",
+      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> vous accompagne tout au long de vos démarches",
+      sim_accident_body: "En cas de sinistre ou d'accident, notre agence générale AXA à Marrakech met à votre disposition son assistance 24/7, la prise en charge immédiate de votre déclaration de constat, ainsi que son réseau d'experts et de garages agréés.",
+      sim_accident_tel: "Assistance Sinistre : 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Nos Solutions Particuliers",
@@ -111,8 +111,6 @@
       faq_a3: "Oui, au Maroc la souscription d'une police d'assurance couvrant les accidents du travail et maladies professionnelles est une obligation légale stricte pour tout employeur, quel que soit le nombre de salariés déclarés (Code des Assurances et loi 18-12).",
       faq_q4: "Quels sont les délais habituels de remboursement santé ?",
       faq_a4: "Dès dépôt de votre dossier de soins complet à notre agence Assurances Echkili (feuille de maladie, ordonnance cachetée, vignettes médicamenteuses et quittances), le traitement et le virement bancaire sont généralement effectués sous 7 à 10 jours ouvrés.",
-      faq_q5: "Comment obtenir un devis personnalisé ou souscrire sans me déplacer ?",
-      faq_a5: "Vous pouvez remplir le formulaire de devis ci-dessous, nous joindre au 05 25 36 30 61 ou nous envoyer vos documents par WhatsApp au 06 67 76 21 24. Un conseiller vous répond sous 2 heures ouvrées avec une étude personnalisée et adaptée.",
 
       // Contact & Coordonnées (index.html)
       contact_tag: "Agence Marrakech",
@@ -366,15 +364,15 @@
 
       // Rubrique Présentation Agence Echkili (index.html)
       sim_kicker: "تأمينات شكيلـي",
-      sim_title: "وكالة عامة رائدة للتأمين في المغرب .",
-      sim_desc: "شريككم الاستراتيجي والأمثل لإدارة كافة عقود التأمين الخاصة بكم أو بمقاولتكم ومؤسستكم في مدينة مراكش.",
-      sim_accident_title: "تقديم : وكيل عام للتأمين عن قرب",
+      sim_title: "تأمينات شكيلـي",
+      sim_desc: "",
+      sim_accident_title: "في حالة وقوع حادث",
       sim_accident_more: "المزيد من التفاصيل",
       sim_accident_read_more: "قراءة المزيد...",
       sim_accident_reduce: "تصغير",
-      sim_accident_lead: "<strong>تأمينات شكيلـي</strong> : استشارة مهنية، استجابة سريعة، ومرافقة إنسانية قريبة منكم في مراكش",
-      sim_accident_body: "بصفتنا وكالة عامة معتمدة لأكسا للتأمين المغرب بمراكش، نضع القرب والإنصات في صلب أولوياتنا. نرافقكم باحترافية لتوفير حلول تأمينية مخصصة تلائم حياتكم الشخصية ومسار مقاولتكم، مع ضمان التتبع المباشر لجميع ملفاتكم وتعويضاتكم.",
-      sim_accident_tel: "استشارة وتواصل مباشر : 05 25 36 30 61",
+      sim_accident_lead: "<strong>تأمينات شكيلـي</strong> ترافقكم خطوة بخطوة في جميع الإجراءات وتصريح الحوادث",
+      sim_accident_body: "في حالة حادث سير أو مطالبة بتعويض، تضع وكالتنا العامة أكسا بمراكش رهن إشارتكم المساعدة 24/7، والتسجيل الفوري للمعاينة، وشبكتنا الواسعة من الخبراء وورشات الإصلاح المعتمدة.",
+      sim_accident_tel: "مصلحة الحوادث والنجدة : 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "حلول التأمين للأفراد",
@@ -396,8 +394,6 @@
       faq_a3: "نعم، في المغرب يعد الاكتتاب في تأمين حوادث الشغل والأمراض المهنية التزاماً قانونياً صارماً على كل مشغل ومقاولة، مهما كان عدد الأجراء المصرح بهم (وفقاً لمدونة التأمينات والقانون 18-12).",
       faq_q4: "ما هي الآجال المعتادة لصرف تعويضات ملفات العلاج والتأمين الصحي ؟",
       faq_a4: "بمجرد إيداع ملف العلاج كاملاً لدى وكالتنا تأمينات شكيلـي (ورقة العلاج، الوصفة الطبية المختومة، لواصق الأدوية والتوصيلات)، تتم معالجة الملف والتحويل البنكي عادة في غضون 7 إلى 10 أيام عمل.",
-      faq_q5: "كيف أحصل على تسعيرة مخصصة أو الاكتتاب عن بُعد دون الحضور إلى الوكالة ؟",
-      faq_a5: "يمكنكم تعبئة نموذج التسعيرة أسفل الصفحة، الاتصال بنا هاتفياً على 05 25 36 30 61 أو إرسال وثائقكم عبر الواتساب على 06 67 76 21 24. سيتواصل معكم مستشارنا في أقل من ساعتي عمل لتقديم دراسة تسعيرية مفصلة.",
 
       // Contact & Coordonnées (index.html)
       contact_tag: "وكالة مراكش",
@@ -651,15 +647,15 @@
 
       // Rubrique Présentation Agence Echkili (index.html)
       sim_kicker: "ECHKILI ASSURANCES",
-      sim_title: "A leading general insurance agency in Morocco .",
-      sim_desc: "Your privileged and trusted insurance advisor for your personal policies or protecting the enterprise or institution you manage in Marrakech.",
-      sim_accident_title: "Presentation: Local General Agent",
+      sim_title: "ECHKILI ASSURANCES",
+      sim_desc: "",
+      sim_accident_title: "In Case of an Accident",
       sim_accident_more: "Learn More",
       sim_accident_read_more: "Read more...",
       sim_accident_reduce: "Collapse",
-      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong>: Expert advice, responsive service, and personal commitment in Marrakech",
-      sim_accident_body: "As an authorized AXA Assurance Maroc General Agency in Marrakech, we are your trusted local partner. We deliver tailored advice, dedicated personal attention, and comprehensive coverage to protect your family, health, assets, and business growth.",
-      sim_accident_tel: "Direct Advisory & Contact: 05 25 36 30 61",
+      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> guides and supports you through every step of your claim",
+      sim_accident_body: "In the event of an accident or loss, our AXA general agency in Marrakech provides 24/7 assistance, instant claim declaration processing, and access to approved repair shops.",
+      sim_accident_tel: "Claims Assistance: 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Insurance Solutions for Individuals",
@@ -681,8 +677,6 @@
       faq_a3: "Yes, in Morocco, taking out insurance covering occupational accidents and work-related diseases is a strict legal obligation for every employer, regardless of headcount (Moroccan Insurance Code and Law 18-12).",
       faq_q4: "What are the standard processing times for health claim reimbursements?",
       faq_a4: "Once your complete medical file is submitted to our Assurances Echkili agency (treatment claim form, stamped prescription, drug barcodes, and receipts), direct bank reimbursement is typically issued within 7 to 10 business days.",
-      faq_q5: "How can I obtain a personalized quote or sign up without visiting the branch?",
-      faq_a5: "You can submit the quote form below, reach us by phone at 05 25 36 30 61, or send your documents via WhatsApp to 06 67 76 21 24. An advisor will get back to you within 2 business hours with a clear, tailored proposal.",
 
       // Contact & Coordonnées (index.html)
       contact_tag: "Marrakech Agency",
@@ -966,7 +960,7 @@
     }
 
     // --- NAVIGATION BAR ---
-    const navLinkHome = document.querySelector('#navMenuList > .nav-menu-item:first-child > a');
+    const navLinkHome = document.querySelector('#navMenuList a[href="#accueil"], #navMenuList a[href="index.html"]');
     if (navLinkHome) navLinkHome.textContent = dict.nav_home;
 
     const navLinkEchkili = document.getElementById('navLinkEchkili');
@@ -1109,6 +1103,14 @@
     const simAccidentBody = document.querySelector('#accidentDropdownDetails p, .similair-accident-body');
     if (simAccidentBody) simAccidentBody.textContent = dict.sim_accident_body;
 
+    const simAccidentTel = document.querySelector('#accidentDropdownDetails a, .similair-accident-tel span');
+    if (simAccidentTel) {
+      const svg = simAccidentTel.querySelector('svg');
+      simAccidentTel.innerHTML = '';
+      if (svg) simAccidentTel.appendChild(svg);
+      simAccidentTel.append(` ${dict.sim_accident_tel}`);
+    }
+
     // --- SOLUTIONS & OFFRES SECTION ---
     const solTitle = document.querySelector('.solutions-hero-title');
     if (solTitle) {
@@ -1182,27 +1184,41 @@
     });
 
     // --- FAQ SECTION (index.html) ---
-    const faqTag = document.querySelector('#faq .section-tag, .faq-tag, [data-i18n="faq_tag"]');
+    const faqTag = document.querySelector('#faq .section-tag');
     if (faqTag) faqTag.textContent = dict.faq_tag;
 
-    const faqTitle = document.querySelector('#faq .section-title, .faq-header .section-title, [data-i18n="faq_title"]');
+    const faqTitle = document.querySelector('#faq .section-title');
     if (faqTitle) faqTitle.textContent = dict.faq_title;
 
-    const faqSubtitle = document.querySelector('#faq .section-subtitle, .faq-subtitle, [data-i18n="faq_sub"]');
+    const faqSubtitle = document.querySelector('#faq .section-subtitle');
     if (faqSubtitle) faqSubtitle.textContent = dict.faq_sub;
 
-    const faqItems = document.querySelectorAll('#faq .faq-list .faq-item, #faq .faq-item, .faq-list .faq-item');
-    faqItems.forEach((item, index) => {
-      const qIdx = index + 1;
-      const qBtn = item.querySelector('.faq-question span, .faq-question-btn span, span[data-i18n^="faq_q"]');
-      const aTxt = item.querySelector('.faq-answer, .faq-answer p, [data-i18n^="faq_a"]');
-      if (qBtn && dict[`faq_q${qIdx}`]) {
-        qBtn.textContent = dict[`faq_q${qIdx}`];
-      }
-      if (aTxt && dict[`faq_a${qIdx}`]) {
-        aTxt.textContent = dict[`faq_a${qIdx}`];
-      }
-    });
+    const faqItems = document.querySelectorAll('#faq .faq-list .faq-item');
+    if (faqItems.length >= 4) {
+      // Question 1
+      const q1Btn = faqItems[0].querySelector('.faq-question span');
+      const a1Txt = faqItems[0].querySelector('.faq-answer');
+      if (q1Btn) q1Btn.textContent = dict.faq_q1;
+      if (a1Txt) a1Txt.textContent = dict.faq_a1;
+
+      // Question 2
+      const q2Btn = faqItems[1].querySelector('.faq-question span');
+      const a2Txt = faqItems[1].querySelector('.faq-answer');
+      if (q2Btn) q2Btn.textContent = dict.faq_q2;
+      if (a2Txt) a2Txt.textContent = dict.faq_a2;
+
+      // Question 3
+      const q3Btn = faqItems[2].querySelector('.faq-question span');
+      const a3Txt = faqItems[2].querySelector('.faq-answer');
+      if (q3Btn) q3Btn.textContent = dict.faq_q3;
+      if (a3Txt) a3Txt.textContent = dict.faq_a3;
+
+      // Question 4
+      const q4Btn = faqItems[3].querySelector('.faq-question span');
+      const a4Txt = faqItems[3].querySelector('.faq-answer');
+      if (q4Btn) q4Btn.textContent = dict.faq_q4;
+      if (a4Txt) a4Txt.textContent = dict.faq_a4;
+    }
 
     // --- CONTACT & COORDONNÉES SECTION (index.html) ---
     const contactTag = document.querySelector('#contact .section-tag');
@@ -1284,13 +1300,13 @@
     if (sujetLabel) sujetLabel.textContent = dict.form_subject_label;
     const sujetSelect = document.getElementById('contactSujet');
     if (sujetSelect && sujetSelect.options && sujetSelect.options.length >= 7) {
-      if (sujetSelect.options[0]) sujetSelect.options[0].text = dict.form_opt_auto;
-      if (sujetSelect.options[1]) sujetSelect.options[1].text = dict.form_opt_hab;
-      if (sujetSelect.options[2]) sujetSelect.options[2].text = dict.form_opt_sante;
-      if (sujetSelect.options[3]) sujetSelect.options[3].text = dict.form_opt_ent;
-      if (sujetSelect.options[4]) sujetSelect.options[4].text = dict.form_opt_epargne;
-      if (sujetSelect.options[5]) sujetSelect.options[5].text = dict.form_opt_sinistre;
-      if (sujetSelect.options[6]) sujetSelect.options[6].text = dict.form_opt_autre;
+      sujetSelect.options[0].text = dict.form_opt_auto;
+      sujetSelect.options[1].text = dict.form_opt_hab;
+      sujetSelect.options[2].text = dict.form_opt_sante;
+      sujetSelect.options[3].text = dict.form_opt_ent;
+      sujetSelect.options[4].text = dict.form_opt_epargne;
+      sujetSelect.options[5].text = dict.form_opt_sinistre;
+      sujetSelect.options[6].text = dict.form_opt_autre;
     }
 
     // Message
@@ -1337,10 +1353,10 @@
 
     const accessPills = document.querySelectorAll('.agency-access-bar .access-pill span');
     if (accessPills.length >= 4) {
-      if (accessPills[0]) accessPills[0].textContent = dict.map_pill_access;
-      if (accessPills[1]) accessPills[1].textContent = dict.map_pill_parking;
-      if (accessPills[2]) accessPills[2].textContent = dict.map_pill_hours;
-      if (accessPills[3]) accessPills[3].textContent = dict.map_pill_assistance;
+      accessPills[0].textContent = dict.map_pill_access;
+      accessPills[1].textContent = dict.map_pill_parking;
+      accessPills[2].textContent = dict.map_pill_hours;
+      accessPills[3].textContent = dict.map_pill_assistance;
     }
 
     // --- FOOTER TOUTES PAGES ---
@@ -1352,14 +1368,14 @@
 
     const footerLinks0 = document.querySelectorAll('.site-footer .footer-col:first-child a[style*="font-size: 0.84rem"]');
     if (footerLinks0.length >= 2) {
-      if (footerLinks0[0]) footerLinks0[0].textContent = dict.footer_agency_link;
-      if (footerLinks0[1]) footerLinks0[1].textContent = dict.footer_missions_link;
+      footerLinks0[0].textContent = dict.footer_agency_link;
+      footerLinks0[1].textContent = dict.footer_missions_link;
     }
 
     const footerBadges = document.querySelectorAll('.site-footer .footer-col:first-child div[style*="gap: 0.5rem"] span');
     if (footerBadges.length >= 2) {
-      if (footerBadges[0]) footerBadges[0].textContent = dict.footer_acaps_badge;
-      if (footerBadges[1]) footerBadges[1].textContent = dict.footer_axa_badge;
+      footerBadges[0].textContent = dict.footer_acaps_badge;
+      footerBadges[1].textContent = dict.footer_axa_badge;
     }
 
     const footerFollow = document.querySelector('.site-footer .footer-col:first-child div[style*="margin-top: 1.25rem"] span');
@@ -1376,29 +1392,14 @@
       const hUrg = footerCols[3].querySelector('h4, .footer-heading');
       if (hUrg) hUrg.textContent = dict.footer_urgences_title;
 
-      // Assistance label (robuste et résistant aux variations de structure HTML)
-      const urgAssistance = footerCols[3].querySelector('.footer-urg-assistance-label, [data-i18n="footer_assistance_label"]');
-      if (urgAssistance) {
-        urgAssistance.textContent = dict.footer_assistance_label;
-      } else {
-        const pList = footerCols[3].querySelectorAll('p');
-        if (pList[0] && pList[0].childNodes && pList[0].childNodes[0]) {
-          pList[0].childNodes[0].textContent = `${dict.footer_assistance_label}\n`;
-        }
-      }
-
-      // Email label (robuste)
-      const urgEmail = footerCols[3].querySelector('.footer-urg-email-label, [data-i18n="footer_email_label"]');
-      if (urgEmail) {
-        urgEmail.textContent = dict.footer_email_label;
-      } else {
-        const pList = footerCols[3].querySelectorAll('p');
-        for (let pItem of pList) {
-          if (pItem.querySelector('a[href^="mailto:"]') && pItem.childNodes && pItem.childNodes[0]) {
-            pItem.childNodes[0].textContent = `${dict.footer_email_label}\n`;
-            break;
-          }
-        }
+      const urgTexts = footerCols[3].querySelectorAll('p');
+      if (urgTexts.length >= 2) {
+        // Assistance
+        const numA = urgTexts[0].querySelector('a');
+        urgTexts[0].childNodes[0].textContent = `${dict.footer_assistance_label}\n`;
+        // Email
+        const emailA = urgTexts[1].querySelector('a');
+        urgTexts[1].childNodes[0].textContent = `${dict.footer_email_label}\n`;
       }
 
       const hoursBox = footerCols[3].querySelector('.footer-hours-box, .footer-hours-card');
@@ -1463,10 +1464,10 @@
 
     const compThs = document.querySelectorAll('.compare-table thead th');
     if (compThs.length >= 4) {
-      if (compThs[0]) compThs[0].textContent = dict.compare_th_guarantees;
-      if (compThs[1]) compThs[1].textContent = dict.compare_th_essential;
-      if (compThs[2]) compThs[2].textContent = dict.compare_th_comfort;
-      if (compThs[3]) compThs[3].textContent = dict.compare_th_serenity;
+      compThs[0].textContent = dict.compare_th_guarantees;
+      compThs[1].textContent = dict.compare_th_essential;
+      compThs[2].textContent = dict.compare_th_comfort;
+      compThs[3].textContent = dict.compare_th_serenity;
     }
 
     const compRows = document.querySelectorAll('.compare-table tbody tr');
@@ -1482,10 +1483,10 @@
       compRows.forEach((tr, i) => {
         const tds = tr.querySelectorAll('td');
         if (tds.length >= 4 && rData[i]) {
-          if (tds[0]) tds[0].innerHTML = `<strong>${rData[i][0]}</strong>`;
-          if (tds[1]) tds[1].textContent = rData[i][1];
-          if (tds[2]) tds[2].textContent = rData[i][2];
-          if (tds[3]) tds[3].textContent = rData[i][3];
+          tds[0].innerHTML = `<strong>${rData[i][0]}</strong>`;
+          tds[1].textContent = rData[i][1];
+          tds[2].textContent = rData[i][2];
+          tds[3].textContent = rData[i][3];
         }
       });
     }
@@ -1593,7 +1594,6 @@
   };
 
   // Aliases pour compatibilité
-  window.setLanguage = applyLanguage;
   window.setSiteLanguage = applyLanguage;
   window.getCurrentLanguage = getStoredLang;
   window.getI18nText = function (key) {

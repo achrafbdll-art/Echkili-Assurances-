@@ -83,13 +83,13 @@
       sim_kicker: "ECHKILI ASSURANCES",
       sim_title: "Est une agence générale d’assurance au Maroc .",
       sim_desc: "Mérite d’être votre interlocuteur privilégié pour vos assurances ou celles de l'entreprise ou de l'institution dont vous avez la responsabilité.",
-      sim_accident_title: "Présentation : Agent Général de Proximité",
+      sim_accident_title: "En cas d'accident",
       sim_accident_more: "En savoir plus",
       sim_accident_read_more: "Lire la suite...",
       sim_accident_reduce: "Réduire",
-      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> : Conseil d'expert, réactivité et proximité humaine à Marrakech",
-      sim_accident_body: "En tant qu'Agent Général AXA Assurance Maroc à Marrakech, nous sommes votre interlocuteur direct et privilégié. Nous vous apportons un conseil personnalisé, une écoute attentive et des solutions adaptées pour protéger votre famille, votre santé, vos biens et le développement de votre entreprise.",
-      sim_accident_tel: "Conseil & Contact Direct : 05 25 36 30 61",
+      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> vous accompagne tout au long de vos démarches",
+      sim_accident_body: "En cas de sinistre ou d'accident, notre agence générale AXA à Marrakech met à votre disposition son assistance 24/7, la prise en charge immédiate de votre déclaration de constat, ainsi que son réseau d'experts et de garages agréés.",
+      sim_accident_tel: "Assistance Sinistre : 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Nos Solutions Particuliers",
@@ -368,13 +368,13 @@
       sim_kicker: "تأمينات شكيلـي",
       sim_title: "وكالة عامة رائدة للتأمين في المغرب .",
       sim_desc: "شريككم الاستراتيجي والأمثل لإدارة كافة عقود التأمين الخاصة بكم أو بمقاولتكم ومؤسستكم في مدينة مراكش.",
-      sim_accident_title: "تقديم : وكيل عام للتأمين عن قرب",
+      sim_accident_title: "في حالة وقوع حادث",
       sim_accident_more: "المزيد من التفاصيل",
       sim_accident_read_more: "قراءة المزيد...",
       sim_accident_reduce: "تصغير",
-      sim_accident_lead: "<strong>تأمينات شكيلـي</strong> : استشارة مهنية، استجابة سريعة، ومرافقة إنسانية قريبة منكم في مراكش",
-      sim_accident_body: "بصفتنا وكالة عامة معتمدة لأكسا للتأمين المغرب بمراكش، نضع القرب والإنصات في صلب أولوياتنا. نرافقكم باحترافية لتوفير حلول تأمينية مخصصة تلائم حياتكم الشخصية ومسار مقاولتكم، مع ضمان التتبع المباشر لجميع ملفاتكم وتعويضاتكم.",
-      sim_accident_tel: "استشارة وتواصل مباشر : 05 25 36 30 61",
+      sim_accident_lead: "<strong>تأمينات شكيلـي</strong> ترافقكم خطوة بخطوة في جميع الإجراءات وتصريح الحوادث",
+      sim_accident_body: "في حالة حادث سير أو مطالبة بتعويض، تضع وكالتنا العامة أكسا بمراكش رهن إشارتكم المساعدة 24/7، والتسجيل الفوري للمعاينة، وشبكتنا الواسعة من الخبراء وورشات الإصلاح المعتمدة.",
+      sim_accident_tel: "مصلحة الحوادث والنجدة : 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "حلول التأمين للأفراد",
@@ -653,13 +653,13 @@
       sim_kicker: "ECHKILI ASSURANCES",
       sim_title: "A leading general insurance agency in Morocco .",
       sim_desc: "Your privileged and trusted insurance advisor for your personal policies or protecting the enterprise or institution you manage in Marrakech.",
-      sim_accident_title: "Presentation: Local General Agent",
+      sim_accident_title: "In Case of an Accident",
       sim_accident_more: "Learn More",
       sim_accident_read_more: "Read more...",
       sim_accident_reduce: "Collapse",
-      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong>: Expert advice, responsive service, and personal commitment in Marrakech",
-      sim_accident_body: "As an authorized AXA Assurance Maroc General Agency in Marrakech, we are your trusted local partner. We deliver tailored advice, dedicated personal attention, and comprehensive coverage to protect your family, health, assets, and business growth.",
-      sim_accident_tel: "Direct Advisory & Contact: 05 25 36 30 61",
+      sim_accident_lead: "<strong>ECHKILI ASSURANCES</strong> guides and supports you through every step of your claim",
+      sim_accident_body: "In the event of an accident or loss, our AXA general agency in Marrakech provides 24/7 assistance, instant claim declaration processing, and access to approved repair shops.",
+      sim_accident_tel: "Claims Assistance: 05 25 36 30 61",
 
       // Solutions Section (index.html & offres.html)
       sol_title_1: "Insurance Solutions for Individuals",
@@ -1109,6 +1109,14 @@
     const simAccidentBody = document.querySelector('#accidentDropdownDetails p, .similair-accident-body');
     if (simAccidentBody) simAccidentBody.textContent = dict.sim_accident_body;
 
+    const simAccidentTel = document.querySelector('#accidentDropdownDetails a, .similair-accident-tel span');
+    if (simAccidentTel) {
+      const svg = simAccidentTel.querySelector('svg');
+      simAccidentTel.innerHTML = '';
+      if (svg) simAccidentTel.appendChild(svg);
+      simAccidentTel.append(` ${dict.sim_accident_tel}`);
+    }
+
     // --- SOLUTIONS & OFFRES SECTION ---
     const solTitle = document.querySelector('.solutions-hero-title');
     if (solTitle) {
@@ -1284,13 +1292,13 @@
     if (sujetLabel) sujetLabel.textContent = dict.form_subject_label;
     const sujetSelect = document.getElementById('contactSujet');
     if (sujetSelect && sujetSelect.options && sujetSelect.options.length >= 7) {
-      if (sujetSelect.options[0]) sujetSelect.options[0].text = dict.form_opt_auto;
-      if (sujetSelect.options[1]) sujetSelect.options[1].text = dict.form_opt_hab;
-      if (sujetSelect.options[2]) sujetSelect.options[2].text = dict.form_opt_sante;
-      if (sujetSelect.options[3]) sujetSelect.options[3].text = dict.form_opt_ent;
-      if (sujetSelect.options[4]) sujetSelect.options[4].text = dict.form_opt_epargne;
-      if (sujetSelect.options[5]) sujetSelect.options[5].text = dict.form_opt_sinistre;
-      if (sujetSelect.options[6]) sujetSelect.options[6].text = dict.form_opt_autre;
+      sujetSelect.options[0].text = dict.form_opt_auto;
+      sujetSelect.options[1].text = dict.form_opt_hab;
+      sujetSelect.options[2].text = dict.form_opt_sante;
+      sujetSelect.options[3].text = dict.form_opt_ent;
+      sujetSelect.options[4].text = dict.form_opt_epargne;
+      sujetSelect.options[5].text = dict.form_opt_sinistre;
+      sujetSelect.options[6].text = dict.form_opt_autre;
     }
 
     // Message
@@ -1337,10 +1345,10 @@
 
     const accessPills = document.querySelectorAll('.agency-access-bar .access-pill span');
     if (accessPills.length >= 4) {
-      if (accessPills[0]) accessPills[0].textContent = dict.map_pill_access;
-      if (accessPills[1]) accessPills[1].textContent = dict.map_pill_parking;
-      if (accessPills[2]) accessPills[2].textContent = dict.map_pill_hours;
-      if (accessPills[3]) accessPills[3].textContent = dict.map_pill_assistance;
+      accessPills[0].textContent = dict.map_pill_access;
+      accessPills[1].textContent = dict.map_pill_parking;
+      accessPills[2].textContent = dict.map_pill_hours;
+      accessPills[3].textContent = dict.map_pill_assistance;
     }
 
     // --- FOOTER TOUTES PAGES ---
@@ -1352,14 +1360,14 @@
 
     const footerLinks0 = document.querySelectorAll('.site-footer .footer-col:first-child a[style*="font-size: 0.84rem"]');
     if (footerLinks0.length >= 2) {
-      if (footerLinks0[0]) footerLinks0[0].textContent = dict.footer_agency_link;
-      if (footerLinks0[1]) footerLinks0[1].textContent = dict.footer_missions_link;
+      footerLinks0[0].textContent = dict.footer_agency_link;
+      footerLinks0[1].textContent = dict.footer_missions_link;
     }
 
     const footerBadges = document.querySelectorAll('.site-footer .footer-col:first-child div[style*="gap: 0.5rem"] span');
     if (footerBadges.length >= 2) {
-      if (footerBadges[0]) footerBadges[0].textContent = dict.footer_acaps_badge;
-      if (footerBadges[1]) footerBadges[1].textContent = dict.footer_axa_badge;
+      footerBadges[0].textContent = dict.footer_acaps_badge;
+      footerBadges[1].textContent = dict.footer_axa_badge;
     }
 
     const footerFollow = document.querySelector('.site-footer .footer-col:first-child div[style*="margin-top: 1.25rem"] span');
@@ -1376,29 +1384,30 @@
       const hUrg = footerCols[3].querySelector('h4, .footer-heading');
       if (hUrg) hUrg.textContent = dict.footer_urgences_title;
 
-      // Assistance label (robuste et résistant aux variations de structure HTML)
-      const urgAssistance = footerCols[3].querySelector('.footer-urg-assistance-label, [data-i18n="footer_assistance_label"]');
-      if (urgAssistance) {
-        urgAssistance.textContent = dict.footer_assistance_label;
-      } else {
-        const pList = footerCols[3].querySelectorAll('p');
-        if (pList[0] && pList[0].childNodes && pList[0].childNodes[0]) {
-          pList[0].childNodes[0].textContent = `${dict.footer_assistance_label}\n`;
-        }
+      // Update specific assistance & email title labels if present
+      const urgAssistanceTitle = footerCols[3].querySelector('.footer-urg-assistance-title');
+      if (urgAssistanceTitle) {
+        urgAssistanceTitle.textContent = dict.footer_assistance_label;
       }
 
-      // Email label (robuste)
-      const urgEmail = footerCols[3].querySelector('.footer-urg-email-label, [data-i18n="footer_email_label"]');
-      if (urgEmail) {
-        urgEmail.textContent = dict.footer_email_label;
-      } else {
-        const pList = footerCols[3].querySelectorAll('p');
-        for (let pItem of pList) {
-          if (pItem.querySelector('a[href^="mailto:"]') && pItem.childNodes && pItem.childNodes[0]) {
-            pItem.childNodes[0].textContent = `${dict.footer_email_label}\n`;
-            break;
+      const urgEmailTitle = footerCols[3].querySelector('.footer-urg-email-title');
+      if (urgEmailTitle) {
+        urgEmailTitle.textContent = dict.footer_email_label;
+      }
+
+      // Safe fallback if specific labels are not present
+      if (!urgAssistanceTitle || !urgEmailTitle) {
+        const urgTexts = footerCols[3].querySelectorAll('p');
+        urgTexts.forEach(p => {
+          if (p && p.childNodes && p.childNodes.length > 0 && p.childNodes[0]) {
+            const txt = p.childNodes[0].textContent || '';
+            if (p.querySelector('a[href^="tel:"]') || txt.includes('Assistance') || txt.includes('نجدة') || txt.includes('Help')) {
+              p.childNodes[0].textContent = `${dict.footer_assistance_label}\n`;
+            } else if (p.querySelector('a[href^="mailto:"]') || txt.includes('Email') || txt.includes('البريد')) {
+              p.childNodes[0].textContent = `${dict.footer_email_label}\n`;
+            }
           }
-        }
+        });
       }
 
       const hoursBox = footerCols[3].querySelector('.footer-hours-box, .footer-hours-card');
@@ -1593,7 +1602,6 @@
   };
 
   // Aliases pour compatibilité
-  window.setLanguage = applyLanguage;
   window.setSiteLanguage = applyLanguage;
   window.getCurrentLanguage = getStoredLang;
   window.getI18nText = function (key) {

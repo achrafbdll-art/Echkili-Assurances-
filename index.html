@@ -51,6 +51,8 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      scroll-padding-top: 68px;
+      overflow-x: clip;
     }
 
     body {
@@ -59,6 +61,9 @@
       background-color: #ffffff;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      min-height: 100vh;
+      position: relative;
     }
 
     h1, h2, .section-title, .hero-headline, .mv-main-title, .similair-title {
@@ -167,12 +172,22 @@
 
     /* --- AXA Navy Navigation Bar --- */
     .site-nav-bar {
-      background-color: #1a3365;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 14px rgba(10, 25, 55, 0.15);
-    }
+       background-color: #1a3365;
+       position: -webkit-sticky;
+       position: sticky;
+       top: 0;
+       z-index: 1000;
+       width: 100%;
+       box-shadow: 0 4px 14px rgba(10, 25, 55, 0.15);
+       transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+     }
+     .site-nav-bar.is-scrolled {
+       background-color: rgba(22, 45, 90, 0.98);
+       backdrop-filter: blur(14px);
+       -webkit-backdrop-filter: blur(14px);
+       box-shadow: 0 8px 24px -4px rgba(0, 15, 50, 0.35);
+       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+     }
     .site-nav-bar .container,
     .site-nav-bar .nav-bar-inner,
     .nav-bar-inner {
@@ -418,11 +433,89 @@
 
     /* Mobile Navigation Hamburger & Elements Hidden on Desktop */
     .mobile-nav-toggle,
-    .mobile-nav-brand,
     .mobile-nav-actions,
     .mobile-bottom-taskbar,
     .mobile-menu-footer {
       display: none;
+    }
+
+    /* Brand Logo on Sticky Navigation Bar (Responsive PC & Mobile) */
+    .mobile-nav-brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: opacity 0.25s ease, max-width 0.28s ease, margin-right 0.28s ease, transform 0.2s ease;
+    }
+    @media (min-width: 861px) {
+      .mobile-nav-brand {
+        opacity: 0;
+        visibility: hidden;
+        max-width: 0;
+        overflow: hidden;
+        margin-right: 0;
+        pointer-events: none;
+      }
+      .site-nav-bar.is-scrolled .mobile-nav-brand {
+        opacity: 1;
+        visibility: visible;
+        max-width: 220px;
+        margin-right: 1.25rem;
+        pointer-events: auto;
+      }
+      .mobile-nav-logo-img {
+        height: 36px;
+        width: auto;
+        display: block;
+      }
+    }
+    @media (max-width: 860px) {
+      .mobile-nav-brand {
+        opacity: 1;
+        visibility: visible;
+        max-width: 100%;
+        pointer-events: auto;
+      }
+      .mobile-nav-logo-img {
+        height: 32px;
+        width: auto;
+        display: block;
+      }
+    }
+
+    /* PC Quick Action Call CTA in Sticky Taskbar (Circle Icon Button) */
+    .nav-pc-call-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #ffffff !important;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .nav-pc-call-cta:hover {
+      background: #059669;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.55);
+    }
+    .nav-pc-call-cta svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2.3;
+      stroke: #ffffff;
+      fill: none;
+    }
+    @media (max-width: 860px) {
+      .nav-pc-call-cta {
+        display: none !important;
+      }
     }
     .mobile-nav-toggle {
       background: none;
@@ -1700,12 +1793,6 @@
     .faq-item.active .faq-answer {
       display: block;
     }
-    html[dir="rtl"] .faq-question {
-      text-align: right;
-    }
-    html[dir="rtl"] .faq-answer {
-      text-align: right;
-    }
 
     /* Contact Section (Arrière-plan Bleu AXA) */
     #contact {
@@ -2328,7 +2415,55 @@
         object-fit: contain;
       }
       .header-contact-group {
-        display: none !important; /* Uniquement le logo sur mobile - suppression des numéros de téléphone */
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 0.85rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid #e2e8f0;
+      }
+      .header-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-align: left;
+        background: #f8fafc;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+      }
+      .header-contact-icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        background: rgba(0, 40, 104, 0.08);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .header-contact-icon svg {
+        width: 16px;
+        height: 16px;
+        stroke: #002868;
+      }
+      .header-contact-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .header-contact-title {
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: #002868;
+        margin: 0 0 0.1rem 0;
+      }
+      .header-contact-sub {
+        font-size: 0.74rem;
+        color: #475569;
+        line-height: 1.35;
+        margin: 0;
+        word-break: break-word;
       }
       /* Mobile Navigation & Taskbar Optimization */
       body {
@@ -2381,24 +2516,26 @@
       .mobile-nav-quick-call {
         display: inline-flex;
         align-items: center;
-        gap: 0.35rem;
-        background: #16a34a;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #10b981;
         color: #ffffff;
-        font-size: 0.76rem;
-        font-weight: 700;
-        padding: 0.38rem 0.7rem;
-        border-radius: 9999px;
         text-decoration: none;
-        transition: background 0.2s ease;
+        transition: background-color 0.2s ease, transform 0.15s ease;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+        flex-shrink: 0;
       }
       .mobile-nav-quick-call:active {
-        background: #15803d;
+        background: #059669;
+        transform: scale(0.95);
       }
       .mobile-nav-quick-call svg {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         stroke: #ffffff;
-        stroke-width: 2.2;
+        stroke-width: 2.3;
         fill: none;
       }
       .mobile-nav-toggle {
@@ -2764,10 +2901,17 @@
         z-index: 2;
       }
       .hero-geometric-bg {
-        display: none;
+        display: block !important;
+        opacity: 0.35 !important;
+        width: 100% !important;
       }
       .hero-watermark-wrapper {
-        display: none;
+        display: block !important;
+        opacity: 0.16 !important;
+        width: 160px !important;
+        height: 160px !important;
+        top: 45% !important;
+        left: 50% !important;
       }
       .hero-banner-inner {
         position: relative;
@@ -2863,7 +3007,7 @@
         object-fit: contain;
       }
       .header-contact-group {
-        display: none !important;
+        display: flex !important;
       }
       .hero-slides-wrapper {
         height: 250px; /* Cadrage équilibré et parfaitement centré sur smartphone */
@@ -3277,10 +3421,10 @@
        ========================================================================== */
     .agency-similair-section {
       background-color: #ffffff;
-      background-image: radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 100%), url('assets/axa-pattern.svg');
+      background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.78) 100%), url('assets/axa-pattern.svg');
       background-repeat: repeat;
       background-size: 180px 90px;
-      padding: 5rem 0 5.5rem;
+      padding: 4.5rem 0 5.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -3509,6 +3653,43 @@
         font-size: 1.95rem;
       }
     }
+    @media (max-width: 640px) {
+      .agency-similair-section {
+        padding: 3rem 0 3.75rem;
+      }
+      .agency-similair-grid {
+        gap: 2.25rem;
+      }
+      .agency-similair-visual {
+        max-width: 320px;
+      }
+      .similair-photo-img {
+        height: 240px;
+      }
+      .similair-title {
+        font-size: 1.65rem;
+        line-height: 1.25;
+        text-align: center;
+      }
+      .similair-dots-grid {
+        top: -14px;
+        left: -14px;
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+      .similair-stripes-shape {
+        bottom: -14px;
+        left: -14px;
+        transform: scale(0.8);
+        transform-origin: bottom left;
+      }
+      .similair-red-bracket {
+        right: -8px;
+        bottom: -8px;
+        width: 85px;
+        height: 85px;
+      }
+    }
 
     /* RTL Arabic Support */
     html[dir="rtl"] {
@@ -3631,14 +3812,14 @@
     /* 1. Global Viewport & Protection Débordement Horizontal */
     html, body {
       max-width: 100%;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
       -webkit-tap-highlight-color: transparent;
     }
 
     /* 2. Éléments tactiles et suppression du zoom automatique Safari iOS */
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       input, select, textarea {
         font-size: 16px !important; /* Prévient l'auto-zoom d'iOS Safari au focus */
       }
@@ -3647,8 +3828,8 @@
       }
     }
 
-    /* 3. Comportement Barre des Tâches Mobile Flottante */
-    @media (min-width: 769px) {
+    /* 3. Comportement Barre des Tâches Mobile Flottante & PC Sticky */
+    @media (min-width: 861px) {
       .mobile-bottom-taskbar {
         display: none !important; /* Strictement masquée sur PC et écrans d'ordinateur */
       }
@@ -3656,7 +3837,7 @@
         padding-bottom: 0 !important;
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .mobile-bottom-taskbar {
         display: flex !important;
         position: fixed !important;
@@ -3668,20 +3849,50 @@
         backdrop-filter: blur(14px) !important;
         -webkit-backdrop-filter: blur(14px) !important;
         border-top: 1px solid #e2e8f0 !important;
-        box-shadow: 0 -4px 22px rgba(0, 24, 107, 0.1) !important;
+        box-shadow: 0 -4px 22px rgba(0, 24, 107, 0.12) !important;
         z-index: 9999 !important;
         justify-content: space-around !important;
         align-items: stretch !important;
         padding: 0 0.25rem !important;
-        padding-bottom: max(4px, env(safe-area-inset-bottom, 6px)) !important;
+        padding-bottom: max(6px, env(safe-area-inset-bottom, 8px)) !important;
+        transform: translateZ(0);
       }
       body {
-        padding-bottom: 72px !important; /* Dégage l'espace pour ne masquer aucun contenu */
+        padding-bottom: calc(66px + env(safe-area-inset-bottom, 8px)) !important; /* Dégage l'espace pour ne masquer aucun contenu */
       }
       .floating-back-to-top {
-        bottom: 76px !important;
+        bottom: calc(74px + env(safe-area-inset-bottom, 8px)) !important;
         right: 14px !important;
       }
+    }
+
+    /* Animations d'attention ergonomiques pour la barre des tâches */
+    @keyframes pulse-call-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+    .m-taskbar-item.m-taskbar-call .m-call-bubble {
+      animation: pulse-call-ring 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    @keyframes pulse-urgency-dot {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 0.65;
+      }
+    }
+    .m-urgency-dot {
+      animation: pulse-urgency-dot 2s infinite ease-in-out;
     }
 
     /* 4. Optimisation Modale Produit sur Mobile */
@@ -3809,7 +4020,6 @@
       </a>
 
       <ul class="nav-menu-list" id="navMenuList">
-        <li class="nav-menu-item"><a href="#accueil" class="nav-menu-link active">Accueil</a></li>
         <li class="nav-menu-item dropdown-item-container" id="navItemEchkili">
           <a href="#missions-valeurs" class="nav-menu-link" id="navLinkEchkili" aria-haspopup="true" aria-expanded="false">
             Assurances Echkili <span class="nav-plus">+</span>
@@ -4021,9 +4231,8 @@
           <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false">عربي</button>
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <a href="tel:+212525363061" class="mobile-nav-quick-call" title="Appeler le bureau">
+        <a href="tel:+212525363061" class="mobile-nav-quick-call" aria-label="Appeler l'agence AXA Marrakech" title="Appeler : 05 25 36 30 61">
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>Appeler</span>
         </a>
         <button class="mobile-nav-toggle" id="menuToggle" aria-label="Menu principal" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -4031,8 +4240,12 @@
         </button>
       </div>
 
-      <!-- Desktop Right Cluster: Social Links + Language Selector at Far Right -->
+      <!-- Desktop Right Cluster: Social Links + Quick Call CTA + Language Selector at Far Right -->
       <div class="nav-right-cluster">
+        <!-- PC Direct Phone Action in Sticky Bar -->
+        <a href="tel:+212525363061" class="nav-pc-call-cta" aria-label="Appeler l'agence AXA Marrakech (05 25 36 30 61)" title="Appeler : 05 25 36 30 61">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
         <div class="nav-social-group">
           <a href="https://wa.me/212667762124" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="WhatsApp Assurances Echkili" title="WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
@@ -4065,7 +4278,7 @@
         <!-- Slide 0: Conseiller AXA Assurances Echkili -->
         <div class="hero-slide-item active" data-slide-index="0">
           <div class="hero-slide-photo-wrap">
-            <img src="assets/axa-agence-echkili.jpg" id="heroAgencySlideImg" alt="Votre Agent Général AXA à Marrakech - Conseil et accompagnement personnalisé Assurances Echkili" class="hero-slide-photo" loading="eager">
+            <img src="assets/conseiller-axa.jpg" id="heroAgencySlideImg" alt="Votre Conseiller AXA à Marrakech - Conseil et accompagnement personnalisé Assurances Echkili" class="hero-slide-photo" loading="eager">
           </div>
           <div class="hero-slide-mask"></div>
           <div class="hero-geometric-bg"></div>
@@ -4264,7 +4477,25 @@
 
     <!-- 3b. Présentation Agence : ECHKILI ASSURANCES (Modèle Officiel AXA Maroc) -->
     <section class="agency-similair-section" id="agence">
-      <div class="container">
+      <!-- Background Overlapping Circular Rings (Même arrière-plan officiel AXA que Missions & Valeurs) -->
+      <div class="mv-bg-graphic mv-bg-graphic-tl" aria-hidden="true">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="130" cy="120" rx="190" ry="310" transform="rotate(-36 130 120)" stroke="#94a3b8" stroke-width="2.4" stroke-opacity="0.55"/>
+          <ellipse cx="170" cy="160" rx="230" ry="360" transform="rotate(-28 170 160)" stroke="#94a3b8" stroke-width="2.2" stroke-opacity="0.45"/>
+          <ellipse cx="95" cy="90" rx="150" ry="250" transform="rotate(-44 95 90)" stroke="#cbd5e1" stroke-width="2.2" stroke-opacity="0.6"/>
+          <ellipse cx="220" cy="200" rx="270" ry="410" transform="rotate(-20 220 200)" stroke="#cbd5e1" stroke-width="2" stroke-opacity="0.38"/>
+        </svg>
+      </div>
+      <div class="mv-bg-graphic mv-bg-graphic-br" aria-hidden="true">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="380" cy="380" rx="200" ry="320" transform="rotate(-34 380 380)" stroke="#94a3b8" stroke-width="2.4" stroke-opacity="0.55"/>
+          <ellipse cx="340" cy="340" rx="240" ry="370" transform="rotate(-26 340 340)" stroke="#94a3b8" stroke-width="2.2" stroke-opacity="0.45"/>
+          <ellipse cx="420" cy="410" rx="160" ry="260" transform="rotate(-42 420 410)" stroke="#cbd5e1" stroke-width="2.2" stroke-opacity="0.6"/>
+          <ellipse cx="300" cy="300" rx="280" ry="420" transform="rotate(-18 300 300)" stroke="#cbd5e1" stroke-width="2" stroke-opacity="0.38"/>
+        </svg>
+      </div>
+
+      <div class="container" style="position: relative; z-index: 2;">
         <div class="agency-similair-grid">
           <!-- Colonne Gauche : Visuel avec Cadre, Grille Bleue, Rayures & Équerre Rouge -->
           <div class="agency-similair-visual">
@@ -4315,35 +4546,37 @@
             </div>
           </div>
 
-          <!-- Colonne Droite : Textes et Accordéon Interactif -->
+          <!-- Colonne Droite : Titre et Accordéon Interactif -->
           <div class="agency-similair-content">
-            <span class="similair-kicker">ECHKILI ASSURANCES</span>
-            <h2 class="similair-title">Est une agence générale d’assurance au Maroc .</h2>
-            <p class="similair-desc">
-              Mérite d’être votre interlocuteur privilégié pour vos assurances ou celles de l'entreprise ou de l'institution dont vous avez la responsabilité.
-            </p>
+            <h2 class="similair-title" style="margin-bottom: 1.85rem;">ECHKILI ASSURANCES</h2>
 
-            <!-- Widget Accordéon : Présentation Agent Général de Proximité -->
+            <!-- Widget Accordéon : En cas d'accident -->
             <div class="accident-card-widget">
-              <button type="button" class="accident-card-header is-open" id="accidentHeaderBtn" onclick="toggleAccidentAccordion()" aria-expanded="true" aria-controls="accidentDropdownDetails">
+              <button type="button" class="accident-card-header" id="accidentHeaderBtn" onclick="toggleAccidentAccordion()" aria-expanded="false" aria-controls="accidentDropdownDetails">
                 <div class="accident-card-title-wrap">
                   <svg class="accident-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"/>
                   </svg>
-                  <span data-i18n="sim_accident_title">Présentation : Agent Général de Proximité</span>
+                  <span>En cas d'accident</span>
                 </div>
-                <span class="accident-card-more-label" data-i18n="sim_accident_more">En savoir plus</span>
+                <span class="accident-card-more-label">En savoir plus</span>
               </button>
 
               <div class="accident-card-body">
-                <p class="accident-card-lead" data-i18n-html="sim_accident_lead">
-                  <strong>ECHKILI ASSURANCES</strong> : Conseil d'expert, réactivité et proximité humaine à Marrakech
+                <p class="accident-card-lead">
+                  <strong>ECHKILI ASSURANCES</strong> vous accompagne tout au long de vos démarches
                 </p>
 
-                <div class="accident-dropdown-details is-open" id="accidentDropdownDetails">
-                  <p style="margin-bottom: 0;" data-i18n="sim_accident_body">
-                    En tant qu'Agent Général AXA Assurance Maroc à Marrakech, nous sommes votre interlocuteur direct et privilégié. Nous vous apportons un conseil personnalisé, une écoute attentive et des solutions adaptées pour protéger votre famille, votre santé, vos biens et le développement de votre entreprise.
+                <div class="accident-dropdown-details" id="accidentDropdownDetails">
+                  <p style="margin-bottom: 0.65rem;">
+                    En cas de sinistre ou d'accident, notre agence générale AXA à Marrakech met à votre disposition son assistance 24/7, la prise en charge immédiate de votre déclaration de constat, ainsi que son réseau d'experts et de garages agréés.
                   </p>
+                  <div style="margin-top: 0.5rem;">
+                    <a href="tel:+212525363061" style="color: #002868; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                      Assistance Sinistre : 05 25 36 30 61
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4354,6 +4587,8 @@
 
     <!-- 5. Solutions Section (Particuliers & Professionnels - Catalogue AXA Maroc en Arrière-plan Bleu) -->
     <section class="section" id="solutions" style="position: relative; overflow: hidden; background-color: #002868; background-image: url('assets/axa-pattern-dark.svg'), linear-gradient(180deg, #002868 0%, #001f58 50%, #001640 100%); background-repeat: repeat, no-repeat; background-size: 180px 90px, 100% 100%; padding-top: 5rem; padding-bottom: 5.5rem;">
+      <!-- Ancre de navigation pour la barre des tâches mobile et liens #offres -->
+      <div id="offres" style="position: relative; top: -75px; visibility: hidden; pointer-events: none;" aria-hidden="true"></div>
       <!-- Background Overlapping Circular Rings Motif (Sublime watermark blanc translucide sur fond bleu AXA) -->
       <div class="mv-bg-graphic mv-bg-graphic-tl" aria-hidden="true" style="top: -70px; left: -90px; width: 520px; height: 520px;">
         <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
@@ -4707,59 +4942,49 @@
     <section class="section section-gray" id="faq">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag" data-i18n="faq_tag">Foire Aux Questions</span>
-          <h2 class="section-title" data-i18n="faq_title">Questions Fréquemment Posées</h2>
-          <p class="section-subtitle" data-i18n="faq_sub">Retrouvez les réponses aux interrogations les plus courantes de nos assurés.</p>
+          <span class="section-tag">Foire Aux Questions</span>
+          <h2 class="section-title">Questions Fréquemment Posées</h2>
+          <p class="section-subtitle">Retrouvez les réponses aux interrogations les plus courantes de nos assurés.</p>
         </div>
 
         <div class="faq-list">
           <div class="faq-item active">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span data-i18n="faq_q1">Quels sont les documents indispensables pour assurer un véhicule ?</span>
+              <span>Quels sont les documents indispensables pour assurer un véhicule ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer" data-i18n="faq_a1">
+            <div class="faq-answer">
               Pour souscrire une assurance auto ou moto, vous devez présenter la carte grise originale (ou récépissé de mutation), le permis de conduire du conducteur principal, la CIN (Carte d'Identité Nationale) et l'ancien certificat d'assurance si vous bénéficiez d'un bonus de non-sinistre.
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span data-i18n="faq_q2">Comment fonctionne l'assistance 24/7 en cas de panne à Marrakech ou sur route ?</span>
+              <span>Comment fonctionne l'assistance 24/7 en cas de panne à Marrakech ou sur route ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer" data-i18n="faq_a2">
+            <div class="faq-answer">
               En composant le numéro d'assistance figurant sur votre vignette verte (05 25 36 30 61 ou 06 67 76 21 24), une dépanneuse est immédiatement dépêchée sur place. Selon votre contrat, vous profitez du dépannage sur place, du remorquage vers le garage conventionné le plus proche, du rapatriement et d'un véhicule de prêt.
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span data-i18n="faq_q3">L'assurance Accident du Travail (AT) est-elle obligatoire pour mon entreprise ?</span>
+              <span>L'assurance Accident du Travail (AT) est-elle obligatoire pour mon entreprise ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer" data-i18n="faq_a3">
+            <div class="faq-answer">
               Oui, au Maroc la souscription d'une police d'assurance couvrant les accidents du travail et maladies professionnelles est une obligation légale stricte pour tout employeur, quel que soit le nombre de salariés déclarés (Code des Assurances et loi 18-12).
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-              <span data-i18n="faq_q4">Quels sont les délais habituels de remboursement santé ?</span>
+              <span>Quels sont les délais habituels de remboursement santé ?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer" data-i18n="faq_a4">
+            <div class="faq-answer">
               Dès dépôt de votre dossier de soins complet à notre agence Assurances Echkili (feuille de maladie, ordonnance cachetée, vignettes médicamenteuses et quittances), le traitement et le virement bancaire sont généralement effectués sous 7 à 10 jours ouvrés.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              <span data-i18n="faq_q5">Comment obtenir un devis personnalisé ou souscrire sans me déplacer ?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="faq-answer" data-i18n="faq_a5">
-              Vous pouvez remplir le formulaire de devis ci-dessous, nous joindre au 05 25 36 30 61 ou nous envoyer vos documents par WhatsApp au 06 67 76 21 24. Un conseiller vous répond sous 2 heures ouvrées avec une étude personnalisée et adaptée.
             </div>
           </div>
         </div>
@@ -5103,15 +5328,15 @@
       <div class="footer-col">
         <h4>Urgences &amp; Horaires</h4>
         <p style="font-size: 0.88rem; margin-bottom: 0.75rem; color: #cbd5e1;">
-          <span class="footer-urg-assistance-label" data-i18n="footer_assistance_label">Assistance Panne / Accident :</span><br>
+          Assistance Panne / Accident :<br>
           <a href="tel:+212525363061" style="color: #ffffff; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0021b" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>05 25 36 30 61</span>
           </a>
-          <span style="display: block; font-size: 0.82rem; color: #94a3b8; margin-top: 0.25rem;">GSM / WhatsApp : <a href="tel:+212667762124" style="color: #93c5fd; text-decoration: none;">06 67 76 21 24</a></span>
+          <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.25rem;">GSM / WhatsApp : <a href="tel:+212667762124" style="color: #93c5fd; text-decoration: none;">06 67 76 21 24</a></div>
         </p>
         <p style="font-size: 0.86rem; margin-bottom: 1rem; color: #cbd5e1;">
-          <span class="footer-urg-email-label" data-i18n="footer_email_label">Email Direct Agence :</span><br>
+          Email Direct Agence :<br>
           <a href="mailto:echkili.assurances@outlook.com" style="color: #93c5fd; font-weight: 600; text-decoration: none;">echkili.assurances@outlook.com</a>
         </p>
         <div class="footer-hours-box">
@@ -6087,22 +6312,44 @@
         }
       });
 
-      // Synchronize mobile bottom taskbar active state on scroll
+      // Synchronisation intelligente de la barre des tâches (PC Sticky & Mobile Bottom Taskbar)
+      const siteNavBar = document.getElementById('siteNavBar');
       const taskbarHome = document.getElementById('taskbarHome');
       const taskbarOffers = document.getElementById('taskbarOffers');
       const taskbarUrgence = document.getElementById('taskbarUrgence');
 
-      window.addEventListener('scroll', () => {
-        if (window.innerWidth > 860) return;
-        const scrollPos = window.scrollY + 200;
-        const contactSec = document.getElementById('contact');
-        const offresSec = document.getElementById('offres') || document.querySelector('.solutions-interactive-section');
+      const navLinkAccueil = document.querySelector('.nav-menu-link[href="#accueil"]');
+      const navLinkEchkili = document.getElementById('navLinkEchkili');
+      const navLinkParticuliers = document.getElementById('navLinkParticuliers');
+      const navLinkContact = document.querySelector('.nav-menu-link[href="#contact"]');
 
-        if (contactSec && scrollPos >= contactSec.offsetTop) {
+      const contactSec = document.getElementById('contact');
+      const solutionsSec = document.getElementById('solutions') || document.getElementById('offres') || document.querySelector('.solutions-interactive-section');
+      const missionsSec = document.getElementById('missions-valeurs') || document.getElementById('agence');
+
+      let ticking = false;
+
+      function updateTaskbarScroll() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+        // 1. État collant & élévation de la barre de navigation principale (PC & Mobile)
+        if (scrollY > 25) {
+          siteNavBar?.classList.add('is-scrolled');
+        } else {
+          siteNavBar?.classList.remove('is-scrolled');
+        }
+
+        // 2. Calcul des positions pour le suivi actif
+        const contactTop = contactSec ? contactSec.offsetTop - 180 : Infinity;
+        const solutionsTop = solutionsSec ? solutionsSec.offsetTop - 180 : Infinity;
+        const missionsTop = missionsSec ? missionsSec.offsetTop - 180 : Infinity;
+
+        // Synchronisation Barre des Tâches Mobile
+        if (scrollY >= contactTop - 60) {
           taskbarUrgence?.classList.add('active');
           taskbarOffers?.classList.remove('active');
           taskbarHome?.classList.remove('active');
-        } else if (offresSec && scrollPos >= offresSec.offsetTop) {
+        } else if (scrollY >= solutionsTop - 60) {
           taskbarOffers?.classList.add('active');
           taskbarHome?.classList.remove('active');
           taskbarUrgence?.classList.remove('active');
@@ -6111,7 +6358,41 @@
           taskbarOffers?.classList.remove('active');
           taskbarUrgence?.classList.remove('active');
         }
+
+        // Synchronisation Liens Menu PC
+        if (window.innerWidth > 860) {
+          if (scrollY >= contactTop) {
+            setActiveNavLink(navLinkContact);
+          } else if (scrollY >= solutionsTop) {
+            setActiveNavLink(navLinkParticuliers);
+          } else if (scrollY >= missionsTop) {
+            setActiveNavLink(navLinkEchkili);
+          } else {
+            setActiveNavLink(null);
+          }
+        }
+
+        ticking = false;
+      }
+
+      function setActiveNavLink(activeLink) {
+        document.querySelectorAll('.nav-menu-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateTaskbarScroll);
+          ticking = true;
+        }
       }, { passive: true });
+
+      // Initialisation immédiate
+      updateTaskbarScroll();
     })();
   </script>
 

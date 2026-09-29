@@ -914,9 +914,9 @@
         if (!name || !phone) return;
 
         // Feedback de chargement
-        submitBtn.disabled = true;
-        const originalText = submitText.textContent;
-        submitText.textContent = t.form_submitting;
+        if (submitBtn) submitBtn.disabled = true;
+        const originalText = submitText ? submitText.textContent : '';
+        if (submitText) submitText.textContent = t.form_submitting;
 
         const payload = {
           "Source": "Pop-up 'Besoin ? Appelez-nous' - Assurances Echkili Marrakech",
@@ -941,20 +941,22 @@
           });
 
           // Succès
-          form.style.display = 'none';
-          successBox.style.display = 'block';
-          successMsg.textContent = t.form_success_msg.replace('{name}', name).replace('{phone}', phone);
+          if (form) form.style.display = 'none';
+          if (successBox) successBox.style.display = 'block';
+          if (successMsg) successMsg.textContent = t.form_success_msg.replace('{name}', name).replace('{phone}', phone);
 
           // Fermeture automatique après 4.5 secondes
           setTimeout(() => {
             closeModal();
             // Réinitialisation douce du formulaire
             setTimeout(() => {
-              form.reset();
-              form.style.display = 'block';
-              successBox.style.display = 'none';
-              submitBtn.disabled = false;
-              submitText.textContent = originalText;
+              if (form) {
+                form.reset();
+                form.style.display = 'block';
+              }
+              if (successBox) successBox.style.display = 'none';
+              if (submitBtn) submitBtn.disabled = false;
+              if (submitText) submitText.textContent = originalText;
             }, 600);
           }, 4500);
 
