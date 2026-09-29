@@ -934,11 +934,19 @@
     });
 
     // 6. Application intelligente sur tous les sélecteurs de toutes les pages
-    applyFullSiteSelectors(dict, lang);
+    try {
+      applyFullSiteSelectors(dict, lang);
+    } catch (e) {
+      console.warn('applyFullSiteSelectors handled error:', e);
+    }
 
     // 7. Émission de l'événement global
-    window.dispatchEvent(new CustomEvent('echkiliLanguageChanged', { detail: { lang, dict } }));
-    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+    try {
+      if (typeof CustomEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('echkiliLanguageChanged', { detail: { lang, dict } }));
+        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+      }
+    } catch (e) {}
   }
 
   function applyFullSiteSelectors(dict, lang) {
@@ -1392,15 +1400,29 @@
       const hUrg = footerCols[3].querySelector('h4, .footer-heading');
       if (hUrg) hUrg.textContent = dict.footer_urgences_title;
 
-      const urgTexts = footerCols[3].querySelectorAll('p');
-      if (urgTexts.length >= 2) {
-        // Assistance
-        const numA = urgTexts[0].querySelector('a');
-        urgTexts[0].childNodes[0].textContent = `${dict.footer_assistance_label}\n`;
-        // Email
-        const emailA = urgTexts[1].querySelector('a');
-        urgTexts[1].childNodes[0].textContent = `${dict.footer_email_label}\n`;
+      // Safe assistance & email titles
+      const urgAssistanceTitle = footerCols[3].querySelector('.footer-urg-assistance-title');
+      if (urgAssistanceTitle) {
+        urgAssistanceTitle.textContent = dict.footer_assistance_label;
       }
+
+      const urgEmailTitle = footerCols[3].querySelector('.footer-urg-email-title');
+      if (urgEmailTitle) {
+        urgEmailTitle.textContent = dict.footer_email_label;
+      }
+
+      // Safe fallback for text nodes
+      const urgTexts = footerCols[3].querySelectorAll('p');
+      urgTexts.forEach(p => {
+        if (p && p.childNodes && p.childNodes.length > 0 && p.childNodes[0] && p.childNodes[0].nodeType === 3) {
+          const txt = p.childNodes[0].textContent || '';
+          if (p.querySelector('a[href^="tel:"]') || txt.includes('Assistance') || txt.includes('نجدة') || txt.includes('Help')) {
+            p.childNodes[0].textContent = `${dict.footer_assistance_label}\n`;
+          } else if (p.querySelector('a[href^="mailto:"]') || txt.includes('Email') || txt.includes('البريد')) {
+            p.childNodes[0].textContent = `${dict.footer_email_label}\n`;
+          }
+        }
+      });
 
       const hoursBox = footerCols[3].querySelector('.footer-hours-box, .footer-hours-card');
       if (hoursBox) {
@@ -1565,10 +1587,7 @@
 
   // Initialisation des écouteurs globaux
   function initI18n() {
-    const currentLang = getStoredLang();
-    applyLanguage(currentLang);
-
-    // Écouteur global sur tous les boutons de sélection de langue
+    // 1. Écouteur global sur tous les boutons de sélection de langue (attaché en premier)
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.lang-btn, .mobile-menu-lang-btn, [data-lang]');
       if (btn) {
@@ -1579,6 +1598,14 @@
         }
       }
     });
+
+    // 2. Application de la langue sauvegardée
+    try {
+      const currentLang = getStoredLang();
+      applyLanguage(currentLang);
+    } catch (e) {
+      console.warn('Initial applyLanguage handled:', e);
+    }
   }
 
   // Exposition globale sur window
