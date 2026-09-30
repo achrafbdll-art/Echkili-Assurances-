@@ -190,7 +190,7 @@
       map_pill_access: "Accès direct via l'Avenue Guemassa (M'hamid)",
       map_pill_parking: "Stationnement gratuit devant l'agence",
       map_pill_hours: "Accueil physique Lun-Ven 08h30-19h00 / Sam 09h00-13h00",
-      map_pill_assistance: "Assistance : 05 25 36 30 61 / 06 67 76 21 24",
+      map_pill_assistance: "Assistance : 05 22 54 23 23 / 06 67 76 21 24",
 
       // Footer
       footer_desc: "Assurances Echkili est une agence générale d'assurance représentant AXA Assurance Maroc à Marrakech.",
@@ -488,7 +488,7 @@
       map_pill_access: "ولوج مباشر عبر شارع كَمَاسة (المحاميد)",
       map_pill_parking: "موقف سيارات مجاني أمام الوكالة",
       map_pill_hours: "استقبال المرتفقين: الإثنين-الجمعة 08:30-19:00 / السبت 09:00-13:00",
-      map_pill_assistance: "المساعدة: 05 25 36 30 61 / 06 67 76 21 24",
+      map_pill_assistance: "المساعدة: 05 22 54 23 23 / 06 67 76 21 24",
 
       // Footer
       footer_desc: "تأمينات شكيلـي وكالة عامة تمثل رسمياً شركة أكسا للتأمين المغرب بمدينة مراكش (المحاميد). حماية شاملة للأفراد والمقاولات.",
@@ -786,7 +786,7 @@
       map_pill_access: "Direct access via Guemassa Avenue (M'hamid)",
       map_pill_parking: "Free parking in front of agency",
       map_pill_hours: "Walk-in Hours: Mon-Fri 08:30-19:00 / Sat 09:00-13:00",
-      map_pill_assistance: "Assistance: 05 25 36 30 61 / 06 67 76 21 24",
+      map_pill_assistance: "Assistance: 05 22 54 23 23 / 06 67 76 21 24",
 
       // Footer
       footer_desc: "Assurances Echkili is an official General Insurance Agency representing AXA Assurance Morocco in Marrakech (M'hamid). Complete protection for families and businesses.",
@@ -1678,20 +1678,170 @@
       const l = getStoredLang();
       return (TRANSLATIONS[l] && TRANSLATIONS[l][key]) || TRANSLATIONS.fr[key] || '';
     },
-    init: initI18n
+    init: initI18n,
+    initMobileMenu: initMobileMenu
   };
+
+  // --- GESTIONNAIRE UNIFIÉ DU MENU MOBILE ---
+  function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenuList = document.getElementById('navMenuList');
+    let overlay = document.getElementById('mobileNavOverlay');
+
+    if (!menuToggle || !navMenuList) return;
+
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'mobile-nav-overlay';
+      overlay.id = 'mobileNavOverlay';
+      const siteNavBar = document.getElementById('siteNavBar');
+      if (siteNavBar && siteNavBar.parentNode) {
+        siteNavBar.parentNode.insertBefore(overlay, siteNavBar.nextSibling);
+      } else {
+        document.body.appendChild(overlay);
+      }
+    }
+
+    function updateLabel(isOpen) {
+      const label = menuToggle.querySelector('.menu-toggle-label') || menuToggle.querySelector('span');
+      if (!label) return;
+      const currentLang = getStoredLang();
+      if (isOpen) {
+        label.textContent = currentLang === 'ar' ? 'إغلاق' : (currentLang === 'en' ? 'CLOSE' : 'FERMER');
+      } else {
+        label.textContent = currentLang === 'ar' ? 'القائمة' : 'MENU';
+      }
+    }
+
+    function openMenu() {
+      navMenuList.classList.add('open');
+      menuToggle.classList.add('is-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      updateLabel(true);
+      const hIcon = menuToggle.querySelector('.hamburger-icon');
+      const cIcon = menuToggle.querySelector('.close-icon');
+      if (hIcon) hIcon.style.display = 'none';
+      if (cIcon) cIcon.style.display = 'inline-block';
+
+      if (overlay) {
+        overlay.style.display = 'block';
+        requestAnimationFrame(() => overlay.classList.add('is-active'));
+      }
+      document.body.classList.add('mobile-menu-locked');
+    }
+
+    function closeMenu() {
+      navMenuList.classList.remove('open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      updateLabel(false);
+      const hIcon = menuToggle.querySelector('.hamburger-icon');
+      const cIcon = menuToggle.querySelector('.close-icon');
+      if (hIcon) hIcon.style.display = 'inline-block';
+      if (cIcon) cIcon.style.display = 'none';
+
+      if (overlay) {
+        overlay.classList.remove('is-active');
+        setTimeout(() => {
+          if (!overlay.classList.contains('is-active')) {
+            overlay.style.display = 'none';
+          }
+        }, 200);
+      }
+      document.body.classList.remove('mobile-menu-locked');
+      closeAllSubmenus();
+    }
+
+    function closeAllSubmenus() {
+      document.querySelectorAll('.dropdown-item-container').forEach(container => {
+        container.classList.remove('dropdown-active');
+        container.classList.remove('mobile-expanded');
+        const link = container.querySelector('.nav-menu-link');
+        if (link) link.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    if (!menuToggle._hasMobileMenuInit) {
+      menuToggle._hasMobileMenuInit = true;
+
+      menuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (navMenuList.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+      }
+
+      // Dropdown accordions in mobile drawer
+      navMenuList.querySelectorAll('.dropdown-item-container').forEach(container => {
+        const parentLink = container.querySelector('.nav-menu-link');
+        if (parentLink) {
+          parentLink.addEventListener('click', (e) => {
+            if (window.innerWidth <= 860) {
+              e.preventDefault();
+              e.stopPropagation();
+              const wasOpen = container.classList.contains('mobile-expanded') || container.classList.contains('dropdown-active');
+              closeAllSubmenus();
+              if (!wasOpen) {
+                container.classList.add('mobile-expanded');
+                container.classList.add('dropdown-active');
+                parentLink.setAttribute('aria-expanded', 'true');
+              }
+            }
+          });
+        }
+      });
+
+      // Regular nav links click
+      navMenuList.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          const isDropdownParent = link.parentElement && link.parentElement.classList.contains('dropdown-item-container');
+          if (isDropdownParent && window.innerWidth <= 860) return;
+          closeMenu();
+        });
+      });
+
+      // ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenuList.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
+      // Window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 860 && navMenuList.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    }
+
+    window.closeMobileMenu = closeMenu;
+    window.openMobileMenu = openMenu;
+  }
 
   // Aliases pour compatibilité
   window.setSiteLanguage = applyLanguage;
   window.getCurrentLanguage = getStoredLang;
+  window.initMobileMenu = initMobileMenu;
   window.getI18nText = function (key) {
     return window.EchkiliI18n.t(key);
   };
 
   // Démarrage dès que le DOM est prêt
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initI18n);
+    document.addEventListener('DOMContentLoaded', () => {
+      initI18n();
+      initMobileMenu();
+    });
   } else {
     initI18n();
+    initMobileMenu();
   }
 })();

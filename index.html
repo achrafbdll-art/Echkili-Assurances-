@@ -5258,7 +5258,7 @@
             </div>
             <div class="access-pill">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>Assistance : 05 25 36 30 61 / 06 67 76 21 24</span>
+              <span>Assistance : 05 22 54 23 23 / 06 67 76 21 24</span>
             </div>
           </div>
         </div>
@@ -5324,9 +5324,9 @@
         <h4>Urgences &amp; Horaires</h4>
         <div style="margin-bottom: 0.75rem;">
           <div class="footer-urg-assistance-title" style="font-size: 0.88rem; color: #cbd5e1;">Assistance Panne / Accident :</div>
-          <a href="tel:+212525363061" style="color: #ffffff; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+          <a href="tel:+212522542323" style="color: #ffffff; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0021b" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>05 25 36 30 61</span>
+            <span>05 22 54 23 23</span>
           </a>
           <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 0.25rem;">GSM / WhatsApp : <a href="tel:+212667762124" style="color: #93c5fd; text-decoration: none;">06 67 76 21 24</a></div>
         </div>
@@ -5399,28 +5399,9 @@
     // Current state for Simulator
     let currentSimProduct = 'auto';
 
-    // Toggle Mobile Navigation
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenuList = document.getElementById('navMenuList') || document.getElementById('mainNav');
-
-    if (menuToggle && navMenuList) {
-      menuToggle.addEventListener('click', function() {
-        const isOpen = navMenuList.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', isOpen);
-      });
-
-      // Close menu on navigation link click, but allow expanding submenus on mobile
-      navMenuList.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          const isDropdownParent = link.parentElement && link.parentElement.classList.contains('dropdown-item-container');
-          if (isDropdownParent && window.innerWidth <= 860) {
-            // Let the dropdown click handler expand accordion without closing drawer
-            return;
-          }
-          navMenuList.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
+    // Initialisation navigation mobile optimisée
+    if (typeof window.initMobileMenu === 'function') {
+      window.initMobileMenu();
     }
 
     // Switch Main Solutions Tab (Particuliers vs Professionnels vs Toutes)
@@ -6282,43 +6263,7 @@
       });
     }
 
-    // Toggle dropdowns on mobile click/tap and close on click outside
-    (function initNavDropdowns() {
-      const dropdownItems = document.querySelectorAll('.dropdown-item-container');
-      dropdownItems.forEach(container => {
-        const navLink = container.querySelector('.nav-menu-link');
-        if (!navLink) return;
-
-        navLink.addEventListener('click', (e) => {
-          // If on touch device or small screen, toggle dropdown
-          if (window.innerWidth <= 1024 || ('ontouchstart' in window)) {
-            e.preventDefault();
-            const wasActive = container.classList.contains('mobile-expanded') || container.classList.contains('dropdown-active');
-            closeNavDropdown();
-            if (!wasActive) {
-              container.classList.add('dropdown-active');
-              container.classList.add('mobile-expanded');
-              navLink.setAttribute('aria-expanded', 'true');
-            }
-          }
-        });
-      });
-
-      // Close when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown-item-container')) {
-          closeNavDropdown();
-        }
-      });
-
-      // Close on escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeNavDropdown();
-        }
-      });
-
-      // Synchronisation intelligente de la barre des tâches (PC Sticky & Mobile Bottom Taskbar)
+    // Synchronisation intelligente de la barre des tâches (PC Sticky & Mobile Bottom Taskbar)
       const siteNavBar = document.getElementById('siteNavBar');
       const taskbarHome = document.getElementById('taskbarHome');
       const taskbarOffers = document.getElementById('taskbarOffers');

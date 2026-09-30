@@ -292,9 +292,10 @@
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>Appeler</span>
         </a>
-        <button class="mobile-nav-toggle" id="menuToggle" aria-label="Menu principal" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-          <span>MENU</span>
+        <button class="mobile-nav-toggle" id="menuToggle" aria-label="Menu principal" aria-expanded="false" type="button">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span class="menu-toggle-label">MENU</span>
         </button>
       </div>
 
@@ -327,6 +328,7 @@
       </div>
     </div>
   </nav>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
   <!-- Breadcrumb -->
   <div class="page-breadcrumb">
@@ -741,9 +743,9 @@
         <h4>Urgences &amp; Horaires</h4>
         <p style="font-size: 0.88rem; margin-bottom: 0.75rem; color: #cbd5e1;">
           Assistance Panne / Accident :<br>
-          <a href="tel:+212525363061" style="color: #ffffff; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
+          <a href="tel:+212522542323" style="color: #ffffff; font-size: 1.05rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0021b" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>05 25 36 30 61</span>
+            <span>05 22 54 23 23</span>
           </a>
         </p>
         <p style="font-size: 0.86rem; margin-bottom: 1rem; color: #cbd5e1;">
@@ -781,6 +783,102 @@
       </div>
       <div class="product-modal-body" id="prodModalContent">
         <!-- Rempli dynamiquement par JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Devis Express Gratuit Modal pour Version Mobile et Ordinateur -->
+  <div class="modal-overlay" id="offresQuoteModal" role="dialog" aria-modal="true" aria-labelledby="offresQuoteModalTitle">
+    <div class="product-modal-card" style="max-width: 540px;">
+      <div class="product-modal-header" style="background: linear-gradient(135deg, #00186b 0%, #002868 100%); color: #ffffff; padding: 1.25rem 1.25rem 1rem;">
+        <button class="modal-close" onclick="closeOffresQuoteModal()" aria-label="Fermer" style="color: #ffffff;">&times;</button>
+        <span class="product-modal-tag" style="background: #e0021b; color: #ffffff; font-weight: 800;">AXA Assurance Maroc</span>
+        <h2 id="offresQuoteModalTitle" style="margin: 0.4rem 0 0.25rem 0; font-size: 1.35rem; font-weight: 800; color: #ffffff; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff4d4f" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span id="offresQuoteTitleText">Devis Express Gratuit</span>
+        </h2>
+        <p id="offresQuoteSubtitleText" style="margin: 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.4;">
+          Votre demande est transmise directement à <strong>echkili.assurances@outlook.com</strong>.
+        </p>
+      </div>
+
+      <div class="product-modal-body" style="padding: 1.25rem;">
+        <form id="offresQuoteForm" onsubmit="handleOffresQuoteSubmit(event)">
+          <div style="margin-bottom: 0.85rem;">
+            <label for="offresQuoteContract" style="display: block; font-size: 0.85rem; font-weight: 700; color: #002868; margin-bottom: 0.3rem;">
+              Solution d'assurance souhaitée *
+            </label>
+            <select id="offresQuoteContract" required style="width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; background: #ffffff; color: #1e293b;">
+              <option value="auto">🚗 Assurance Automobile AXA Maroc</option>
+              <option value="moto">🏍 Moto &amp; Deux-Roues AXA</option>
+              <option value="habitation">🏡 Multirisque Habitation Habitasur</option>
+              <option value="sante">🩺 Assurance Santé Sehassur &amp; Internationale</option>
+              <option value="epargne">📈 Épargne &amp; Retraite AXA</option>
+              <option value="multirisque_pro">🏢 Multirisque Professionnelle</option>
+              <option value="flotte">🚛 Flotte Automobile Entreprise</option>
+              <option value="rc_pro">🛡 Responsabilité Civile Professionnelle</option>
+              <option value="at_pro">⚠️ Accidents du Travail (AT)</option>
+              <option value="transport">📦 Transport de Marchandises</option>
+              <option value="autre">💬 Autre contrat / Étude globale</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 0.85rem;">
+            <label for="offresQuoteNom" style="display: block; font-size: 0.85rem; font-weight: 700; color: #002868; margin-bottom: 0.3rem;">
+              Nom &amp; Prénom *
+            </label>
+            <input type="text" id="offresQuoteNom" required placeholder="Ex: Mohamed Alami" style="width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;">
+          </div>
+
+          <div style="margin-bottom: 0.85rem;">
+            <label for="offresQuoteTel" style="display: block; font-size: 0.85rem; font-weight: 700; color: #002868; margin-bottom: 0.3rem;">
+              Numéro Téléphone Mobile (WhatsApp) *
+            </label>
+            <input type="tel" id="offresQuoteTel" required placeholder="Ex: 06 12 34 56 78" style="width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;">
+          </div>
+
+          <div style="margin-bottom: 0.85rem;">
+            <label for="offresQuoteEmail" style="display: block; font-size: 0.85rem; font-weight: 700; color: #002868; margin-bottom: 0.3rem;">
+              Adresse Email <span style="font-weight: 400; color: #64748b;">(Optionnelle)</span>
+            </label>
+            <input type="email" id="offresQuoteEmail" placeholder="nom@exemple.ma" style="width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem;">
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <label for="offresQuoteDetails" style="display: block; font-size: 0.85rem; font-weight: 700; color: #002868; margin-bottom: 0.3rem;">
+              Précisions (véhicule, surface, garanties souhaitées...)
+            </label>
+            <textarea id="offresQuoteDetails" rows="2" placeholder="Précisez votre demande pour affiner votre devis..." style="width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" id="btnOffresQuoteSubmit" style="width: 100%; background: #e0021b; color: #ffffff; padding: 0.85rem; border: none; border-radius: 8px; font-size: 0.98rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(224, 2, 27, 0.35); transition: background 0.15s ease;">
+            <span>Recevoir mon Devis Express Gratuit</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+
+          <div style="margin-top: 0.85rem; padding: 0.6rem 0.8rem; background: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 6px; font-size: 0.8rem; color: #1e3a8a; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;">
+            <span>Email direct : <strong>echkili.assurances@outlook.com</strong></span>
+            <a href="mailto:echkili.assurances@outlook.com?subject=Demande%20de%20devis%20express" style="color: #0055c8; font-weight: 700; text-decoration: underline;">Écrire directement &rarr;</a>
+          </div>
+        </form>
+
+        <div id="offresQuoteSuccessBox" style="display: none; text-align: center; padding: 1rem 0;">
+          <div style="width: 52px; height: 52px; background: #ecfdf5; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #10b981; margin-bottom: 0.75rem;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-size: 1.2rem; font-weight: 800; color: #002868; margin-bottom: 0.4rem;">Demande Transmise avec Succès !</h3>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.5; margin-bottom: 1.15rem;">
+            Votre demande a été transmise à <strong>echkili.assurances@outlook.com</strong>. Un conseiller vous contacte sous <strong>2h ouvrées</strong>.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+            <a id="offresQuoteWaConfirmBtn" href="#" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #22c55e; color: #ffffff; padding: 0.75rem 1.15rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);">
+              <span>💬 Confirmer instantanément sur WhatsApp</span>
+            </a>
+            <a id="offresQuoteEmailConfirmBtn" href="#" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #002868; color: #ffffff; padding: 0.75rem 1.15rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem;">
+              <span>✉️ Ouvrir dans Outlook / Email</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -851,26 +949,138 @@
         }
       });
 
-      // Synchronisation état collant navigation & barre des tâches
-      const siteNavBar = document.getElementById('siteNavBar');
-      let ticking = false;
-      function checkOffresScroll() {
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-        if (scrollY > 25) {
-          siteNavBar?.classList.add('is-scrolled');
-        } else {
-          siteNavBar?.classList.remove('is-scrolled');
-        }
-        ticking = false;
+    // Controller Devis Express Gratuit pour la page Offres
+    window.openOffresQuoteModal = function(e, defaultContract) {
+      if (e && e.preventDefault) e.preventDefault();
+      const modal = document.getElementById('offresQuoteModal');
+      const contractSelect = document.getElementById('offresQuoteContract');
+      const form = document.getElementById('offresQuoteForm');
+      const successBox = document.getElementById('offresQuoteSuccessBox');
+      
+      if (form) form.style.display = 'block';
+      if (successBox) successBox.style.display = 'none';
+
+      if (contractSelect && defaultContract) {
+        contractSelect.value = defaultContract;
       }
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(checkOffresScroll);
-          ticking = true;
+
+      if (modal) {
+        modal.classList.add('open');
+        setTimeout(() => {
+          const nomInput = document.getElementById('offresQuoteNom');
+          if (nomInput) nomInput.focus();
+        }, 150);
+      }
+    };
+
+    window.closeOffresQuoteModal = function() {
+      const modal = document.getElementById('offresQuoteModal');
+      if (modal) modal.classList.remove('open');
+    };
+
+    window.handleOffresQuoteSubmit = async function(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('btnOffresQuoteSubmit');
+      const origText = submitBtn ? submitBtn.innerHTML : '';
+      
+      const contractSelect = document.getElementById('offresQuoteContract');
+      const contractText = contractSelect ? contractSelect.options[contractSelect.selectedIndex].text : 'Assurance AXA';
+      const nom = document.getElementById('offresQuoteNom')?.value.trim() || 'Client';
+      const tel = document.getElementById('offresQuoteTel')?.value.trim() || '';
+      const email = document.getElementById('offresQuoteEmail')?.value.trim() || '';
+      const details = document.getElementById('offresQuoteDetails')?.value.trim() || 'Aucune précision';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Transmission à echkili.assurances@outlook.com...';
+      }
+
+      const payload = {
+        _subject: `Nouvelle Demande [Devis Express] : ${contractText} - ${nom}`,
+        _captcha: "false",
+        _template: "table",
+        _replyto: email || undefined,
+        "Offre Demandée": contractText,
+        "Nom et Prénom": nom,
+        "Téléphone": tel,
+        "Email": email || "Non renseigné",
+        "Précisions du besoin": details,
+        "Origine": "Page Catalogue Offres - Assurances Echkili Marrakech",
+        "Date": new Date().toLocaleString('fr-FR', { timeZone: 'Africa/Casablanca' })
+      };
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3500);
+        await fetch('https://formsubmit.co/ajax/echkili.assurances@outlook.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+      } catch (err) {
+        console.warn('Transmission notice:', err);
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origText;
+      }
+
+      const form = document.getElementById('offresQuoteForm');
+      const successBox = document.getElementById('offresQuoteSuccessBox');
+      if (form) form.style.display = 'none';
+      if (successBox) successBox.style.display = 'block';
+
+      // Setup WhatsApp confirm link
+      const waMsg = encodeURIComponent(`Bonjour Assurances Echkili,\nJe viens de demander un devis express pour *${contractText}* sur votre site.\n*Nom:* ${nom}\n*Tél:* ${tel}\n*Précisions:* ${details}`);
+      const waBtn = document.getElementById('offresQuoteWaConfirmBtn');
+      if (waBtn) waBtn.href = `https://wa.me/212667762124?text=${waMsg}`;
+
+      // Setup Email confirm link
+      const mailtoSubject = encodeURIComponent(`Demande de devis express : ${contractText} - ${nom}`);
+      const mailtoBody = encodeURIComponent(`Bonjour Assurances Echkili Marrakech,\n\nVoici ma demande de devis :\n- Contrat : ${contractText}\n- Nom : ${nom}\n- Téléphone : ${tel}\n- Email : ${email || 'Non renseigné'}\n- Précisions : ${details}\n\nEnvoyé depuis le catalogue des offres.`);
+      const emailBtn = document.getElementById('offresQuoteEmailConfirmBtn');
+      if (emailBtn) emailBtn.href = `mailto:echkili.assurances@outlook.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    };
+
+    // Close on backdrop or escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        window.closeOffresQuoteModal();
+      }
+    });
+
+    const quoteModalEl = document.getElementById('offresQuoteModal');
+    if (quoteModalEl) {
+      quoteModalEl.addEventListener('click', (e) => {
+        if (e.target === quoteModalEl) {
+          window.closeOffresQuoteModal();
         }
-      }, { passive: true });
-      checkOffresScroll();
-    })();
+      });
+    }
+
+    // Synchronisation état collant navigation & barre des tâches
+    const siteNavBar = document.getElementById('siteNavBar');
+    let ticking = false;
+    function checkOffresScroll() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (scrollY > 25) {
+        siteNavBar?.classList.add('is-scrolled');
+      } else {
+        siteNavBar?.classList.remove('is-scrolled');
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(checkOffresScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+    checkOffresScroll();
+  })();
   </script>
   <!-- Mobile Bottom Sticky Taskbar -->
   <nav class="mobile-bottom-taskbar" id="mobileBottomTaskbar" aria-label="Barre d'actions rapides mobile">
@@ -882,11 +1092,12 @@
       <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
       <span>Offres</span>
     </a>
-    <a href="tel:+212525363061" class="m-taskbar-item m-taskbar-call" aria-label="Appeler l'agence AXA Marrakech (05 25 36 30 61)">
-      <div class="m-call-bubble">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <!-- Central Devis Express Gratuit Action for Mobile -->
+    <a href="#offresQuoteModal" class="m-taskbar-item m-taskbar-call" onclick="openOffresQuoteModal(event)" aria-label="Demander un Devis Express Gratuit" style="color: #002868;">
+      <div class="m-call-bubble" style="background: #e0021b; box-shadow: 0 4px 12px rgba(224, 2, 27, 0.4);">
+        <svg viewBox="0 0 24 24" stroke="#ffffff" fill="none" stroke-width="2.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
-      <span>Appeler</span>
+      <span style="font-weight: 800; color: #e0021b;">Devis</span>
     </a>
     <a href="https://wa.me/212667762124?text=Bonjour%20Assurances%20Echkili%2C%20je%20souhaite%20un%20renseignement%20sur%20vos%20offres."
        target="_blank"
@@ -897,9 +1108,9 @@
       <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.2 1.26-1.74 1.31-.49.05-1.12.08-3.62-.95-3.19-1.32-5.24-4.57-5.4-4.78-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4.21 0 .43 0 .61.01.2.01.46-.07.72.55.26.63.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.16.34-.31.52-.16.18-.33.4-.47.54-.16.16-.33.33-.14.65.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.44 2.61 1.6.32.16.51.14.7-.08.2-.21.84-.98 1.07-1.32.22-.34.45-.29.75-.18.31.11 1.95.92 2.29 1.09.34.17.56.25.64.39.09.14.09.81-.15 1.49z"/></svg>
       <span>WhatsApp</span>
     </a>
-    <a href="index.html#contact" class="m-taskbar-item m-taskbar-urgency" id="taskbarUrgence" aria-label="Contact et Agence">
-      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span>Contact</span>
+    <a href="tel:+212525363061" class="m-taskbar-item" id="taskbarCallBtn" aria-label="Appeler l'agence (05 25 36 30 61)">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Appeler</span>
     </a>
   </nav>
 </body>

@@ -28,7 +28,7 @@ const OFFERS_DATA = {
     faq: [
       {
         q: "Comment fonctionne l'assistance 0 km en cas de panne à Marrakech ?",
-        a: "En cas de panne, même devant chez vous à Marrakech ou sur les routes du Royaume, un remorqueur agréé AXA intervient 24h/24 et 7j/7 sur simple appel au 05 25 36 30 61."
+        a: "En cas de panne, même devant chez vous à Marrakech ou sur les routes du Royaume, un remorqueur agréé AXA intervient 24h/24 et 7j/7 sur simple appel au 05 22 54 23 23."
       },
       {
         q: "Le bris de glace sans franchise impacte-t-il mon bonus ?",
@@ -72,7 +72,7 @@ const OFFERS_DATA = {
       },
       {
         q: "Comment fonctionne le remorquage en cas de crevaison ou panne moto ?",
-        a: "Un appel à notre assistance 24/7 (05 25 36 30 61) déclenche l'intervention d'une dépanneuse adaptée au transport sécurisé de votre moto."
+        a: "Un appel à notre assistance 24/7 (05 22 54 23 23) déclenche l'intervention d'une dépanneuse adaptée au transport sécurisé de votre moto."
       },
       {
         q: "Puis-je assurer un scooter 50cc ou une grosse moto ?",
@@ -554,7 +554,7 @@ const OFFERS_I18N = {
       faq: [
         {
           q: "كيف تعمل خدمة النجدة والمساعدة من 0 كلم في حالة عطل بمراكش؟",
-          a: "في حالة وقوع أي عطل، سواء أمام باب منزلك بمراكش أو على أي طريق بالمملكة، تتدخل شاحنة قطر معتمدة من أكسا على مدار الساعة بمجرد الاتصال على 05 25 36 30 61."
+          a: "في حالة وقوع أي عطل، سواء أمام باب منزلك بمراكش أو على أي طريق بالمملكة، تتدخل شاحنة قطر معتمدة من أكسا على مدار الساعة بمجرد الاتصال على 05 22 54 23 23."
         },
         {
           q: "هل يؤثر تعويض تكسر الزجاج على نسبة البونيس الخاصة بي؟",
@@ -598,7 +598,7 @@ const OFFERS_I18N = {
         },
         {
           q: "كيف تتم المساعدة عند وقوع عطب أو ثقب عجلة؟",
-          a: "عبر اتصال واحد برقم المساعدة 24/7 (05 25 36 30 61)، يتم إرسال شاحنة قطر مجهزة لنقل دراجتكم بكل أمان."
+          a: "عبر اتصال واحد برقم المساعدة 24/7 (05 22 54 23 23)، يتم إرسال شاحنة قطر مجهزة لنقل دراجتكم بكل أمان."
         },
         {
           q: "هل يمكن تأمين السكوتر 50cc والدراجات الكبيرة؟",
@@ -1079,7 +1079,7 @@ const OFFERS_I18N = {
       faq: [
         {
           q: "How does 0-km emergency roadside assistance work in Marrakech?",
-          a: "In the event of a breakdown, flat tire, or dead battery right outside your residence or anywhere in Morocco, an AXA-certified tow truck arrives 24/7 by calling 05 25 36 30 61."
+          a: "In the event of a breakdown, flat tire, or dead battery right outside your residence or anywhere in Morocco, an AXA-certified tow truck arrives 24/7 by calling 05 22 54 23 23."
         },
         {
           q: "Does glass breakage claim affect my bonus coefficient?",
@@ -1123,7 +1123,7 @@ const OFFERS_I18N = {
         },
         {
           q: "How does 24/7 roadside assistance work for a breakdown or flat tire?",
-          a: "One call to our 24/7 hotline (05 25 36 30 61) dispatches an appropriate flatbed tow truck to safely transport your bike to an approved workshop."
+          a: "One call to our 24/7 hotline (05 22 54 23 23) dispatches an appropriate flatbed tow truck to safely transport your bike to an approved workshop."
         },
         {
           q: "Can I insure both 50cc scooters and high-displacement motorbikes?",
@@ -1684,6 +1684,10 @@ function openOfferModal(type) {
           <p>${tCtaSub}</p>
         </div>
         <div class="cta-buttons">
+          <button type="button" class="btn" onclick="openOffresQuoteModal(event, '${type}')" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #e0021b; color: #ffffff; text-decoration: none; font-weight: 800; border-radius: 6px; padding: 0.65rem 1.15rem; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(224, 2, 27, 0.35);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>${lang === 'ar' ? 'تسعيرة سريعة ومجانية' : (lang === 'en' ? 'Free Express Quote' : 'Devis Express Gratuit')}</span>
+          </button>
           <a href="produit.html?id=${type}" class="btn" style="display: inline-flex; align-items: center; gap: 0.45rem; background: #002868; color: #ffffff; text-decoration: none; font-weight: 700; border-radius: 6px; padding: 0.65rem 1.15rem;">
             <span>${tPageBtn}</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
