@@ -3411,14 +3411,33 @@
     }
 
     /* ==========================================================================
-       SECTION ECHKILI ASSURANCES (CONFORME AU MODÈLE OFFICIEL AXA)
+       SECTION ECHKILI ASSURANCES (CONFORME AU MODÈLE OFFICIEL AVEC MOTIF AXA)
        ========================================================================== */
     .agency-similair-section {
-      background-color: #ffffff;
-      background-image: none;
-      padding: 4.5rem 0 5.5rem;
+      background-color: #fafbfc;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 253, 0.6) 100%), 
+        url('assets/axa-pattern.svg');
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, 180px 90px;
+      padding: 5rem 0 5.5rem;
       position: relative;
       overflow: hidden;
+      border-top: 1px solid rgba(0, 40, 104, 0.08);
+      border-bottom: 1px solid rgba(0, 40, 104, 0.08);
+    }
+
+    .agency-axa-watermark {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image: url('assets/axa-pattern.svg');
+      background-repeat: repeat;
+      background-size: 180px 90px;
+      opacity: 0.9;
+      mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 95%);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 95%);
     }
 
     .agency-similair-grid {
@@ -4479,8 +4498,10 @@
       </div>
     </section>
 
-    <!-- 3b. Présentation Agence : ECHKILI ASSURANCES (Modèle Officiel AXA Maroc) -->
-    <section class="agency-similair-section" id="agence" style="background: #ffffff !important; background-image: none !important;">
+    <!-- 3b. Présentation Agence : ECHKILI ASSURANCES (Modèle Officiel AXA Maroc avec Motif AXA) -->
+    <section class="agency-similair-section" id="agence">
+      <!-- Motif AXA en Arrière-Plan (Identique au Header) -->
+      <div class="agency-axa-watermark" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="agency-similair-grid">
           <!-- Colonne Gauche : Visuel avec Cadre, Grille Bleue, Rayures & Équerre Rouge -->
