@@ -2701,19 +2701,14 @@
       overflow: hidden;
     }
 
-    /* --- Section: ECHKILI ASSURANCES (Motif AXA en arrière-plan) --- */
+    /* --- Section: ECHKILI ASSURANCES (Motif AXA discret en arrière-plan) --- */
     .agency-similair-section {
-      background-color: #fafbfc;
-      background-image: 
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 253, 0.6) 100%), 
-        url('assets/axa-pattern.svg');
-      background-repeat: no-repeat, repeat;
-      background-size: 100% 100%, 180px 90px;
+      background-color: #fbfcfe;
       padding: 5rem 0 5.5rem;
       position: relative;
       overflow: hidden;
-      border-top: 1px solid rgba(0, 40, 104, 0.08);
-      border-bottom: 1px solid rgba(0, 40, 104, 0.08);
+      border-top: 1px solid rgba(0, 40, 104, 0.06);
+      border-bottom: 1px solid rgba(0, 40, 104, 0.06);
     }
     .agency-axa-watermark {
       position: absolute;
@@ -2723,9 +2718,9 @@
       background-image: url('assets/axa-pattern.svg');
       background-repeat: repeat;
       background-size: 180px 90px;
-      opacity: 0.9;
-      mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 95%);
-      -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 95%);
+      opacity: 0.58;
+      mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 80%, rgba(0, 0, 0, 0.3) 100%);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 80%, rgba(0, 0, 0, 0.3) 100%);
     }
     .mv-bg-graphic {
       position: absolute;
