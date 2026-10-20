@@ -1778,6 +1778,13 @@
         overlay.addEventListener('click', closeMenu);
       }
 
+      // Clic ou tap à l'extérieur pour fermer le tiroir mobile
+      document.addEventListener('click', (e) => {
+        if (navMenuList.classList.contains('open') && !navMenuList.contains(e.target) && !menuToggle.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
       // Dropdown accordions in mobile drawer
       navMenuList.querySelectorAll('.dropdown-item-container').forEach(container => {
         const parentLink = container.querySelector('.nav-menu-link');
