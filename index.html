@@ -100,27 +100,39 @@
     .top-brand-header {
       background-color: #ffffff;
       border-bottom: 1px solid #e2e8f0;
-      padding: 0.85rem 0;
+      padding: 0.75rem 0;
       position: relative;
       z-index: 1010;
     }
+    .top-brand-header .container,
+    .top-brand-header .top-brand-inner,
     .top-brand-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 1.5rem;
+      max-width: 100% !important;
+      width: 100%;
+      margin: 0 !important;
+      padding-left: clamp(0.75rem, 2vw, 2.5rem) !important;
+      padding-right: clamp(1rem, 2vw, 2.5rem) !important;
+      box-sizing: border-box;
     }
     .brand-logo-link {
       display: flex;
       align-items: center;
       text-decoration: none;
       flex-shrink: 0;
+      margin-left: 0 !important;
+      margin-right: auto;
     }
     .brand-logo-img {
-      height: 64px;
+      height: 58px;
       width: auto;
-      max-width: 360px;
+      max-width: 440px;
       display: block;
+      object-fit: contain;
+      object-position: left center;
     }
     .header-contact-group {
       display: flex;
@@ -2399,33 +2411,41 @@
 
     @media (max-width: 860px) {
       .top-brand-header {
-        padding: 0.75rem 0;
+        padding: 0.55rem 0;
         border-bottom: 1px solid #e2e8f0;
       }
+      .top-brand-header .container,
+      .top-brand-header .top-brand-inner,
       .top-brand-inner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 0;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: left !important;
+        gap: 0 !important;
+        padding-left: 0.65rem !important;
+        padding-right: 0.65rem !important;
+        margin: 0 !important;
+        max-width: 100% !important;
       }
       .brand-logo-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        margin: 0 !important;
+        margin-right: auto !important;
       }
       .brand-logo-img {
-        width: min(320px, 88vw);
-        max-width: 325px;
+        width: min(320px, 86vw);
+        max-width: 320px;
         height: auto;
-        max-height: 58px;
-        margin: 0 auto;
+        max-height: 52px;
+        margin: 0 !important;
         display: block;
         object-fit: contain;
+        object-position: left center;
       }
       .header-contact-group {
-        display: none !important; /* Uniquement le logo sur mobile - suppression des numéros de téléphone */
+        display: none !important; /* Uniquement le logo sur mobile */
       }
       /* Mobile Navigation & Taskbar Optimization */
       body {
@@ -3978,7 +3998,7 @@
   <header class="top-brand-header">
     <div class="container top-brand-inner">
       <a href="#accueil" class="brand-logo-link" aria-label="Assurances Echkili Marrakech Accueil">
-        <img src="assets/logo.svg" alt="AXA Assurances Echkili Marrakech" class="brand-logo-img">
+        <img src="assets/logo.png" alt="ASSURANCES ECHKILI - AGENT GÉNÉRAL AXA MARRAKECH" class="brand-logo-img">
       </a>
 
       <div class="header-contact-group">

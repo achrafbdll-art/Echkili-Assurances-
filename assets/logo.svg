@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 2 506 74" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 74" fill="none">
   <!-- ASSURANCES ECHKILI Monogram Emblem (AE) -->
-  <g transform="translate(8, 7)">
+  <g transform="translate(0, 7)">
     <!-- Red Diagonal Slash (extends slightly at top and bottom) -->
     <polygon points="31,1 40,1 62,65 53,65" fill="#e0021b" />
 
@@ -36,7 +36,7 @@
   </g>
 
   <!-- Typography matching official brand: ASSURANCES ECHKILI / AGENT GÉNÉRAL AXA MARRAKECH -->
-  <g transform="translate(98, 11)">
+  <g transform="translate(90, 11)">
     <!-- Line 1: ASSURANCES ECHKILI -->
     <text x="0" y="31" 
           font-family="'Montserrat', 'Arial Black', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
